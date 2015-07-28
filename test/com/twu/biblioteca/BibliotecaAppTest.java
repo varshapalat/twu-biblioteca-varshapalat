@@ -30,4 +30,15 @@ public class BibliotecaAppTest {
 
         verify(view).printBookList(books);
     }
+
+    @Test
+    public void applicationCallsViewToPrintMainMenu() {
+        View view = mock(View.class);
+        BibliotecaApp application = new BibliotecaApp();
+        ArrayList<String>[] books = new ArrayList[10];
+
+        application.start(view, books);
+
+        verify(view).printMainMenu();
+    }
 }

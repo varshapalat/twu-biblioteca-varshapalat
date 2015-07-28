@@ -22,4 +22,8 @@ public class View {
         System.out.println("Kane and Abel       Jeffrey Archer 1979");
         System.out.println("The Alchemist       Paulo Coelho   1988");
     }
+
+    public void printMainMenu() {
+
+    }
 }
