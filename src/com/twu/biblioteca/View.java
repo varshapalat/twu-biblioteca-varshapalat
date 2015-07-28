@@ -24,6 +24,7 @@ public class View {
     }
 
     public void printMainMenu() {
-
+        System.out.print("\n\n\nMAIN MENU\n1.List Books\n");
+        System.out.print("\nEnter your choice:");
     }
 }

@@ -65,4 +65,13 @@ public class ViewTest {
                         "The Alchemist       Paulo Coelho   1988\n",
                 outContent.toString());
     }
+
+    @Test
+    public void viewCanPrintMainMenu() {
+        View view = new View();
+
+        view.printMainMenu();
+
+        assertEquals("\n\n\nMAIN MENU\n1.List Books\n\nEnter your choice:", outContent.toString());
+    }
 }
