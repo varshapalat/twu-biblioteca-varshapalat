@@ -7,6 +7,8 @@ import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 public class ViewTest {
@@ -28,7 +30,22 @@ public class ViewTest {
     @Test
     public void viewCanPrintWelcomeMessage() {
         View welcomeMessage = new View();
+
         welcomeMessage.printWelcomeMessage();
+
         assertEquals("Welcome!! \n" + "Biblioteca is now available", outContent.toString());
+    }
+
+    @Test
+    public void viewCanPrintListOfBooks() {
+        View book = new View();
+        ArrayList<String> books = new ArrayList<String>();
+        books.add("The Da Vinci Code");
+        books.add("Kane And Abel");
+        books.add("The Five People You Meet In Heaven");
+
+        book.printBookList(books);
+
+        assertEquals("The Da Vinci Code\nKane And Abel\nThe Five People You Meet In Heaven\n", outContent.toString());
     }
 }
