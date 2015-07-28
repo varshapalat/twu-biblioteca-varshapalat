@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Biblioteca" default="compile">
+<target name="compile" >
+    <javac srcdir="src;test" includeantruntime="true" destdir="antBuild">
+        <classpath location="lib/hamcrest-core-1.3.jar"/>
+        <classpath location="lib/junit-4.11.jar"/>
+    </javac>
+</target>
+
+<target name="unit_tests" depends="compile">
+    <junit haltonerror="true" haltonfailure="true" printsummary="true">
+        <classpath location="lib/hamcrest-core-1.3.jar" path="antBuild"/>
+        <classpath location="lib/junit-4.11.jar" path="antBuild"/>
+    </junit>
+</target>
+
+<target name ="createJar" depends="compile">
+    <jar destfile="lib/app.jar"
+         basedir="antBuild"
+         excludes="**/Test.class"/>
+</target>
+
+</project>
