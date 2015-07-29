@@ -30,7 +30,7 @@ public class View {
     }
 
     public void printMainMenu() {
-        System.out.print("\n\n\nMAIN MENU\n1.List Books\nEnter your choice:\n");
+        System.out.print("\n\n\nMAIN MENU\n1.List Books\n2.Quit\nEnter your choice:\n");
     }
 
     public int acceptMenuInput() {
@@ -43,7 +43,7 @@ public class View {
         System.out.print("------------------------------------------------------------\n");
     }
 
-    public void printInvalidMenuOption(){
+    public void printInvalidMenuOption() {
         System.out.print("Select a valid Option!\n");
     }
 }
