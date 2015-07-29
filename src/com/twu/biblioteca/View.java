@@ -42,5 +42,9 @@ public class View {
     public void printLine() {
         System.out.print("------------------------------------------------------------\n");
     }
+
+    public void printInvalidMenuOption(){
+        System.out.print("Select a valid Option!\n");
+    }
 }
 

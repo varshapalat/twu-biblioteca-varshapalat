@@ -98,4 +98,14 @@ public class ViewTest {
 
         assertEquals("------------------------------------------------------------\n", outContent.toString());
     }
+
+    @Test
+    public void viewCanPrintInvalidMenuOption() {
+        View view = new View();
+
+        view.printInvalidMenuOption();
+
+        assertEquals("Select a valid Option!\n", outContent.toString());
+    }
 }
+

@@ -12,10 +12,12 @@ public class BibliotecaApp {
         view.printLine();
         view.printMainMenu();
         choice = view.acceptMenuInput();
-        if(choice == 1)
-        {
+        if(choice == 1) {
             view.printLine();
             view.printBookList(books);
+        }
+        else {
+            view.printInvalidMenuOption();
         }
         view.printLine();
     }

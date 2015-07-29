@@ -65,4 +65,16 @@ public class BibliotecaAppTest {
 
         verify(view).acceptMenuInput();
     }
+
+    @Test
+    public void applicationCallsViewToPrintInvalidOption() {
+        View view = mock(View.class);
+        BibliotecaApp application = new BibliotecaApp();
+        ArrayList<String>[] books = new ArrayList[10];
+        when(view.acceptMenuInput()).thenReturn(9);
+
+        application.start(view, books);
+
+        verify(view).printInvalidMenuOption();
+    }
 }
