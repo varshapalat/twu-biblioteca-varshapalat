@@ -10,7 +10,7 @@
     </target>
 
     <target name="unit_tests" depends="compile">
-        <junit haltonerror="true" haltonfailure="true" printsummary="true">
+        <junit haltonerror="true" haltonfailure="true" printsummary="true" showoutput="yes">
             <classpath location="lib/hamcrest-core-1.3.jar" path="antBuild"/>
             <classpath location="lib/junit-4.11.jar" path="antBuild"/>
             <classpath location="lib/mockito-all-1.9.5.jar" path="antBuild"/>

@@ -4,12 +4,13 @@ package com.twu.biblioteca;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
+import java.io.*;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.mock;
 
 public class ViewTest {
 
@@ -73,5 +74,15 @@ public class ViewTest {
         view.printMainMenu();
 
         assertEquals("\n\n\nMAIN MENU\n1.List Books\n\nEnter your choice:", outContent.toString());
+    }
+
+    @Test
+    public void viewShouldTakeUserInput() {
+        View view = new View();
+
+        System.setIn(new ByteArrayInputStream("1".getBytes()));
+
+        assertEquals(1, view.acceptMenuInput());
+        System.setIn(System.in);
     }
 }
