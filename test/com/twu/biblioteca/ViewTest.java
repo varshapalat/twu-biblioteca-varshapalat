@@ -4,13 +4,11 @@ package com.twu.biblioteca;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mockito;
 
 import java.io.*;
 import java.util.ArrayList;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.mock;
 
 public class ViewTest {
 
@@ -38,7 +36,7 @@ public class ViewTest {
 
         welcomeMessage.printWelcomeMessage();
 
-        assertEquals("Welcome!! \n" + "Biblioteca is now available", outContent.toString());
+        assertEquals("Welcome!! \n" + "Biblioteca is now available\n", outContent.toString());
     }
 
     @Test
@@ -63,11 +61,14 @@ public class ViewTest {
 
         view.printBookList(books);
 
-        assertEquals("\n\n\nBOOKS AVAILABLE\n" +
+        assertEquals("\n" +
+                        "\n" +
+                        "\n" +
+                        "BOOKS AVAILABLE\n" +
                         "TITLE               AUTHOR         YEAR PUBLISHED\n" +
-                        "The Da Vinci Code   Dan Brown      2000\n" +
-                        "Kane and Abel       Jeffrey Archer 1979\n" +
-                        "The Alchemist       Paulo Coelho   1988\n",
+                        "The Da Vinci Code    Dan Brown       2000 \n" +
+                        "Kane and Abel        Jeffrey Archer  1979 \n" +
+                        "The Alchemist        Paulo Coelho    1988 \n",
                 outContent.toString());
     }
 
@@ -77,7 +78,7 @@ public class ViewTest {
 
         view.printMainMenu();
 
-        assertEquals("\n\n\nMAIN MENU\n1.List Books\n\nEnter your choice:", outContent.toString());
+        assertEquals("\n\n\nMAIN MENU\n1.List Books\nEnter your choice:\n", outContent.toString());
     }
 
     @Test
@@ -87,5 +88,14 @@ public class ViewTest {
         System.setIn(new ByteArrayInputStream("1".getBytes()));
 
         assertEquals(1, view.acceptMenuInput());
+    }
+
+    @Test
+    public void viewCanPrintLine() {
+        View view = new View();
+
+        view.printLine();
+
+        assertEquals("------------------------------------------------------------\n", outContent.toString());
     }
 }
