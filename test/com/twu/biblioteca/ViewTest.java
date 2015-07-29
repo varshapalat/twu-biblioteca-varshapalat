@@ -16,16 +16,20 @@ public class ViewTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     PrintStream original;
+    InputStream originalIn;
+
 
     @Before
     public void setUpStreams() {
         original = System.out;
+        originalIn = System.in;
         System.setOut(new PrintStream(outContent));
     }
 
     @After
     public void cleanUpStreams() {
         System.setOut(original);
+        System.setIn(originalIn);
     }
 
     @Test
@@ -83,6 +87,5 @@ public class ViewTest {
         System.setIn(new ByteArrayInputStream("1".getBytes()));
 
         assertEquals(1, view.acceptMenuInput());
-        System.setIn(System.in);
     }
 }

@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class View {
 
@@ -32,13 +33,9 @@ public class View {
     }
 
     public int acceptMenuInput() {
-        BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
-        try {
-            return Integer.parseInt(console.readLine());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return 0;
+        Scanner scanner = new Scanner(System.in);
+        int choice = Integer.parseInt(scanner.next());
+        return choice;
     }
 }
 
