@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class BibliotecaApp {
 
-    public void start(View view, ArrayList<String>[] books) {
+    public void start(View view, ArrayList<ArrayList<String>> books) {
         int choice = 0;
         view.printLine();
         view.printWelcomeMessage();

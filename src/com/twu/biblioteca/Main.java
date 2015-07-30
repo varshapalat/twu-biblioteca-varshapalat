@@ -9,7 +9,8 @@ public class Main {
         BibliotecaApp application = new BibliotecaApp();
         View view = new View();
 
-        ArrayList<String>[] books = new ArrayList[10];
+        ArrayList<ArrayList<String>> books = new ArrayList<ArrayList<String>>();
+
         ArrayList<String> bookOne = new ArrayList<String>();
         bookOne.add("The Da Vinci Code");
         bookOne.add("Dan Brown");
@@ -22,9 +23,10 @@ public class Main {
         bookThree.add("The Alchemist");
         bookThree.add("Paulo Coelho");
         bookThree.add("1988");
-        books[0] = bookOne;
-        books[1] = bookTwo;
-        books[2] = bookThree;
+
+        books.add(bookOne);
+        books.add(bookTwo);
+        books.add(bookThree);
 
         application.start(view, books);
     }

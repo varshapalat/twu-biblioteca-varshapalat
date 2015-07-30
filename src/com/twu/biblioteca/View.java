@@ -13,19 +13,14 @@ public class View {
         System.out.print(welcomeMessage);
     }
 
-    public void printBookList(ArrayList<String>[] books) {
-        int counter = 0;
-        for (int i = 0; i < books.length; i ++) {
-            if (books[i] != null)
-                counter++;
-        }
+    public void printBookList(ArrayList<ArrayList<String>> books) {
         System.out.println();
         System.out.println();
         System.out.println();
         System.out.println("BOOKS AVAILABLE");
         System.out.println("TITLE               AUTHOR         YEAR PUBLISHED");
-        for(int i = 0; i < counter; i++) {
-            System.out.printf("%-20s %-15s %-5s\n", books[i].get(0), books[i].get(1), books[i].get(2));
+        for(int i = 0; i < books.size(); i++) {
+            System.out.printf("%-20s %-15s %-5s\n", books.get(i).get(0), books.get(i).get(1), books.get(i).get(2));
         }
     }
 
