@@ -5,25 +5,26 @@ import java.util.ArrayList;
 
 public class BibliotecaApp {
 
-    public void start(View view, ArrayList<ArrayList<String>> books) {
-        int choice = 0;
+    public void start(View view, ArrayList<ArrayList<String>> books, Library library) {
+        String choice = "0";
         view.printLine();
         view.printWelcomeMessage();
         view.printLine();
 
-        while(choice != 2) {
+        while (!choice.equals("2")) {
             view.printMainMenu();
             choice = view.acceptMenuInput();
-            switch (choice) {
-                case 1:
-                    view.printBookList(books);
-                    break;
-                case 2:
-                    break;
-                default:
-                    view.printInvalidMenuOption();
-                    view.printLine();
-                    break;
+            if (choice.equals("1")) {
+                view.printBookList(books);
+            } else if (choice.equals("2")) {
+
+            } else if (choice.equals("3")) {
+                String bookName = view.acceptStringMenuInput();
+                if(library.checkout(bookName))
+                    view.successfulCheckout();
+            } else {
+                view.printInvalidMenuOption();
+                view.printLine();
             }
         }
     }

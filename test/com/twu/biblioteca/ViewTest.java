@@ -87,7 +87,7 @@ public class ViewTest {
 
         System.setIn(new ByteArrayInputStream("1".getBytes()));
 
-        assertEquals(1, view.acceptMenuInput());
+        assertEquals("1", view.acceptMenuInput());
     }
 
     @Test
@@ -106,5 +106,14 @@ public class ViewTest {
         view.printInvalidMenuOption();
 
         assertEquals("Select a valid Option!\n", outContent.toString());
+    }
+
+    @Test
+    public void viewShouldTakeStringUserInputToCheckout() {
+        View view = new View();
+
+        System.setIn(new ByteArrayInputStream("The Alchemist".getBytes()));
+
+        assertEquals("The Alchemist", view.acceptStringMenuInput());
     }
 }

@@ -28,9 +28,9 @@ public class View {
         System.out.print("\n\n\nMAIN MENU\n1.List Books\n2.Quit\n3.Checkout\nEnter your choice:\n");
     }
 
-    public int acceptMenuInput() {
+    public String acceptMenuInput() {
         Scanner scanner = new Scanner(System.in);
-        int choice = Integer.parseInt(scanner.next());
+        String choice = scanner.nextLine();
         return choice;
     }
 
@@ -40,6 +40,16 @@ public class View {
 
     public void printInvalidMenuOption() {
         System.out.print("Select a valid Option!\n");
+    }
+
+
+    public String acceptStringMenuInput() {
+        System.out.print("Enter book name:\n");
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
+
+    public void successfulCheckout() {
     }
 }
 

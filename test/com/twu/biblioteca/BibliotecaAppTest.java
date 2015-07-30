@@ -14,9 +14,10 @@ public class BibliotecaAppTest {
         View view = mock(View.class);
         BibliotecaApp application = new BibliotecaApp();
         ArrayList<ArrayList<String>> books = new ArrayList<ArrayList<String>>();
-        when(view.acceptMenuInput()).thenReturn(2);
+        Library library = new Library(books);
+        when(view.acceptMenuInput()).thenReturn("2");
 
-        application.start(view, books);
+        application.start(view, books, library);
 
         verify(view).printWelcomeMessage();
     }
@@ -26,9 +27,10 @@ public class BibliotecaAppTest {
         View view = mock(View.class);
         BibliotecaApp application = new BibliotecaApp();
         ArrayList<ArrayList<String>> books = new ArrayList<ArrayList<String>>();
-        when(view.acceptMenuInput()).thenReturn(1).thenReturn(2);
+        Library library = new Library(books);
+        when(view.acceptMenuInput()).thenReturn("1").thenReturn("2");
 
-        application.start(view, books);
+        application.start(view, books, library);
 
         verify(view).printBookList(books);
     }
@@ -38,9 +40,10 @@ public class BibliotecaAppTest {
         View view = mock(View.class);
         BibliotecaApp application = new BibliotecaApp();
         ArrayList<ArrayList<String>> books = new ArrayList<ArrayList<String>>();
-        when(view.acceptMenuInput()).thenReturn(2);
+        Library library = new Library(books);
+        when(view.acceptMenuInput()).thenReturn("2");
 
-        application.start(view, books);
+        application.start(view, books, library);
 
         verify(view, atMost(2)).printMainMenu();
     }
@@ -50,9 +53,10 @@ public class BibliotecaAppTest {
         View view = mock(View.class);
         BibliotecaApp application = new BibliotecaApp();
         ArrayList<ArrayList<String>> books = new ArrayList<ArrayList<String>>();
-        when(view.acceptMenuInput()).thenReturn(2);
+        Library library = new Library(books);
+        when(view.acceptMenuInput()).thenReturn("2");
 
-        application.start(view, books);
+        application.start(view, books, library);
 
         verify(view).acceptMenuInput();
     }
@@ -62,9 +66,11 @@ public class BibliotecaAppTest {
         View view = mock(View.class);
         BibliotecaApp application = new BibliotecaApp();
         ArrayList<ArrayList<String>> books = new ArrayList<ArrayList<String>>();
-        when(view.acceptMenuInput()).thenReturn(2);
+        Library library = new Library(books);
 
-        application.start(view, books);
+        when(view.acceptMenuInput()).thenReturn("2");
+
+        application.start(view, books, library);
 
         verify(view).acceptMenuInput();
     }
@@ -74,10 +80,25 @@ public class BibliotecaAppTest {
         View view = mock(View.class);
         BibliotecaApp application = new BibliotecaApp();
         ArrayList<ArrayList<String>> books = new ArrayList<ArrayList<String>>();
-        when(view.acceptMenuInput()).thenReturn(3).thenReturn(2);
+        Library library = new Library(books);
+        when(view.acceptMenuInput()).thenReturn("4").thenReturn("2");
 
-        application.start(view, books);
+        application.start(view, books, library);
 
         verify(view).printInvalidMenuOption();
+    }
+
+    @Test
+    public void applicationCallsViewToPrintSuccessfulCheckoutMessage() {
+        View view = mock(View.class);
+        Library library = mock(Library.class);
+        BibliotecaApp application = new BibliotecaApp();
+        ArrayList<ArrayList<String>> books = new ArrayList<ArrayList<String>>();
+        when(view.acceptMenuInput()).thenReturn("3").thenReturn("2");
+        when(library.checkout(anyString())).thenReturn(true);
+
+        application.start(view, books, library);
+
+        verify(view).successfulCheckout();
     }
 }

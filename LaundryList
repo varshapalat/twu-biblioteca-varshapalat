@@ -1,5 +1,6 @@
-System.out.println in the view.printbooklist(logic error)
+System.out.println in the view.printbooklist(logic error)                  Done
 add license
 branch on type (polymorphism)
 view class existence
-change data type of list
+change data type of list                                                   Done
+Law of demeter

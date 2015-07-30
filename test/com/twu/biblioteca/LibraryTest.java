@@ -35,8 +35,8 @@ public class LibraryTest {
         expectedListOfBooks.add(bookThree);
         Library library = new Library(listOfAllLibraryBooks);
 
-        actualListOfBooks = library.checkout("Kane and Abel");
+        library.checkout("Kane and Abel");
 
-        assertEquals(expectedListOfBooks, actualListOfBooks);
+        assertEquals(expectedListOfBooks, listOfAllLibraryBooks);
     }
 }

@@ -27,7 +27,8 @@ public class Main {
         books.add(bookOne);
         books.add(bookTwo);
         books.add(bookThree);
+        Library library = new Library(books);
 
-        application.start(view, books);
+        application.start(view, books, library);
     }
 }
