@@ -34,9 +34,10 @@ public class LibraryTest {
         expectedListOfBooks.add(bookThree);
         Library library = new Library(listOfAllLibraryBooks);
 
-        library.checkout("Kane and Abel");
+        boolean actual = library.checkout("Kane and Abel");
 
         assertEquals(expectedListOfBooks, listOfAllLibraryBooks);
+        assertEquals(true, actual);
     }
     @Test
     public void libraryCanReturnABook() {
@@ -63,8 +64,9 @@ public class LibraryTest {
         Library library = new Library(listOfAllLibraryBooks);
         library.listOfCheckedOutLibraryBooks.add(bookTwo);
 
-        library.returnABook("Kane and Abel");
+        boolean actual = library.returnABook("Kane and Abel");
 
         assertEquals(expectedListOfBooks, listOfAllLibraryBooks);
+        assertEquals(true, actual);
     }
 }

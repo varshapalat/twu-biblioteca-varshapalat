@@ -27,15 +27,17 @@ public class Library {
         return checkout;
     }
 
-    public void returnABook(String nameOfBookToReturn) {
+    public boolean returnABook(String nameOfBookToReturn) {
         ArrayList<String> book = new ArrayList<String>();
-
+        boolean checkin = false;
         for (int i = 0; i < listOfCheckedOutLibraryBooks.size(); i++) {
             if(nameOfBookToReturn.equals(listOfCheckedOutLibraryBooks.get(i).get(0))) {
+                checkin = true;
                 book = listOfCheckedOutLibraryBooks.get(i);
                 listOfCheckedOutLibraryBooks.remove(book);
             }
         }
-        listOfAllLibraryBooks.add(book);
+        if(checkin)listOfAllLibraryBooks.add(book);
+        return checkin;
     }
 }
