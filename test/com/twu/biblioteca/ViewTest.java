@@ -143,4 +143,13 @@ public class ViewTest {
 
         assertEquals("Thank you for returning the book.\n", outContent.toString());
     }
+
+    @Test
+    public void viewCanPrintIfUnsuccessfulCheckIn() {
+        View view = new View();
+
+        view.printUnsuccessfullReturn();
+
+        assertEquals("That is not a valid book to return.\n", outContent.toString());
+    }
 }

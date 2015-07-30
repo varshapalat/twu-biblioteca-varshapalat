@@ -128,4 +128,32 @@ public class BibliotecaAppTest {
 
         verify(library).returnABook(anyString());
     }
+
+    @Test
+    public void applicationCallsViewToPrintSuccessfulCheckinMessage() {
+        View view = mock(View.class);
+        Library library = mock(Library.class);
+        BibliotecaApp application = new BibliotecaApp();
+        ArrayList<ArrayList<String>> books = new ArrayList<ArrayList<String>>();
+        when(view.acceptMenuInput()).thenReturn("4").thenReturn("2");
+        when(library.returnABook(anyString())).thenReturn(true);
+
+        application.start(view, books, library);
+
+        verify(view).printSuccessfulReturn();
+    }
+
+    @Test
+    public void applicationCallsViewToPrintUnsuccessfulCheckinMessage() {
+        View view = mock(View.class);
+        Library library = mock(Library.class);
+        BibliotecaApp application = new BibliotecaApp();
+        ArrayList<ArrayList<String>> books = new ArrayList<ArrayList<String>>();
+        when(view.acceptMenuInput()).thenReturn("4").thenReturn("2");
+        when(library.returnABook(anyString())).thenReturn(false);
+
+        application.start(view, books, library);
+
+        verify(view).printUnsuccessfullReturn();
+    }
 }

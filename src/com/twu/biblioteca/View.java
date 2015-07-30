@@ -58,5 +58,9 @@ public class View {
     public void printSuccessfulReturn() {
         System.out.print("Thank you for returning the book.\n");
     }
+
+    public void printUnsuccessfullReturn() {
+        System.out.print("That is not a valid book to return.\n");
+    }
 }
 
