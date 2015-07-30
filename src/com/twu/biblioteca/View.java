@@ -25,7 +25,7 @@ public class View {
     }
 
     public void printMainMenu() {
-        System.out.print("\n\n\nMAIN MENU\n1.List Books\n2.Quit\nEnter your choice:\n");
+        System.out.print("\n\n\nMAIN MENU\n1.List Books\n2.Quit\n3.Checkout\nEnter your choice:\n");
     }
 
     public int acceptMenuInput() {

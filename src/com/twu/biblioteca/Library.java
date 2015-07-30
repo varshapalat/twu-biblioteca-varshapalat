@@ -14,9 +14,9 @@ public class Library {
 
         for (int i = 0; i < listOfAllLibraryBooks.size(); i++) {
             if (s.equals(listOfAllLibraryBooks.get(i).get(0))) {
-                book.add(listOfAllLibraryBooks.get(i).get(0));
-                book.add(listOfAllLibraryBooks.get(i).get(1));
-                book.add(listOfAllLibraryBooks.get(i).get(2));
+                for (int j = 0; j < listOfAllLibraryBooks.get(0).size(); j++) {
+                    book.add(listOfAllLibraryBooks.get(i).get(j));
+                }
             }
         }
         listOfAllLibraryBooks.remove(book);
