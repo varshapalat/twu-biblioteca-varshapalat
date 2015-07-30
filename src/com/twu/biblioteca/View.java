@@ -54,5 +54,9 @@ public class View {
     public void printUnsuccessfullCheckout() {
         System.out.print("That book is not available.\n");
     }
+
+    public void printSuccessfulReturn() {
+        System.out.print("Thank you for returning the book.\n");
+    }
 }
 
