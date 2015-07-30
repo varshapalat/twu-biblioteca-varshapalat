@@ -78,7 +78,7 @@ public class ViewTest {
 
         view.printMainMenu();
 
-        assertEquals("\n\n\nMAIN MENU\n1.List Books\n2.Quit\n3.Checkout\nEnter your choice:\n", outContent.toString());
+        assertEquals("\n\n\nMAIN MENU\n1.List Books\n2.Quit\n3.Checkout\n4.Return A Book\nEnter your choice:\n", outContent.toString());
     }
 
     @Test

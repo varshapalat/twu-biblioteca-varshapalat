@@ -24,6 +24,9 @@ public class BibliotecaApp {
                     view.printSuccessfulCheckout();
                 else
                     view.printUnsuccessfullCheckout();
+            } else if (choice.equals("4")) {
+                String bookName = view.acceptStringMenuInput();
+                library.returnABook(bookName);
             } else {
                 view.printInvalidMenuOption();
                 view.printLine();

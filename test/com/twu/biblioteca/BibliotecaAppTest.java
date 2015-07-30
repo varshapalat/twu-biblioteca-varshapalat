@@ -81,7 +81,7 @@ public class BibliotecaAppTest {
         BibliotecaApp application = new BibliotecaApp();
         ArrayList<ArrayList<String>> books = new ArrayList<ArrayList<String>>();
         Library library = new Library(books);
-        when(view.acceptMenuInput()).thenReturn("4").thenReturn("2");
+        when(view.acceptMenuInput()).thenReturn("10").thenReturn("2");
 
         application.start(view, books, library);
 
@@ -114,5 +114,18 @@ public class BibliotecaAppTest {
         application.start(view, books, library);
 
         verify(view).printUnsuccessfullCheckout();
+    }
+
+    @Test
+    public void applicationCallsViewToReturnABook() {
+        View view = mock(View.class);
+        BibliotecaApp application = new BibliotecaApp();
+        ArrayList<ArrayList<String>> books = new ArrayList<ArrayList<String>>();
+        Library library = mock(Library.class);
+        when(view.acceptMenuInput()).thenReturn("4").thenReturn("2");
+
+        application.start(view, books, library);
+
+        verify(library).returnABook(anyString());
     }
 }
