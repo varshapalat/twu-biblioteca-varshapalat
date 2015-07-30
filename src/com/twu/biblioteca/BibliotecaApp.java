@@ -21,7 +21,9 @@ public class BibliotecaApp {
             } else if (choice.equals("3")) {
                 String bookName = view.acceptStringMenuInput();
                 if(library.checkout(bookName))
-                    view.successfulCheckout();
+                    view.printSuccessfulCheckout();
+                else
+                    view.printUnsuccessfullCheckout();
             } else {
                 view.printInvalidMenuOption();
                 view.printLine();

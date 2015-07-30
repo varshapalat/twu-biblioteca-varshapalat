@@ -99,6 +99,20 @@ public class BibliotecaAppTest {
 
         application.start(view, books, library);
 
-        verify(view).successfulCheckout();
+        verify(view).printSuccessfulCheckout();
+    }
+
+    @Test
+    public void applicationCallsViewToPrintUnsuccessfulCheckoutMessage() {
+        View view = mock(View.class);
+        Library library = mock(Library.class);
+        BibliotecaApp application = new BibliotecaApp();
+        ArrayList<ArrayList<String>> books = new ArrayList<ArrayList<String>>();
+        when(view.acceptMenuInput()).thenReturn("3").thenReturn("2");
+        when(library.checkout(anyString())).thenReturn(false);
+
+        application.start(view, books, library);
+
+        verify(view).printUnsuccessfullCheckout();
     }
 }

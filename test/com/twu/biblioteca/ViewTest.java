@@ -116,4 +116,22 @@ public class ViewTest {
 
         assertEquals("The Alchemist", view.acceptStringMenuInput());
     }
+
+    @Test
+    public void viewCanPrintIfSuccessfulCheckout() {
+        View view = new View();
+
+        view.printSuccessfulCheckout();
+
+        assertEquals("Thank you! Enjoy the book\n", outContent.toString());
+    }
+
+    @Test
+    public void viewCanPrintIfUnsuccessfulCheckout() {
+        View view = new View();
+
+        view.printUnsuccessfullCheckout();
+
+        assertEquals("That book is not available.\n", outContent.toString());
+    }
 }

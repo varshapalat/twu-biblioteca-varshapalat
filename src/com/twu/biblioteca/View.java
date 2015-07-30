@@ -6,11 +6,9 @@ import java.util.Scanner;
 
 public class View {
 
-    String welcomeMessage = "Welcome!! \nBiblioteca is now available\n";
-
     public void printWelcomeMessage() {
 
-        System.out.print(welcomeMessage);
+        System.out.print("Welcome!! \nBiblioteca is now available\n");
     }
 
     public void printBookList(ArrayList<ArrayList<String>> books) {
@@ -49,7 +47,12 @@ public class View {
         return scanner.nextLine();
     }
 
-    public void successfulCheckout() {
+    public void printSuccessfulCheckout() {
+        System.out.print("Thank you! Enjoy the book\n");
+    }
+
+    public void printUnsuccessfullCheckout() {
+        System.out.print("That book is not available.\n");
     }
 }
 

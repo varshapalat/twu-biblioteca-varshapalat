@@ -4,13 +4,14 @@ import java.util.ArrayList;
 
 public class Library {
     ArrayList<ArrayList<String>> listOfAllLibraryBooks;
-    boolean checkout = false;
+    boolean checkout;
 
     public Library(ArrayList<ArrayList<String>> books) {
         listOfAllLibraryBooks = books;
     }
 
     public boolean checkout(String s) {
+        checkout = false;
         ArrayList<String> book = new ArrayList<String>();
 
         for (int i = 0; i < listOfAllLibraryBooks.size(); i++) {
