@@ -1,10 +1,13 @@
 System.out.println in the view.printbooklist(logic error)                  Done
 add license
 branch on type (polymorphism)
-view class existence
+view class existence(state of view)
 change data type of list                                                   Done
-Law of demeter
+Law of demeter + tell don't ask
 (strategy pattern)
 (decorator pattern)
 
 if else branching again
+magic number
+Express intent
+

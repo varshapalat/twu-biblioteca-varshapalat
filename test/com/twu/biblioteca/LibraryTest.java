@@ -3,7 +3,6 @@ package com.twu.biblioteca;
 import org.junit.Test;
 
 import java.util.ArrayList;
-
 import static org.junit.Assert.assertEquals;
 
 
@@ -39,6 +38,7 @@ public class LibraryTest {
         assertEquals(expectedListOfBooks, listOfAllLibraryBooks);
         assertEquals(true, actual);
     }
+
     @Test
     public void libraryCanReturnABook() {
         ArrayList<ArrayList<String>> expectedListOfBooks = new ArrayList<ArrayList<String>>();

@@ -1,8 +1,8 @@
 package com.twu.biblioteca;
 
-
 import java.util.ArrayList;
 import java.util.Scanner;
+
 
 public class View {
 
@@ -17,7 +17,7 @@ public class View {
         System.out.println();
         System.out.println("BOOKS AVAILABLE");
         System.out.println("TITLE               AUTHOR         YEAR PUBLISHED");
-        for(int i = 0; i < books.size(); i++) {
+        for (int i = 0; i < books.size(); i++) {
             System.out.printf("%-20s %-15s %-5s\n", books.get(i).get(0), books.get(i).get(1), books.get(i).get(2));
         }
     }
