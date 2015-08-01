@@ -72,4 +72,21 @@ public class LibraryTest {
                 " The Alchemist\tPaulo Coelho\t\t1988\n" +
                 " ", listOfBookDetails);
     }
+
+    @Test
+    public void libraryCanReturnListOfCheckedOutBooks() {
+        Book bookOne = new Book("The Da Vinci Code", "Dan Brown", "2000");
+        Book bookThree = new Book("The Alchemist", "Paulo Coelho", "1988");
+
+        ArrayList<Book> listOfAvailableLibraryBooks = null;
+        Library library = new Library(listOfAvailableLibraryBooks);
+        library.listOfCheckedOutLibraryBooks.add(bookOne);
+        library.listOfCheckedOutLibraryBooks.add(bookThree);
+
+        String listOfBookDetails = library.toPrintListOfCheckedOutBook();
+
+        assertEquals("The Da Vinci Code\tDan Brown\t\t2000\n" +
+                " The Alchemist\tPaulo Coelho\t\t1988\n" +
+                " ", listOfBookDetails);
+    }
 }

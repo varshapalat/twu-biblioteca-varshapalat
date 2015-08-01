@@ -11,7 +11,7 @@ import static org.mockito.Mockito.*;
 public class BibliotecaAppTest {
 
     @Test
-    public void applicationCallsViewToPrintWelcomeMessage() {
+    public void applicationCallsViewToPrintAppropriateMessage() {
         View view = mock(View.class);
         BibliotecaApp application = new BibliotecaApp();
         ArrayList<Book> books = new ArrayList<Book>();
@@ -20,7 +20,8 @@ public class BibliotecaAppTest {
 
         application.start(view, library);
 
-        verify(view).printWelcomeMessage();
+        Message s = Message.Welcome;
+        verify(view).print(s);
     }
 
     @Test
@@ -47,7 +48,7 @@ public class BibliotecaAppTest {
 
         application.start(view, library);
 
-        verify(view, atMost(2)).printMainMenu();
+        verify(view, atMost(2)).print(Message.MainMenu);
     }
 
     @Test
@@ -78,51 +79,9 @@ public class BibliotecaAppTest {
     }
 
     @Test
-    public void applicationCallsViewToPrintInvalidOption() {
-        View view = mock(View.class);
-        BibliotecaApp application = new BibliotecaApp();
-        ArrayList<Book> books = new ArrayList<Book>();
-        Library library = new Library(books);
-        when(view.acceptMenuInput()).thenReturn("10").thenReturn("2");
-
-        application.start(view, library);
-
-        verify(view).printInvalidMenuOption();
-    }
-
-    @Test
-    public void applicationCallsViewToPrintSuccessfulCheckoutMessage() {
-        View view = mock(View.class);
-        Library library = mock(Library.class);
-        BibliotecaApp application = new BibliotecaApp();
-        ArrayList<Book> books = new ArrayList<Book>();
-        when(view.acceptMenuInput()).thenReturn("3").thenReturn("2");
-        when(library.checkout(anyString())).thenReturn(true);
-
-        application.start(view, library);
-
-        verify(view).printSuccessfulCheckout();
-    }
-
-    @Test
-    public void applicationCallsViewToPrintUnsuccessfulCheckoutMessage() {
-        View view = mock(View.class);
-        Library library = mock(Library.class);
-        BibliotecaApp application = new BibliotecaApp();
-        ArrayList<Book> books = new ArrayList<Book>();
-        when(view.acceptMenuInput()).thenReturn("3").thenReturn("2");
-        when(library.checkout(anyString())).thenReturn(false);
-
-        application.start(view, library);
-
-        verify(view).printUnsuccessfullCheckout();
-    }
-
-    @Test
     public void applicationCallsViewToReturnABook() {
         View view = mock(View.class);
         BibliotecaApp application = new BibliotecaApp();
-        ArrayList<Book> books = new ArrayList<Book>();
         Library library = mock(Library.class);
         when(view.acceptMenuInput()).thenReturn("4").thenReturn("2");
 
@@ -132,30 +91,16 @@ public class BibliotecaAppTest {
     }
 
     @Test
-    public void applicationCallsViewToPrintSuccessfulCheckinMessage() {
+    public void applicationCallsViewToPrintListOfCheckedOutBooks() {
         View view = mock(View.class);
-        Library library = mock(Library.class);
         BibliotecaApp application = new BibliotecaApp();
         ArrayList<Book> books = new ArrayList<Book>();
-        when(view.acceptMenuInput()).thenReturn("4").thenReturn("2");
-        when(library.returnABook(anyString())).thenReturn(true);
+        Library library = new Library(books);
+        when(view.acceptMenuInput()).thenReturn("5").thenReturn("2");
 
         application.start(view, library);
+        String list = library.toPrintListOfCheckedOutBook();
 
-        verify(view).printSuccessfulReturn();
-    }
-
-    @Test
-    public void applicationCallsViewToPrintUnsuccessfulCheckinMessage() {
-        View view = mock(View.class);
-        Library library = mock(Library.class);
-        BibliotecaApp application = new BibliotecaApp();
-        ArrayList<Book> books = new ArrayList<Book>();
-        when(view.acceptMenuInput()).thenReturn("4").thenReturn("2");
-        when(library.returnABook(anyString())).thenReturn(false);
-
-        application.start(view, library);
-
-        verify(view).printUnsuccessfullReturn();
+        verify(view).printBookList(list);
     }
 }

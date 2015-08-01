@@ -41,5 +41,13 @@ public class Library {
         }
         return list;
     }
+
+    public String toPrintListOfCheckedOutBook() {
+        String list = "";
+        for (int i = 0; i < listOfCheckedOutLibraryBooks.size(); i++) {
+            list += String.format("%s ", listOfCheckedOutLibraryBooks.get(i));
+        }
+        return list;
+    }
 }
 

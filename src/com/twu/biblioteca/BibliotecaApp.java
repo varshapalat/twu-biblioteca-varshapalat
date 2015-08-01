@@ -1,18 +1,16 @@
 package com.twu.biblioteca;
 
-import java.util.ArrayList;
-
 
 public class BibliotecaApp {
 
     public void start(View view, Library library) {
         String choice = "0";
-        view.printLine();
-        view.printWelcomeMessage();
-        view.printLine();
+        view.print(Message.Line);
+        view.print(Message.Welcome);
+        view.print(Message.Line);
 
         while (!choice.equals("2")) {
-            view.printMainMenu();
+            view.print(Message.MainMenu);
             choice = view.acceptMenuInput();
             if (choice.equals("1")) {
                 view.printBookList(library.toPrintListOfAvailableBook());
@@ -20,19 +18,25 @@ public class BibliotecaApp {
 
             } else if (choice.equals("3")) {
                 String bookName = view.acceptStringMenuInput();
-                if (library.checkout(bookName))
-                    view.printSuccessfulCheckout();
-                else
-                    view.printUnsuccessfullCheckout();
+                if (library.checkout(bookName)) {
+                    view.print(Message.SuccesfulCheckout);
+                }
+                else {
+                    view.print(Message.UnsuccesfulCheckout);
+                }
             } else if (choice.equals("4")) {
                 String bookName = view.acceptStringMenuInput();
-                if (library.returnABook(bookName))
-                    view.printSuccessfulReturn();
-                else
-                    view.printUnsuccessfullReturn();
+                if (library.returnABook(bookName)) {
+                    view.print(Message.SuccessfulReturn);
+                }
+                else {
+                    view.print(Message.UnsuccesfulReturn);
+                }
+            } else if(choice.equals("5")) {
+                view.printBookList(library.toPrintListOfCheckedOutBook());
             } else {
-                view.printInvalidMenuOption();
-                view.printLine();
+                view.print(Message.InvaildMenuOption);
+                view.print(Message.Line);
             }
         }
     }

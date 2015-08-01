@@ -4,10 +4,13 @@ branch on type (polymorphism)
 view class existence(state of view)
 change data type of list                                                   Done
 Law of demeter + tell don't ask                                            Done
+Tell dont ask                                                              Done
 (strategy pattern)
 (decorator pattern)
 
 if else branching again
 magic number
 Express intent
-One source of truth
+One source of truth                                                       Done
+dry..print part
+Justify App

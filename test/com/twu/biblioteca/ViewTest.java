@@ -31,11 +31,12 @@ public class ViewTest {
 
     @Test
     public void viewCanPrintWelcomeMessage() {
-        View welcomeMessage = new View();
+        View view = new View();
 
-        welcomeMessage.printWelcomeMessage();
+        view.print(Message.Welcome);
 
-        assertEquals("Welcome!! \n" + "Biblioteca is now available\n", outContent.toString());
+        assertEquals("Welcome!! \n" +
+                " Biblioteca is now available\n", outContent.toString());
     }
 
     @Test
@@ -68,9 +69,18 @@ public class ViewTest {
     public void viewCanPrintMainMenu() {
         View view = new View();
 
-        view.printMainMenu();
+        view.print(Message.MainMenu);
 
-        assertEquals("\n\n\nMAIN MENU\n1.List Books\n2.Quit\n3.Checkout\n4.Return A Book\nEnter your choice:\n", outContent.toString());
+        assertEquals("\n" +
+                "\n" +
+                "\n" +
+                " MAIN MENU\n" +
+                "1.List Available Books\n" +
+                "2.Quit\n" +
+                "3.Checkout\n" +
+                "4.Return A Book\n" +
+                "5.List Checked out Books\n" +
+                "Enter your choice:\n", outContent.toString());
     }
 
     @Test
@@ -86,7 +96,7 @@ public class ViewTest {
     public void viewCanPrintLine() {
         View view = new View();
 
-        view.printLine();
+        view.print(Message.Line);
 
         assertEquals("------------------------------------------------------------\n", outContent.toString());
     }
@@ -95,7 +105,7 @@ public class ViewTest {
     public void viewCanPrintInvalidMenuOption() {
         View view = new View();
 
-        view.printInvalidMenuOption();
+        view.print(Message.InvaildMenuOption);
 
         assertEquals("Select a valid Option!\n", outContent.toString());
     }
@@ -113,7 +123,7 @@ public class ViewTest {
     public void viewCanPrintIfSuccessfulCheckout() {
         View view = new View();
 
-        view.printSuccessfulCheckout();
+        view.print(Message.SuccesfulCheckout);
 
         assertEquals("Thank you! Enjoy the book\n", outContent.toString());
     }
@@ -122,7 +132,7 @@ public class ViewTest {
     public void viewCanPrintIfUnsuccessfulCheckout() {
         View view = new View();
 
-        view.printUnsuccessfullCheckout();
+        view.print(Message.UnsuccesfulCheckout);;
 
         assertEquals("That book is not available.\n", outContent.toString());
     }
@@ -131,7 +141,7 @@ public class ViewTest {
     public void viewCanPrintIfSuccessfulCheckIn() {
         View view = new View();
 
-        view.printSuccessfulReturn();
+        view.print(Message.SuccessfulReturn);
 
         assertEquals("Thank you for returning the book.\n", outContent.toString());
     }
@@ -140,7 +150,7 @@ public class ViewTest {
     public void viewCanPrintIfUnsuccessfulCheckIn() {
         View view = new View();
 
-        view.printUnsuccessfullReturn();
+        view.print(Message.UnsuccesfulReturn);
 
         assertEquals("That is not a valid book to return.\n", outContent.toString());
     }
