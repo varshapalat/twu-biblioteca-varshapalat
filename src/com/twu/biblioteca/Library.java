@@ -4,17 +4,17 @@ import java.util.ArrayList;
 
 
 public class Library {
-    ArrayList<ArrayList<String>> listOfAllLibraryBooks;
-    ArrayList<ArrayList<String>> listOfCheckedOutLibraryBooks = new ArrayList<ArrayList<String>>();
+    ArrayList<Book> listOfAvailableLibraryBooks;
+    ArrayList<Book> listOfCheckedOutLibraryBooks = new ArrayList<Book>();
 
-    public Library(ArrayList<ArrayList<String>> books) {
-        listOfAllLibraryBooks = books;
+    public Library(ArrayList<Book> books) {
+        listOfAvailableLibraryBooks = books;
     }
 
     public boolean checkout(String nameOfBookToCheckout) {
-        for (ArrayList<String> book : listOfAllLibraryBooks) {
-            if (book.get(0).equals(nameOfBookToCheckout)) {
-                listOfAllLibraryBooks.remove(book);
+        for (Book book : listOfAvailableLibraryBooks) {
+            if (book.hasTitle(nameOfBookToCheckout)) {
+                listOfAvailableLibraryBooks.remove(book);
                 listOfCheckedOutLibraryBooks.add(book);
                 return true;
             }
@@ -23,17 +23,23 @@ public class Library {
     }
 
     public boolean returnABook(String nameOfBookToReturn) {
-        ArrayList<String> book = new ArrayList<String>();
-        boolean checkin = false;
-        for (int i = 0; i < listOfCheckedOutLibraryBooks.size(); i++) {
-            if (nameOfBookToReturn.equals(listOfCheckedOutLibraryBooks.get(i).get(0))) {
-                checkin = true;
-                book = listOfCheckedOutLibraryBooks.get(i);
+        for (Book book : listOfCheckedOutLibraryBooks) {
+            if (book.hasTitle(nameOfBookToReturn)) {
                 listOfCheckedOutLibraryBooks.remove(book);
+                listOfAvailableLibraryBooks.add(book);
+                return true;
             }
         }
-        if (checkin) listOfAllLibraryBooks.add(book);
-        return checkin;
+        return false;
+    }
+
+
+    public String toPrintListOfAvailableBook() {
+        String list = "";
+        for (int i = 0; i < listOfAvailableLibraryBooks.size(); i++) {
+            list += String.format("%s ", listOfAvailableLibraryBooks.get(i));
+        }
+        return list;
     }
 }
 

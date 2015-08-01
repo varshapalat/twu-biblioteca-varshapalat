@@ -41,33 +41,26 @@ public class ViewTest {
     @Test
     public void viewCanPrintListOfBooks() {
         View view = new View();
-        ArrayList<ArrayList<String>> books = new ArrayList<ArrayList<String>>();
-        ArrayList<String> bookOne = new ArrayList<String>();
-        bookOne.add("The Da Vinci Code");
-        bookOne.add("Dan Brown");
-        bookOne.add("2000");
-        ArrayList<String> bookTwo = new ArrayList<String>();
-        bookTwo.add("Kane and Abel");
-        bookTwo.add("Jeffrey Archer");
-        bookTwo.add("1979");
-        ArrayList<String> bookThree = new ArrayList<String>();
-        bookThree.add("The Alchemist");
-        bookThree.add("Paulo Coelho");
-        bookThree.add("1988");
+        ArrayList<Book> books = new ArrayList<Book>();
+        Book bookOne = new Book("The Da Vinci Code", "Dan Brown", "2000");
+        Book bookTwo = new Book("Kane and Abel", "Jeffrey Archer", "1979");
+        Book bookThree = new Book("The Alchemist", "Paulo Coelho", "1988");
         books.add(bookOne);
         books.add(bookTwo);
         books.add(bookThree);
-
-        view.printBookList(books);
+        Library library = new Library(books);
+        String list = library.toPrintListOfAvailableBook();
+        view.printBookList(list);
 
         assertEquals("\n" +
                         "\n" +
                         "\n" +
                         "BOOKS AVAILABLE\n" +
                         "TITLE               AUTHOR         YEAR PUBLISHED\n" +
-                        "The Da Vinci Code    Dan Brown       2000 \n" +
-                        "Kane and Abel        Jeffrey Archer  1979 \n" +
-                        "The Alchemist        Paulo Coelho    1988 \n",
+                        "The Da Vinci Code\tDan Brown\t\t2000\n" +
+                        " Kane and Abel\tJeffrey Archer\t\t1979\n" +
+                        " The Alchemist\tPaulo Coelho\t\t1988\n" +
+                        " ",
                 outContent.toString());
     }
 

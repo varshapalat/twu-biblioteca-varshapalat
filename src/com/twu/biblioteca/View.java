@@ -1,6 +1,5 @@
 package com.twu.biblioteca;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -11,15 +10,13 @@ public class View {
         System.out.print("Welcome!! \nBiblioteca is now available\n");
     }
 
-    public void printBookList(ArrayList<ArrayList<String>> books) {
+    public void printBookList(String list) {
         System.out.println();
         System.out.println();
         System.out.println();
         System.out.println("BOOKS AVAILABLE");
         System.out.println("TITLE               AUTHOR         YEAR PUBLISHED");
-        for (int i = 0; i < books.size(); i++) {
-            System.out.printf("%-20s %-15s %-5s\n", books.get(i).get(0), books.get(i).get(1), books.get(i).get(2));
-        }
+        System.out.print(list);
     }
 
     public void printMainMenu() {

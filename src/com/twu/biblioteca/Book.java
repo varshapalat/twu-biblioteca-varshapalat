@@ -16,4 +16,9 @@ public class Book {
         return true;
         return false;
     }
+
+    @Override
+    public String toString() {
+        return title +"\t"+ author +"\t\t" + yearPublished + "\n";
+    }
 }

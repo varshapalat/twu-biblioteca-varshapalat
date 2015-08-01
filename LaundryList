@@ -3,11 +3,11 @@ add license
 branch on type (polymorphism)
 view class existence(state of view)
 change data type of list                                                   Done
-Law of demeter + tell don't ask
+Law of demeter + tell don't ask                                            Done
 (strategy pattern)
 (decorator pattern)
 
 if else branching again
 magic number
 Express intent
-
+One source of truth
