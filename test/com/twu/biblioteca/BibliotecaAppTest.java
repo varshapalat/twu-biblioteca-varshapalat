@@ -13,10 +13,9 @@ public class BibliotecaAppTest {
     @Test
     public void applicationCallsViewToPrintAppropriateMessage() {
         View view = mock(View.class);
-        ArrayList<Book> listOfAvailableBooks = new ArrayList<Book>();
-        ArrayList<Book> listOfCheckedOutBooks = new ArrayList<Book>();
-        Library library = new Library(listOfAvailableBooks, listOfCheckedOutBooks);
-        BibliotecaApp application = new BibliotecaApp(view, library);
+        Library bookLibrary = mock(Library.class);
+        Library movieLibrary = mock(Library.class);
+        BibliotecaApp application = new BibliotecaApp(view, bookLibrary, movieLibrary);
         Message s = Message.Welcome;
 
         when(view.acceptMenuInput()).thenReturn("2");
@@ -29,11 +28,14 @@ public class BibliotecaAppTest {
     @Test
     public void applicationCallsViewToPrintListOfBooksWithColumns() {
         View view = mock(View.class);
-        ArrayList<Book> listOfAvailableBooks = new ArrayList<Book>();
-        ArrayList<Book> listOfCheckedOutBooks = new ArrayList<Book>();
-        Library library = new Library(listOfAvailableBooks, listOfCheckedOutBooks);
-        BibliotecaApp application = new BibliotecaApp(view, library);
-        String list = library.toPrintListOfAvailableBook();
+        ArrayList<LibraryItem> availableBooks = new ArrayList<LibraryItem>();
+        ArrayList<LibraryItem> checkedOutBooks = new ArrayList<LibraryItem>();
+        ArrayList<LibraryItem> availableMovies = new ArrayList<LibraryItem>();
+        ArrayList<LibraryItem> checkedOutMovies = new ArrayList<LibraryItem>();
+        Library bookLibrary = new Library(availableBooks, checkedOutBooks);
+        Library movieLibrary = new Library(availableMovies, checkedOutMovies);
+        BibliotecaApp application = new BibliotecaApp(view, bookLibrary, movieLibrary);
+        String list = bookLibrary.listOfAvailableLibraryItems();
 
         when(view.acceptMenuInput()).thenReturn("1").thenReturn("2");
 
@@ -45,10 +47,13 @@ public class BibliotecaAppTest {
     @Test
     public void applicationCallsViewToPrintMainMenu() {
         View view = mock(View.class);
-        ArrayList<Book> listOfAvailableBooks = new ArrayList<Book>();
-        ArrayList<Book> listOfCheckedOutBooks = new ArrayList<Book>();
-        Library library = new Library(listOfAvailableBooks, listOfCheckedOutBooks);
-        BibliotecaApp application = new BibliotecaApp(view, library);
+        ArrayList<LibraryItem> availableBooks = new ArrayList<LibraryItem>();
+        ArrayList<LibraryItem> checkedOutBooks = new ArrayList<LibraryItem>();
+        ArrayList<LibraryItem> availableMovies = new ArrayList<LibraryItem>();
+        ArrayList<LibraryItem> checkedOutMovies = new ArrayList<LibraryItem>();
+        Library bookLibrary = new Library(availableBooks, checkedOutBooks);
+        Library movieLibrary = new Library(availableMovies, checkedOutMovies);
+        BibliotecaApp application = new BibliotecaApp(view, bookLibrary, movieLibrary);
 
         when(view.acceptMenuInput()).thenReturn("2");
 
@@ -60,10 +65,13 @@ public class BibliotecaAppTest {
     @Test
     public void applicationCallsViewToAcceptInputForMainMenuFromUser() {
         View view = mock(View.class);
-        ArrayList<Book> listOfAvailableBooks = new ArrayList<Book>();
-        ArrayList<Book> listOfCheckedOutBooks = new ArrayList<Book>();
-        Library library = new Library(listOfAvailableBooks, listOfCheckedOutBooks);
-        BibliotecaApp application = new BibliotecaApp(view, library);
+        ArrayList<LibraryItem> availableBooks = new ArrayList<LibraryItem>();
+        ArrayList<LibraryItem> checkedOutBooks = new ArrayList<LibraryItem>();
+        ArrayList<LibraryItem> availableMovies = new ArrayList<LibraryItem>();
+        ArrayList<LibraryItem> checkedOutMovies = new ArrayList<LibraryItem>();
+        Library bookLibrary = new Library(availableBooks, checkedOutBooks);
+        Library movieLibrary = new Library(availableMovies, checkedOutMovies);
+        BibliotecaApp application = new BibliotecaApp(view, bookLibrary, movieLibrary);
 
         when(view.acceptMenuInput()).thenReturn("2");
 
@@ -75,10 +83,13 @@ public class BibliotecaAppTest {
     @Test
     public void applicationCallsViewToPrintLine() {
         View view = mock(View.class);
-        ArrayList<Book> listOfAvailableBooks = new ArrayList<Book>();
-        ArrayList<Book> listOfCheckedOutBooks = new ArrayList<Book>();
-        Library library = new Library(listOfAvailableBooks, listOfCheckedOutBooks);
-        BibliotecaApp application = new BibliotecaApp(view, library);
+        ArrayList<LibraryItem> availableBooks = new ArrayList<LibraryItem>();
+        ArrayList<LibraryItem> checkedOutBooks = new ArrayList<LibraryItem>();
+        ArrayList<LibraryItem> availableMovies = new ArrayList<LibraryItem>();
+        ArrayList<LibraryItem> checkedOutMovies = new ArrayList<LibraryItem>();
+        Library bookLibrary = new Library(availableBooks, checkedOutBooks);
+        Library movieLibrary = new Library(availableMovies, checkedOutMovies);
+        BibliotecaApp application = new BibliotecaApp(view, bookLibrary, movieLibrary);
 
         when(view.acceptMenuInput()).thenReturn("2");
 
@@ -90,24 +101,28 @@ public class BibliotecaAppTest {
     @Test
     public void applicationCallsViewToReturnABook() {
         View view = mock(View.class);
-        Library library = mock(Library.class);
-        BibliotecaApp application = new BibliotecaApp(view, library);
+        Library bookLibrary = mock(Library.class);
+        Library movieLibrary = mock(Library.class);
+        BibliotecaApp application = new BibliotecaApp(view, bookLibrary, movieLibrary);
 
         when(view.acceptMenuInput()).thenReturn("4").thenReturn("2");
 
         application.start();
 
-        verify(library).returnABook(anyString());
+        verify(bookLibrary).returnABook(anyString());
     }
 
     @Test
     public void applicationCallsViewToPrintListOfCheckedOutBooks() {
         View view = mock(View.class);
-        ArrayList<Book> listOfAvailableBooks = new ArrayList<Book>();
-        ArrayList<Book> listOfCheckedOutBooks = new ArrayList<Book>();
-        Library library = new Library(listOfAvailableBooks, listOfCheckedOutBooks);
-        BibliotecaApp application = new BibliotecaApp(view, library);
-        String list = library.toPrintListOfCheckedOutBook();
+        ArrayList<LibraryItem> availableBooks = new ArrayList<LibraryItem>();
+        ArrayList<LibraryItem> checkedOutBooks = new ArrayList<LibraryItem>();
+        ArrayList<LibraryItem> availableMovies = new ArrayList<LibraryItem>();
+        ArrayList<LibraryItem> checkedOutMovies = new ArrayList<LibraryItem>();
+        Library bookLibrary = new Library(availableBooks, checkedOutBooks);
+        Library movieLibrary = new Library(availableMovies, checkedOutMovies);
+        BibliotecaApp application = new BibliotecaApp(view, bookLibrary, movieLibrary);
+        String list = bookLibrary.listOfCheckedOutLibraryItems();
 
         when(view.acceptMenuInput()).thenReturn("5").thenReturn("2");
 

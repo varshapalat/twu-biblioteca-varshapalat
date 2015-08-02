@@ -42,25 +42,20 @@ public class ViewTest {
     @Test
     public void viewCanPrintListOfBooks() {
         View view = new View();
-        ArrayList<Book> books = new ArrayList<Book>();
-        ArrayList<Book> listOfCheckedOutBooks = new ArrayList<Book>();
+        ArrayList<LibraryItem> availableBooks = new ArrayList<LibraryItem>();
+        ArrayList<LibraryItem> checkedOutBooks = new ArrayList<LibraryItem>();
 
         Book bookOne = new Book("The Da Vinci Code", "Dan Brown", "2000");
         Book bookTwo = new Book("Kane and Abel", "Jeffrey Archer", "1979");
         Book bookThree = new Book("The Alchemist", "Paulo Coelho", "1988");
-        books.add(bookOne);
-        books.add(bookTwo);
-        books.add(bookThree);
-        Library library = new Library(books, listOfCheckedOutBooks);
-        String list = library.toPrintListOfAvailableBook();
+        availableBooks.add(bookOne);
+        availableBooks.add(bookTwo);
+        availableBooks.add(bookThree);
+        Library library = new Library(availableBooks, checkedOutBooks);
+        String list = library.listOfAvailableLibraryItems();
         view.printBookList(list);
 
-        assertEquals("\n" +
-                        "\n" +
-                        "\n" +
-                        "BOOKS AVAILABLE\n" +
-                        "TITLE               AUTHOR         YEAR PUBLISHED\n" +
-                        "The Da Vinci Code\tDan Brown\t\t2000\n" +
+        assertEquals("The Da Vinci Code\tDan Brown\t\t2000\n" +
                         " Kane and Abel\tJeffrey Archer\t\t1979\n" +
                         " The Alchemist\tPaulo Coelho\t\t1988\n" +
                         " ",
@@ -87,7 +82,7 @@ public class ViewTest {
     }
 
     @Test
-    public void viewShouldTakeUserInput() {
+    public void viewShouldTakeUserInput() { 
         View view = new View();
 
         System.setIn(new ByteArrayInputStream("1".getBytes()));

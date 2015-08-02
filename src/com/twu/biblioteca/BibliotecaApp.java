@@ -2,11 +2,13 @@ package com.twu.biblioteca;
 
 
 public class BibliotecaApp {
-    Library library;
+    Library bookLibrary;
+    Library movieLibrary;
     View view;
 
-    public BibliotecaApp(View view, Library library) {
-        this.library = library;
+    public BibliotecaApp(View view, Library bookLibrary, Library movieLibrary) {
+        this.bookLibrary = bookLibrary;
+        this.movieLibrary = movieLibrary;
         this.view = view;
     }
 
@@ -20,12 +22,13 @@ public class BibliotecaApp {
             view.print(Message.MainMenu);
             choice = view.acceptMenuInput();
             if (choice.equals("1")) {
-                view.printBookList(library.toPrintListOfAvailableBook());
+                view.print(Message.BookList);
+                view.printBookList(bookLibrary.listOfAvailableLibraryItems());
             } else if (choice.equals("2")) {
 
             } else if (choice.equals("3")) {
                 String bookName = view.acceptStringMenuInput();
-                if (library.checkout(bookName)) {
+                if (bookLibrary.checkout(bookName)) {
                     view.print(Message.SuccesfulCheckout);
                 }
                 else {
@@ -33,14 +36,17 @@ public class BibliotecaApp {
                 }
             } else if (choice.equals("4")) {
                 String bookName = view.acceptStringMenuInput();
-                if (library.returnABook(bookName)) {
+                if (bookLibrary.returnABook(bookName)) {
                     view.print(Message.SuccessfulReturn);
                 }
                 else {
                     view.print(Message.UnsuccesfulReturn);
                 }
             } else if(choice.equals("5")) {
-                view.printBookList(library.toPrintListOfCheckedOutBook());
+                view.printBookList(bookLibrary.listOfCheckedOutLibraryItems());
+            } else if(choice.equals("6")) {
+                view.print(Message.MovieList);
+                view.printBookList(movieLibrary.listOfAvailableLibraryItems());
             }
             else {
                 view.print(Message.InvaildMenuOption);

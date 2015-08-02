@@ -4,19 +4,19 @@ import java.util.ArrayList;
 
 
 public class Library {
-    ArrayList<Book> listOfAvailableLibraryBooks;
-    ArrayList<Book> listOfCheckedOutLibraryBooks;
+    ArrayList<LibraryItem> availableLibraryItems;
+    ArrayList<LibraryItem> checkedOutLibraryItems;
 
-    public Library(ArrayList<Book> listOfAvailableBooks, ArrayList<Book> listOfCheckedOutBooks) {
-        listOfAvailableLibraryBooks = listOfAvailableBooks;
-        listOfCheckedOutLibraryBooks = listOfCheckedOutBooks;
+    public Library(ArrayList<LibraryItem> availableLibraryItems, ArrayList<LibraryItem> checkedOutLibraryItems) {
+        this.availableLibraryItems = availableLibraryItems;
+        this.checkedOutLibraryItems = checkedOutLibraryItems;
     }
 
     public boolean checkout(String nameOfBookToCheckout) {
-        for (Book book : listOfAvailableLibraryBooks) {
+        for (LibraryItem book : availableLibraryItems) {
             if (book.hasTitle(nameOfBookToCheckout)) {
-                listOfAvailableLibraryBooks.remove(book);
-                listOfCheckedOutLibraryBooks.add(book);
+                availableLibraryItems.remove(book);
+                checkedOutLibraryItems.add(book);
                 return true;
             }
         }
@@ -24,28 +24,28 @@ public class Library {
     }
 
     public boolean returnABook(String nameOfBookToReturn) {
-        for (Book book : listOfCheckedOutLibraryBooks) {
+        for (LibraryItem book : checkedOutLibraryItems) {
             if (book.hasTitle(nameOfBookToReturn)) {
-                listOfCheckedOutLibraryBooks.remove(book);
-                listOfAvailableLibraryBooks.add(book);
+                checkedOutLibraryItems.remove(book);
+                availableLibraryItems.add(book);
                 return true;
             }
         }
         return false;
     }
 
-    public String toPrintListOfAvailableBook() {
+    public String listOfAvailableLibraryItems() {
         String list = "";
-        for (int i = 0; i < listOfAvailableLibraryBooks.size(); i++) {
-            list += String.format("%s ", listOfAvailableLibraryBooks.get(i));
+        for (int i = 0; i < availableLibraryItems.size(); i++) {
+            list += String.format("%s ", availableLibraryItems.get(i));
         }
         return list;
     }
 
-    public String toPrintListOfCheckedOutBook() {
+    public String listOfCheckedOutLibraryItems() {
         String list = "";
-        for (int i = 0; i < listOfCheckedOutLibraryBooks.size(); i++) {
-            list += String.format("%s ", listOfCheckedOutLibraryBooks.get(i));
+        for (int i = 0; i < checkedOutLibraryItems.size(); i++) {
+            list += String.format("%s ", checkedOutLibraryItems.get(i));
         }
         return list;
     }

@@ -13,8 +13,12 @@ public class Movie implements LibraryItem{
         this.rating = rating;
     }
 
+    public boolean hasTitle(String givenTitle) {
+        return givenTitle.equals(name);
+    }
+
     @Override
     public String toString() {
-        return name + "\t" + year + "\t" + director + "\t" + rating;
+        return name + "\t" + year + "\t" + director + "\t" + rating + "\n";
     }
 }

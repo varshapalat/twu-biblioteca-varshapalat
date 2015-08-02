@@ -10,6 +10,6 @@ public class MovieTest {
     public void printEachMovieDetail() {
         Movie movie = new Movie("Troy", "2004", "Wolfgang Petersen", "5");
 
-        assertEquals("Troy\t2004\tWolfgang Petersen\t5", movie.toString());
+        assertEquals("Troy\t2004\tWolfgang Petersen\t5\n", movie.toString());
     }
 }

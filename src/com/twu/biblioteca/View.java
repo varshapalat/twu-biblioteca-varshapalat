@@ -6,11 +6,6 @@ import java.util.Scanner;
 public class View {
 
     public void printBookList(String list) {
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println("BOOKS AVAILABLE");
-        System.out.println("TITLE               AUTHOR         YEAR PUBLISHED");
         System.out.print(list);
     }
 
