@@ -45,7 +45,7 @@ public class LibraryTest {
         Library library = new Library(listOfAvailableLibraryBooks, listOfCheckedOutBooks);
         library.checkedOutLibraryItems.add(bookTwo);
 
-        boolean actual = library.returnABook("Kane and Abel");
+        boolean actual = library.returnALibraryItem("Kane and Abel");
 
         assertEquals(expectedListOfBooks, listOfAvailableLibraryBooks);
         assertEquals(true, actual);

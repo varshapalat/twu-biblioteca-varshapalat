@@ -97,7 +97,7 @@ public class BibliotecaAppTest {
 
         application.start();
 
-        verify(bookLibrary).returnABook(anyString());
+        verify(bookLibrary).returnALibraryItem(anyString());
     }
 
     @Test
@@ -142,5 +142,19 @@ public class BibliotecaAppTest {
         app.start();
 
         verify(movieLibrary).checkout(anyString());
+    }
+
+    @Test
+    public void applicationCallsLibraryToReturnAMovie() {
+        View view = mock(View.class);
+        Library bookLibrary = mock(Library.class);
+        Library movieLibrary = mock(Library.class);
+        BibliotecaApp app = new BibliotecaApp(view, bookLibrary, movieLibrary);
+
+        when(view.acceptMenuInput()).thenReturn("9").thenReturn("2");
+
+        app.start();
+
+        verify(movieLibrary).returnALibraryItem(anyString());
     }
 }

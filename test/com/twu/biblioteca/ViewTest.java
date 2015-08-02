@@ -80,6 +80,7 @@ public class ViewTest {
                 "6.List Available Movies\n" +
                 "7.List Checked out Movies\n" +
                 "8.Checkout Movie\n" +
+                "9.Return A Movie\n" +
                 "Enter your choice:\n", outContent.toString());
     }
 

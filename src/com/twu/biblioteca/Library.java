@@ -23,7 +23,7 @@ public class Library {
         return false;
     }
 
-    public boolean returnABook(String nameOfBookToReturn) {
+    public boolean returnALibraryItem(String nameOfBookToReturn) {
         for (LibraryItem book : checkedOutLibraryItems) {
             if (book.hasTitle(nameOfBookToReturn)) {
                 checkedOutLibraryItems.remove(book);

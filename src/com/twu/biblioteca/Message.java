@@ -4,7 +4,7 @@ package com.twu.biblioteca;
 enum Message {
     Welcome("Welcome!! \n Biblioteca is now available\n"),
     MainMenu("\n\n\n MAIN MENU\n1.List Available Books\n2.Quit\n3.Checkout Book\n4.Return A Book\n" +
-            "5.List Checked out Books\n6.List Available Movies\n7.List Checked out Movies\n8.Checkout Movie\nEnter your choice:\n"),
+            "5.List Checked out Books\n6.List Available Movies\n7.List Checked out Movies\n8.Checkout Movie\n9.Return A Movie\nEnter your choice:\n"),
     Line("------------------------------------------------------------\n"),
     InvaildMenuOption("Select a valid Option!\n"),
     SuccesfulBookCheckout("Thank you! Enjoy the book\n"),
