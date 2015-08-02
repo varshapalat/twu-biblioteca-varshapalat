@@ -28,12 +28,8 @@ public class BibliotecaAppTest {
     @Test
     public void applicationCallsViewToPrintListOfBooksWithColumns() {
         View view = mock(View.class);
-        ArrayList<LibraryItem> availableBooks = new ArrayList<LibraryItem>();
-        ArrayList<LibraryItem> checkedOutBooks = new ArrayList<LibraryItem>();
-        ArrayList<LibraryItem> availableMovies = new ArrayList<LibraryItem>();
-        ArrayList<LibraryItem> checkedOutMovies = new ArrayList<LibraryItem>();
-        Library bookLibrary = new Library(availableBooks, checkedOutBooks);
-        Library movieLibrary = new Library(availableMovies, checkedOutMovies);
+        Library bookLibrary = mock(Library.class);
+        Library movieLibrary = mock(Library.class);
         BibliotecaApp application = new BibliotecaApp(view, bookLibrary, movieLibrary);
         String list = bookLibrary.listOfAvailableLibraryItems();
 
@@ -41,18 +37,14 @@ public class BibliotecaAppTest {
 
         application.start();
 
-        verify(view).printBookList(list);
+        verify(view).printList(list);
     }
 
     @Test
     public void applicationCallsViewToPrintMainMenu() {
         View view = mock(View.class);
-        ArrayList<LibraryItem> availableBooks = new ArrayList<LibraryItem>();
-        ArrayList<LibraryItem> checkedOutBooks = new ArrayList<LibraryItem>();
-        ArrayList<LibraryItem> availableMovies = new ArrayList<LibraryItem>();
-        ArrayList<LibraryItem> checkedOutMovies = new ArrayList<LibraryItem>();
-        Library bookLibrary = new Library(availableBooks, checkedOutBooks);
-        Library movieLibrary = new Library(availableMovies, checkedOutMovies);
+        Library bookLibrary = mock(Library.class);
+        Library movieLibrary = mock(Library.class);
         BibliotecaApp application = new BibliotecaApp(view, bookLibrary, movieLibrary);
 
         when(view.acceptMenuInput()).thenReturn("2");
@@ -65,12 +57,8 @@ public class BibliotecaAppTest {
     @Test
     public void applicationCallsViewToAcceptInputForMainMenuFromUser() {
         View view = mock(View.class);
-        ArrayList<LibraryItem> availableBooks = new ArrayList<LibraryItem>();
-        ArrayList<LibraryItem> checkedOutBooks = new ArrayList<LibraryItem>();
-        ArrayList<LibraryItem> availableMovies = new ArrayList<LibraryItem>();
-        ArrayList<LibraryItem> checkedOutMovies = new ArrayList<LibraryItem>();
-        Library bookLibrary = new Library(availableBooks, checkedOutBooks);
-        Library movieLibrary = new Library(availableMovies, checkedOutMovies);
+        Library bookLibrary = mock(Library.class);
+        Library movieLibrary = mock(Library.class);
         BibliotecaApp application = new BibliotecaApp(view, bookLibrary, movieLibrary);
 
         when(view.acceptMenuInput()).thenReturn("2");
@@ -115,12 +103,8 @@ public class BibliotecaAppTest {
     @Test
     public void applicationCallsViewToPrintListOfCheckedOutBooks() {
         View view = mock(View.class);
-        ArrayList<LibraryItem> availableBooks = new ArrayList<LibraryItem>();
-        ArrayList<LibraryItem> checkedOutBooks = new ArrayList<LibraryItem>();
-        ArrayList<LibraryItem> availableMovies = new ArrayList<LibraryItem>();
-        ArrayList<LibraryItem> checkedOutMovies = new ArrayList<LibraryItem>();
-        Library bookLibrary = new Library(availableBooks, checkedOutBooks);
-        Library movieLibrary = new Library(availableMovies, checkedOutMovies);
+        Library bookLibrary = mock(Library.class);
+        Library movieLibrary = mock(Library.class);
         BibliotecaApp application = new BibliotecaApp(view, bookLibrary, movieLibrary);
         String list = bookLibrary.listOfCheckedOutLibraryItems();
 
@@ -128,6 +112,21 @@ public class BibliotecaAppTest {
 
         application.start();
 
-        verify(view).printBookList(list);
+        verify(view).printList(list);
+    }
+
+    @Test
+    public void applicationCallsViewToPrintListOfCheckedOutMovies() {
+        View view = mock(View.class);
+        Library bookLibrary = mock(Library.class);
+        Library movieLibrary = mock(Library.class);
+        BibliotecaApp app = new BibliotecaApp(view, bookLibrary, movieLibrary);
+
+        when(view.acceptMenuInput()).thenReturn("7").thenReturn("2");
+        when(movieLibrary.listOfCheckedOutLibraryItems()).thenReturn(anyString());
+
+        app.start();
+
+        verify(view).printList(movieLibrary.listOfCheckedOutLibraryItems());
     }
 }

@@ -23,7 +23,7 @@ public class BibliotecaApp {
             choice = view.acceptMenuInput();
             if (choice.equals("1")) {
                 view.print(Message.BookList);
-                view.printBookList(bookLibrary.listOfAvailableLibraryItems());
+                view.printList(bookLibrary.listOfAvailableLibraryItems());
             } else if (choice.equals("2")) {
 
             } else if (choice.equals("3")) {
@@ -43,10 +43,14 @@ public class BibliotecaApp {
                     view.print(Message.UnsuccesfulReturn);
                 }
             } else if(choice.equals("5")) {
-                view.printBookList(bookLibrary.listOfCheckedOutLibraryItems());
+                view.print(Message.BookList);
+                view.printList(bookLibrary.listOfCheckedOutLibraryItems());
             } else if(choice.equals("6")) {
                 view.print(Message.MovieList);
-                view.printBookList(movieLibrary.listOfAvailableLibraryItems());
+                view.printList(movieLibrary.listOfAvailableLibraryItems());
+            } else if(choice.equals("7")) {
+                view.print(Message.MovieList);
+                view.printList(movieLibrary.listOfCheckedOutLibraryItems());
             }
             else {
                 view.print(Message.InvaildMenuOption);

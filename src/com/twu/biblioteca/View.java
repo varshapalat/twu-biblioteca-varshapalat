@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class View {
 
-    public void printBookList(String list) {
+    public void printList(String list) {
         System.out.print(list);
     }
 

@@ -53,7 +53,7 @@ public class ViewTest {
         availableBooks.add(bookThree);
         Library library = new Library(availableBooks, checkedOutBooks);
         String list = library.listOfAvailableLibraryItems();
-        view.printBookList(list);
+        view.printList(list);
 
         assertEquals("The Da Vinci Code\tDan Brown\t\t2000\n" +
                         " Kane and Abel\tJeffrey Archer\t\t1979\n" +
@@ -78,11 +78,12 @@ public class ViewTest {
                 "4.Return A Book\n" +
                 "5.List Checked out Books\n" +
                 "6.List Available Movies\n" +
+                "7.List Checked out Movies\n" +
                 "Enter your choice:\n", outContent.toString());
     }
 
     @Test
-    public void viewShouldTakeUserInput() { 
+    public void viewShouldTakeUserInput() {
         View view = new View();
 
         System.setIn(new ByteArrayInputStream("1".getBytes()));
@@ -151,5 +152,25 @@ public class ViewTest {
         view.print(Message.UnsuccesfulReturn);
 
         assertEquals("That is not a valid book to return.\n", outContent.toString());
+    }
+
+    @Test
+    public void viewCanPrintHeaderOfBookList() {
+        View view = new View();
+
+        view.print(Message.BookList);
+
+        assertEquals("BOOKS\n" +
+                "TITLE\t\tAUTHOR\t\tYEAR PUBLISHED\n", outContent.toString());
+    }
+
+    @Test
+    public void viewCanPrintHeaderOfMovieList() {
+        View view = new View();
+
+        view.print(Message.MovieList);
+
+        assertEquals("MOVIES\n" +
+                "MOVIE NAME\tDIRECTOR\tYEAR\tRATING\n", outContent.toString());
     }
 }
