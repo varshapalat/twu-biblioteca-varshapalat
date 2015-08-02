@@ -16,7 +16,6 @@ public class View {
     }
 
     public String acceptStringMenuInput() {
-        System.out.print("Enter book name:\n");
         return acceptMenuInput();
     }
 
