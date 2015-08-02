@@ -90,7 +90,7 @@ public class ViewTest {
 
         System.setIn(new ByteArrayInputStream("1".getBytes()));
 
-        assertEquals("1", view.acceptMenuInput());
+        assertEquals("1", view.acceptInput());
     }
 
     @Test
@@ -117,7 +117,7 @@ public class ViewTest {
 
         System.setIn(new ByteArrayInputStream("The Alchemist".getBytes()));
 
-        assertEquals("The Alchemist", view.acceptStringMenuInput());
+        assertEquals("The Alchemist", view.acceptInput());
     }
 
     @Test

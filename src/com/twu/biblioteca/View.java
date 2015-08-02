@@ -9,14 +9,10 @@ public class View {
         System.out.print(list);
     }
 
-    public String acceptMenuInput() {
+    public String acceptInput() {
         Scanner scanner = new Scanner(System.in);
         String choice = scanner.nextLine();
         return choice;
-    }
-
-    public String acceptStringMenuInput() {
-        return acceptMenuInput();
     }
 
     public void print(Message s) {

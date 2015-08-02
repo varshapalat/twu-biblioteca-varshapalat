@@ -18,7 +18,7 @@ public class BibliotecaAppTest {
         BibliotecaApp application = new BibliotecaApp(view, bookLibrary, movieLibrary);
         Message s = Message.Welcome;
 
-        when(view.acceptMenuInput()).thenReturn("2");
+        when(view.acceptInput()).thenReturn("2");
 
         application.start();
 
@@ -33,7 +33,7 @@ public class BibliotecaAppTest {
         BibliotecaApp application = new BibliotecaApp(view, bookLibrary, movieLibrary);
         String list = bookLibrary.listOfAvailableLibraryItems();
 
-        when(view.acceptMenuInput()).thenReturn("1").thenReturn("2");
+        when(view.acceptInput()).thenReturn("1").thenReturn("2");
 
         application.start();
 
@@ -47,7 +47,7 @@ public class BibliotecaAppTest {
         Library movieLibrary = mock(Library.class);
         BibliotecaApp application = new BibliotecaApp(view, bookLibrary, movieLibrary);
 
-        when(view.acceptMenuInput()).thenReturn("2");
+        when(view.acceptInput()).thenReturn("2");
 
         application.start();
 
@@ -61,11 +61,11 @@ public class BibliotecaAppTest {
         Library movieLibrary = mock(Library.class);
         BibliotecaApp application = new BibliotecaApp(view, bookLibrary, movieLibrary);
 
-        when(view.acceptMenuInput()).thenReturn("2");
+        when(view.acceptInput()).thenReturn("2");
 
         application.start();
 
-        verify(view).acceptMenuInput();
+        verify(view).acceptInput();
     }
 
     @Test
@@ -79,11 +79,11 @@ public class BibliotecaAppTest {
         Library movieLibrary = new Library(availableMovies, checkedOutMovies);
         BibliotecaApp application = new BibliotecaApp(view, bookLibrary, movieLibrary);
 
-        when(view.acceptMenuInput()).thenReturn("2");
+        when(view.acceptInput()).thenReturn("2");
 
         application.start();
 
-        verify(view).acceptMenuInput();
+        verify(view).acceptInput();
     }
 
     @Test
@@ -93,7 +93,7 @@ public class BibliotecaAppTest {
         Library movieLibrary = mock(Library.class);
         BibliotecaApp application = new BibliotecaApp(view, bookLibrary, movieLibrary);
 
-        when(view.acceptMenuInput()).thenReturn("4").thenReturn("2");
+        when(view.acceptInput()).thenReturn("4").thenReturn("2");
 
         application.start();
 
@@ -108,7 +108,7 @@ public class BibliotecaAppTest {
         BibliotecaApp application = new BibliotecaApp(view, bookLibrary, movieLibrary);
         String list = bookLibrary.listOfCheckedOutLibraryItems();
 
-        when(view.acceptMenuInput()).thenReturn("5").thenReturn("2");
+        when(view.acceptInput()).thenReturn("5").thenReturn("2");
 
         application.start();
 
@@ -122,7 +122,7 @@ public class BibliotecaAppTest {
         Library movieLibrary = mock(Library.class);
         BibliotecaApp app = new BibliotecaApp(view, bookLibrary, movieLibrary);
 
-        when(view.acceptMenuInput()).thenReturn("7").thenReturn("2");
+        when(view.acceptInput()).thenReturn("7").thenReturn("2");
         when(movieLibrary.listOfCheckedOutLibraryItems()).thenReturn(anyString());
 
         app.start();
@@ -137,7 +137,7 @@ public class BibliotecaAppTest {
         Library movieLibrary = mock(Library.class);
         BibliotecaApp app = new BibliotecaApp(view, bookLibrary, movieLibrary);
 
-        when(view.acceptMenuInput()).thenReturn("8").thenReturn("2");
+        when(view.acceptInput()).thenReturn("8").thenReturn("2");
 
         app.start();
 
@@ -151,7 +151,7 @@ public class BibliotecaAppTest {
         Library movieLibrary = mock(Library.class);
         BibliotecaApp app = new BibliotecaApp(view, bookLibrary, movieLibrary);
 
-        when(view.acceptMenuInput()).thenReturn("9").thenReturn("2");
+        when(view.acceptInput()).thenReturn("9").thenReturn("2");
 
         app.start();
 

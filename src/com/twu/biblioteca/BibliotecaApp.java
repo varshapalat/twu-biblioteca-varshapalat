@@ -20,7 +20,7 @@ public class BibliotecaApp {
 
         while (!choice.equals("2")) {
             view.print(Message.MainMenu);
-            choice = view.acceptMenuInput();
+            choice = view.acceptInput();
             if (choice.equals("1")) {
                 view.print(Message.BookList);
                 view.printList(bookLibrary.listOfAvailableLibraryItems());
@@ -28,7 +28,7 @@ public class BibliotecaApp {
 
             } else if (choice.equals("3")) {
                 view.print(Message.NameBook);
-                String bookName = view.acceptStringMenuInput();
+                String bookName = view.acceptInput();
                 if (bookLibrary.checkout(bookName)) {
                     view.print(Message.SuccesfulBookCheckout);
                 }
@@ -37,7 +37,7 @@ public class BibliotecaApp {
                 }
             } else if (choice.equals("4")) {
                 view.print(Message.NameBook);
-                String bookName = view.acceptStringMenuInput();
+                String bookName = view.acceptInput();
                 if (bookLibrary.returnALibraryItem(bookName)) {
                     view.print(Message.SuccessfulBookReturn);
                 }
@@ -56,7 +56,7 @@ public class BibliotecaApp {
             }
             else if(choice.equals("8")) {
                 view.print(Message.NameMovie);
-                String movieName = view.acceptStringMenuInput();
+                String movieName = view.acceptInput();
                 if(movieLibrary.checkout(movieName)) {
                     view.print(Message.SuccesfulMovieCheckout);
                 }
@@ -66,7 +66,7 @@ public class BibliotecaApp {
             }
             else if(choice.equals("9")) {
                 view.print(Message.NameMovie);
-                String movieName = view.acceptStringMenuInput();
+                String movieName = view.acceptInput();
                 if(movieLibrary.returnALibraryItem(movieName)) {
                     view.print(Message.SuccessfulMovieReturn);
                 }
