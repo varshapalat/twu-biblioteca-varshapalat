@@ -21,9 +21,8 @@ public class View {
     }
 
     public String acceptStringMenuInput() {
-        Scanner scanner = new Scanner(System.in);
         System.out.print("Enter book name:\n");
-        return scanner.nextLine();
+        return acceptMenuInput();
     }
 
     public void print(Message s) {

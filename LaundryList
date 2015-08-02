@@ -2,6 +2,7 @@ System.out.println in the view.printbooklist(logic error)                  Done
 add license
 branch on type (polymorphism)
 view class existence(state of view)
+better view                                                                Done
 change data type of list                                                   Done
 Law of demeter + tell don't ask                                            Done
 Tell dont ask                                                              Done
@@ -12,5 +13,5 @@ if else branching again
 magic number
 Express intent
 One source of truth                                                       Done
-dry..print part
+dry..print part                                                           Done
 Justify App

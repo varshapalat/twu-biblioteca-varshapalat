@@ -2,8 +2,15 @@ package com.twu.biblioteca;
 
 
 public class BibliotecaApp {
+    Library library;
+    View view;
 
-    public void start(View view, Library library) {
+    public BibliotecaApp(View view, Library library) {
+        this.library = library;
+        this.view = view;
+    }
+
+    public void start() {
         String choice = "0";
         view.print(Message.Line);
         view.print(Message.Welcome);
@@ -34,7 +41,8 @@ public class BibliotecaApp {
                 }
             } else if(choice.equals("5")) {
                 view.printBookList(library.toPrintListOfCheckedOutBook());
-            } else {
+            }
+            else {
                 view.print(Message.InvaildMenuOption);
                 view.print(Message.Line);
             }

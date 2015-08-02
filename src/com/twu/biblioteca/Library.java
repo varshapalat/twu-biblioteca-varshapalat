@@ -5,10 +5,11 @@ import java.util.ArrayList;
 
 public class Library {
     ArrayList<Book> listOfAvailableLibraryBooks;
-    ArrayList<Book> listOfCheckedOutLibraryBooks = new ArrayList<Book>();
+    ArrayList<Book> listOfCheckedOutLibraryBooks;
 
-    public Library(ArrayList<Book> books) {
-        listOfAvailableLibraryBooks = books;
+    public Library(ArrayList<Book> listOfAvailableBooks, ArrayList<Book> listOfCheckedOutBooks) {
+        listOfAvailableLibraryBooks = listOfAvailableBooks;
+        listOfCheckedOutLibraryBooks = listOfCheckedOutBooks;
     }
 
     public boolean checkout(String nameOfBookToCheckout) {
@@ -32,7 +33,6 @@ public class Library {
         }
         return false;
     }
-
 
     public String toPrintListOfAvailableBook() {
         String list = "";

@@ -1,6 +1,6 @@
 package com.twu.biblioteca;
 
-public class Book {
+public class Book implements LibraryItem{
     String title;
     String author;
     String yearPublished;
@@ -11,10 +11,8 @@ public class Book {
         this.yearPublished = yearPublished;
     }
 
-    public boolean hasTitle(String s) {
-        if(s.equals(title))
-        return true;
-        return false;
+    public boolean hasTitle(String givenTitle) {
+        return givenTitle.equals(title);
     }
 
     @Override

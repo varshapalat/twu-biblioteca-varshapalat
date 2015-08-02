@@ -13,27 +13,31 @@ public class BibliotecaAppTest {
     @Test
     public void applicationCallsViewToPrintAppropriateMessage() {
         View view = mock(View.class);
-        BibliotecaApp application = new BibliotecaApp();
-        ArrayList<Book> books = new ArrayList<Book>();
-        Library library = new Library(books);
+        ArrayList<Book> listOfAvailableBooks = new ArrayList<Book>();
+        ArrayList<Book> listOfCheckedOutBooks = new ArrayList<Book>();
+        Library library = new Library(listOfAvailableBooks, listOfCheckedOutBooks);
+        BibliotecaApp application = new BibliotecaApp(view, library);
+        Message s = Message.Welcome;
+
         when(view.acceptMenuInput()).thenReturn("2");
 
-        application.start(view, library);
+        application.start();
 
-        Message s = Message.Welcome;
         verify(view).print(s);
     }
 
     @Test
     public void applicationCallsViewToPrintListOfBooksWithColumns() {
         View view = mock(View.class);
-        BibliotecaApp application = new BibliotecaApp();
-        ArrayList<Book> books = new ArrayList<Book>();
-        Library library = new Library(books);
+        ArrayList<Book> listOfAvailableBooks = new ArrayList<Book>();
+        ArrayList<Book> listOfCheckedOutBooks = new ArrayList<Book>();
+        Library library = new Library(listOfAvailableBooks, listOfCheckedOutBooks);
+        BibliotecaApp application = new BibliotecaApp(view, library);
+        String list = library.toPrintListOfAvailableBook();
+
         when(view.acceptMenuInput()).thenReturn("1").thenReturn("2");
 
-        application.start(view, library);
-        String list = library.toPrintListOfAvailableBook();
+        application.start();
 
         verify(view).printBookList(list);
     }
@@ -41,12 +45,14 @@ public class BibliotecaAppTest {
     @Test
     public void applicationCallsViewToPrintMainMenu() {
         View view = mock(View.class);
-        BibliotecaApp application = new BibliotecaApp();
-        ArrayList<Book> books = new ArrayList<Book>();
-        Library library = new Library(books);
+        ArrayList<Book> listOfAvailableBooks = new ArrayList<Book>();
+        ArrayList<Book> listOfCheckedOutBooks = new ArrayList<Book>();
+        Library library = new Library(listOfAvailableBooks, listOfCheckedOutBooks);
+        BibliotecaApp application = new BibliotecaApp(view, library);
+
         when(view.acceptMenuInput()).thenReturn("2");
 
-        application.start(view, library);
+        application.start();
 
         verify(view, atMost(2)).print(Message.MainMenu);
     }
@@ -54,12 +60,14 @@ public class BibliotecaAppTest {
     @Test
     public void applicationCallsViewToAcceptInputForMainMenuFromUser() {
         View view = mock(View.class);
-        BibliotecaApp application = new BibliotecaApp();
-        ArrayList<Book> books = new ArrayList<Book>();
-        Library library = new Library(books);
+        ArrayList<Book> listOfAvailableBooks = new ArrayList<Book>();
+        ArrayList<Book> listOfCheckedOutBooks = new ArrayList<Book>();
+        Library library = new Library(listOfAvailableBooks, listOfCheckedOutBooks);
+        BibliotecaApp application = new BibliotecaApp(view, library);
+
         when(view.acceptMenuInput()).thenReturn("2");
 
-        application.start(view, library);
+        application.start();
 
         verify(view).acceptMenuInput();
     }
@@ -67,13 +75,14 @@ public class BibliotecaAppTest {
     @Test
     public void applicationCallsViewToPrintLine() {
         View view = mock(View.class);
-        BibliotecaApp application = new BibliotecaApp();
-        ArrayList<Book> books = new ArrayList<Book>();
-        Library library = new Library(books);
+        ArrayList<Book> listOfAvailableBooks = new ArrayList<Book>();
+        ArrayList<Book> listOfCheckedOutBooks = new ArrayList<Book>();
+        Library library = new Library(listOfAvailableBooks, listOfCheckedOutBooks);
+        BibliotecaApp application = new BibliotecaApp(view, library);
 
         when(view.acceptMenuInput()).thenReturn("2");
 
-        application.start(view, library);
+        application.start();
 
         verify(view).acceptMenuInput();
     }
@@ -81,11 +90,12 @@ public class BibliotecaAppTest {
     @Test
     public void applicationCallsViewToReturnABook() {
         View view = mock(View.class);
-        BibliotecaApp application = new BibliotecaApp();
         Library library = mock(Library.class);
+        BibliotecaApp application = new BibliotecaApp(view, library);
+
         when(view.acceptMenuInput()).thenReturn("4").thenReturn("2");
 
-        application.start(view, library);
+        application.start();
 
         verify(library).returnABook(anyString());
     }
@@ -93,13 +103,15 @@ public class BibliotecaAppTest {
     @Test
     public void applicationCallsViewToPrintListOfCheckedOutBooks() {
         View view = mock(View.class);
-        BibliotecaApp application = new BibliotecaApp();
-        ArrayList<Book> books = new ArrayList<Book>();
-        Library library = new Library(books);
+        ArrayList<Book> listOfAvailableBooks = new ArrayList<Book>();
+        ArrayList<Book> listOfCheckedOutBooks = new ArrayList<Book>();
+        Library library = new Library(listOfAvailableBooks, listOfCheckedOutBooks);
+        BibliotecaApp application = new BibliotecaApp(view, library);
+        String list = library.toPrintListOfCheckedOutBook();
+
         when(view.acceptMenuInput()).thenReturn("5").thenReturn("2");
 
-        application.start(view, library);
-        String list = library.toPrintListOfCheckedOutBook();
+        application.start();
 
         verify(view).printBookList(list);
     }
