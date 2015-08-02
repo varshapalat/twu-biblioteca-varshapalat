@@ -13,10 +13,10 @@ public class Library {
     }
 
     public boolean checkout(String nameOfBookToCheckout) {
-        for (LibraryItem book : availableLibraryItems) {
-            if (book.hasTitle(nameOfBookToCheckout)) {
-                availableLibraryItems.remove(book);
-                checkedOutLibraryItems.add(book);
+        for (LibraryItem item : availableLibraryItems) {
+            if (item.hasTitle(nameOfBookToCheckout)) {
+                availableLibraryItems.remove(item);
+                checkedOutLibraryItems.add(item);
                 return true;
             }
         }
@@ -24,10 +24,10 @@ public class Library {
     }
 
     public boolean returnALibraryItem(String nameOfBookToReturn) {
-        for (LibraryItem book : checkedOutLibraryItems) {
-            if (book.hasTitle(nameOfBookToReturn)) {
-                checkedOutLibraryItems.remove(book);
-                availableLibraryItems.add(book);
+        for (LibraryItem item : checkedOutLibraryItems) {
+            if (item.hasTitle(nameOfBookToReturn)) {
+                checkedOutLibraryItems.remove(item);
+                availableLibraryItems.add(item);
                 return true;
             }
         }

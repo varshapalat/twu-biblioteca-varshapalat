@@ -35,8 +35,8 @@ public class ViewTest {
 
         view.print(Message.Welcome);
 
-        assertEquals("Welcome!! \n" +
-                " Biblioteca is now available\n", outContent.toString());
+        assertEquals("****************Welcome!!**************** \n" +
+                " ***********Biblioteca is now available***********\n", outContent.toString());
     }
 
     @Test
@@ -73,14 +73,14 @@ public class ViewTest {
                 "\n" +
                 " MAIN MENU\n" +
                 "1.List Available Books\n" +
-                "2.Quit\n" +
-                "3.Checkout Book\n" +
-                "4.Return A Book\n" +
-                "5.List Checked out Books\n" +
-                "6.List Available Movies\n" +
-                "7.List Checked out Movies\n" +
-                "8.Checkout Movie\n" +
-                "9.Return A Movie\n" +
+                "2.List Available Movies\n" +
+                "3.List Checked Out Books\n" +
+                "4.List Checked Out Movies\n" +
+                "5.Check Out Book\n" +
+                "6.Check Out Movie\n" +
+                "7.Return A Book\n" +
+                "8.Return A Movie\n" +
+                "9.Quit\n" +
                 "Enter your choice:\n", outContent.toString());
     }
 
@@ -163,6 +163,7 @@ public class ViewTest {
         view.print(Message.BookList);
 
         assertEquals("BOOKS\n" +
+                "-------------------------------------------------------\n" +
                 "TITLE\t\tAUTHOR\t\tYEAR PUBLISHED\n", outContent.toString());
     }
 
@@ -173,6 +174,7 @@ public class ViewTest {
         view.print(Message.MovieList);
 
         assertEquals("MOVIES\n" +
+                "----------------------------------------------------\n" +
                 "MOVIE NAME\tDIRECTOR\tYEAR\tRATING\n", outContent.toString());
     }
 
