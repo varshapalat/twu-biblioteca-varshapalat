@@ -9,14 +9,16 @@ enum Message {
     InvaildMenuOption("Select a valid Option!\n"),
     SuccesfulBookCheckout("Thank you! Enjoy the book\n"),
     UnsuccesfulBookCheckout("That book is not available.\n"),
-    SuccessfulReturn("Thank you for returning the book.\n"),
+    SuccessfulBookReturn("Thank you for returning the book.\n"),
     BookList("BOOKS\nTITLE\t\tAUTHOR\t\tYEAR PUBLISHED\n"),
-    UnsuccesfulReturn("That is not a valid book to return.\n"),
+    UnsuccesfulBookReturn("That is not a valid book to return.\n"),
     MovieList("MOVIES\nMOVIE NAME\tDIRECTOR\tYEAR\tRATING\n"),
     NameBook("Enter Book Name:\n"),
     NameMovie("Enter Movie Name:\n"),
-    SuccesfulMovieCheckout("Thank you! Enjoy the book\n"),
-    UnsuccesfulMovieCheckout("That movie is not available");
+    SuccesfulMovieCheckout("Thank you! Enjoy the movie\n"),
+    UnsuccesfulMovieCheckout("That movie is not available"),
+    SuccessfulMovieReturn("Thank you for returning the movie.\n"),
+    UnsuccesfulMovieReturn("That is not a valid movie to return.\n");
     private String value;
 
     Message(String s) {

@@ -142,7 +142,7 @@ public class ViewTest {
     public void viewCanPrintIfSuccessfulCheckIn() {
         View view = new View();
 
-        view.print(Message.SuccessfulReturn);
+        view.print(Message.SuccessfulBookReturn);
 
         assertEquals("Thank you for returning the book.\n", outContent.toString());
     }
@@ -151,7 +151,7 @@ public class ViewTest {
     public void viewCanPrintIfUnsuccessfulCheckIn() {
         View view = new View();
 
-        view.print(Message.UnsuccesfulReturn);
+        view.print(Message.UnsuccesfulBookReturn);
 
         assertEquals("That is not a valid book to return.\n", outContent.toString());
     }
@@ -182,7 +182,7 @@ public class ViewTest {
 
         view.print(Message.SuccesfulMovieCheckout);
 
-        assertEquals("Thank you! Enjoy the book\n", outContent.toString());
+        assertEquals("Thank you! Enjoy the movie\n", outContent.toString());
     }
 
     @Test
@@ -192,5 +192,24 @@ public class ViewTest {
         view.print(Message.UnsuccesfulMovieCheckout);
 
         assertEquals("That movie is not available", outContent.toString());
+    }
+
+
+    @Test
+    public void viewCanPrintIfSuccessfulMovieReturn() {
+        View view = new View();
+
+        view.print(Message.SuccessfulMovieReturn);
+
+        assertEquals("Thank you for returning the movie.\n", outContent.toString());
+    }
+
+    @Test
+    public void viewCanPrintIfUnsuccessfulMovieReturn() {
+        View view = new View();
+
+        view.print(Message.UnsuccesfulMovieReturn);
+
+        assertEquals("That is not a valid movie to return.\n", outContent.toString());
     }
 }

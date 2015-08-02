@@ -39,10 +39,10 @@ public class BibliotecaApp {
                 view.print(Message.NameBook);
                 String bookName = view.acceptStringMenuInput();
                 if (bookLibrary.returnALibraryItem(bookName)) {
-                    view.print(Message.SuccessfulReturn);
+                    view.print(Message.SuccessfulBookReturn);
                 }
                 else {
-                    view.print(Message.UnsuccesfulReturn);
+                    view.print(Message.UnsuccesfulBookReturn);
                 }
             } else if(choice.equals("5")) {
                 view.print(Message.BookList);
@@ -67,7 +67,12 @@ public class BibliotecaApp {
             else if(choice.equals("9")) {
                 view.print(Message.NameMovie);
                 String movieName = view.acceptStringMenuInput();
-                movieLibrary.returnALibraryItem(movieName);
+                if(movieLibrary.returnALibraryItem(movieName)) {
+                    view.print(Message.SuccessfulMovieReturn);
+                }
+                else {
+                    view.print(Message.UnsuccesfulMovieReturn);
+                }
             }
             else {
                 view.print(Message.InvaildMenuOption);
