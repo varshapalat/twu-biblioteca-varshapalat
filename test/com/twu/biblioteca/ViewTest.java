@@ -183,4 +183,13 @@ public class ViewTest {
 
         assertEquals("Thank you! Enjoy the book\n", outContent.toString());
     }
+
+    @Test
+    public void viewCanPrintIfUnsuccessfulMovieCheckout() {
+        View view = new View();
+
+        view.print(Message.UnsuccesfulMovieCheckout);
+
+        assertEquals("That movie is not available", outContent.toString());
+    }
 }

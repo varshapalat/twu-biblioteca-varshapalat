@@ -60,6 +60,9 @@ public class BibliotecaApp {
                 if(movieLibrary.checkout(movieName)) {
                     view.print(Message.SuccesfulMovieCheckout);
                 }
+                else {
+                    view.print(Message.UnsuccesfulMovieCheckout);
+                }
             }
             else {
                 view.print(Message.InvaildMenuOption);

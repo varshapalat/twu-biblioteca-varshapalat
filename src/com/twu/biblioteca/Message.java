@@ -15,7 +15,8 @@ enum Message {
     MovieList("MOVIES\nMOVIE NAME\tDIRECTOR\tYEAR\tRATING\n"),
     NameBook("Enter Book Name:\n"),
     NameMovie("Enter Movie Name:\n"),
-    SuccesfulMovieCheckout("Thank you! Enjoy the book\n");
+    SuccesfulMovieCheckout("Thank you! Enjoy the book\n"),
+    UnsuccesfulMovieCheckout("That movie is not available");
     private String value;
 
     Message(String s) {
