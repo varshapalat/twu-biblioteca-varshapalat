@@ -123,7 +123,7 @@ public class ViewTest {
     public void viewCanPrintIfSuccessfulCheckout() {
         View view = new View();
 
-        view.print(Message.SuccesfulCheckout);
+        view.print(Message.SuccesfulBookCheckout);
 
         assertEquals("Thank you! Enjoy the book\n", outContent.toString());
     }
@@ -132,7 +132,7 @@ public class ViewTest {
     public void viewCanPrintIfUnsuccessfulCheckout() {
         View view = new View();
 
-        view.print(Message.UnsuccesfulCheckout);;
+        view.print(Message.UnsuccesfulBookCheckout);;
 
         assertEquals("That book is not available.\n", outContent.toString());
     }
@@ -173,5 +173,14 @@ public class ViewTest {
 
         assertEquals("MOVIES\n" +
                 "MOVIE NAME\tDIRECTOR\tYEAR\tRATING\n", outContent.toString());
+    }
+
+    @Test
+    public void viewCanPrintIfSuccessfulMovieCheckout() {
+        View view = new View();
+
+        view.print(Message.SuccesfulMovieCheckout);
+
+        assertEquals("Thank you! Enjoy the book\n", outContent.toString());
     }
 }

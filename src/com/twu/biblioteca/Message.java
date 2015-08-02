@@ -7,14 +7,15 @@ enum Message {
             "5.List Checked out Books\n6.List Available Movies\n7.List Checked out Movies\n8.Checkout Movie\nEnter your choice:\n"),
     Line("------------------------------------------------------------\n"),
     InvaildMenuOption("Select a valid Option!\n"),
-    SuccesfulCheckout("Thank you! Enjoy the book\n"),
-    UnsuccesfulCheckout("That book is not available.\n"),
+    SuccesfulBookCheckout("Thank you! Enjoy the book\n"),
+    UnsuccesfulBookCheckout("That book is not available.\n"),
     SuccessfulReturn("Thank you for returning the book.\n"),
     BookList("BOOKS\nTITLE\t\tAUTHOR\t\tYEAR PUBLISHED\n"),
     UnsuccesfulReturn("That is not a valid book to return.\n"),
     MovieList("MOVIES\nMOVIE NAME\tDIRECTOR\tYEAR\tRATING\n"),
     NameBook("Enter Book Name:\n"),
-    NameMovie("Enter Movie Name:\n") ;
+    NameMovie("Enter Movie Name:\n"),
+    SuccesfulMovieCheckout("Thank you! Enjoy the book\n");
     private String value;
 
     Message(String s) {
