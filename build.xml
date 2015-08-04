@@ -19,6 +19,9 @@
             <test name="com.twu.biblioteca.LibraryTest" haltonfailure="true" haltonerror="true"/>
             <test name="com.twu.biblioteca.BookTest" haltonfailure="true" haltonerror="true"/>
             <test name="com.twu.biblioteca.MovieTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.ApplicationTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.AuthenticatorTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.UserTest" haltonfailure="true" haltonerror="true"/>
         </junit>
     </target>
 
