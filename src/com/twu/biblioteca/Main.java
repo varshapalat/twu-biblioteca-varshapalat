@@ -35,16 +35,17 @@ public class Main {
         Dispatcher dispatcher = new Dispatcher(view, bookLibrary, movieLibrary);
 
         User userOne = new User("123-4567", "qwerty");
-        User userTwo = new User("123-4567", "qwerty");
-        User userThree = new User("123-4567", "qwerty");
+        User userTwo = new User("abc-defg", "qwerty");
+        User userThree = new User("var-shap", "qwerty");
 
         ArrayList<User> UserList = new ArrayList<User>();
         UserList.add(userOne);
         UserList.add(userTwo);
         UserList.add(userThree);
 
+        Authenticator authenticator = new Authenticator(UserList);
+
         Application application = new Application();
         application.start(view);
-        //application.start();
     }
 }
