@@ -19,6 +19,7 @@ enum Message {
     UnsuccesfulMovieCheckout("That movie is not available"),
     SuccessfulMovieReturn("Thank you for returning the movie.\n"),
     UnsuccesfulMovieReturn("That is not a valid movie to return.\n"),
+    Initial("1.Login\n2.Quit\n"),
     Login("Login\nEnter library number(xxx-xxxx):\n");
     private String value;
 

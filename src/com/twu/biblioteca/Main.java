@@ -44,8 +44,7 @@ public class Main {
         UserList.add(userThree);
 
         Application application = new Application();
-
-
+        application.start(view);
         //application.start();
     }
 }

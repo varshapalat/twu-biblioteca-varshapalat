@@ -14,9 +14,6 @@ public class Dispatcher {
 
     public void start() {
         String choice = "0";
-        view.print(Message.Line);
-        view.print(Message.Welcome);
-        view.print(Message.Line);
 
         while (!choice.equals("9")) {
             view.print(Message.MainMenu);

@@ -9,21 +9,6 @@ import static org.mockito.Mockito.*;
 public class DispatcherTest {
 
     @Test
-    public void applicationCallsViewToPrintAppropriateMessage() {
-        View view = mock(View.class);
-        Library bookLibrary = mock(Library.class);
-        Library movieLibrary = mock(Library.class);
-        Dispatcher application = new Dispatcher(view, bookLibrary, movieLibrary);
-        Message s = Message.Welcome;
-
-        when(view.acceptInput()).thenReturn("9");
-
-        application.start();
-
-        verify(view).print(s);
-    }
-
-    @Test
     public void applicationCallsViewToPrintListOfAvailableBooksWithColumns() {
         View view = mock(View.class);
         Library bookLibrary = mock(Library.class);
