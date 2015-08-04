@@ -18,7 +18,8 @@ enum Message {
     SuccesfulMovieCheckout("Thank you! Enjoy the movie\n"),
     UnsuccesfulMovieCheckout("That movie is not available"),
     SuccessfulMovieReturn("Thank you for returning the movie.\n"),
-    UnsuccesfulMovieReturn("That is not a valid movie to return.\n");
+    UnsuccesfulMovieReturn("That is not a valid movie to return.\n"),
+    Login("Login\nEnter library number(xxx-xxxx):\n");
     private String value;
 
     Message(String s) {

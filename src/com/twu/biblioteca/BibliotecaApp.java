@@ -18,6 +18,9 @@ public class BibliotecaApp {
         view.print(Message.Welcome);
         view.print(Message.Line);
 
+        view.print(Message.Login);
+        view.acceptInput();
+
         while (!choice.equals("9")) {
             view.print(Message.MainMenu);
             choice = view.acceptInput();

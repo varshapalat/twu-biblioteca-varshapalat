@@ -32,8 +32,11 @@ public class Main {
 
         Library bookLibrary = new Library(availableBooks, checkedOutBooks);
         Library movieLibrary = new Library(availableMovies, checkedOutMovies);
-        BibliotecaApp application = new BibliotecaApp(view, bookLibrary, movieLibrary);
 
-        application.start();
+        ViewWelcomeMessage viewWelcomeMessage = new ViewWelcomeMessage();
+        ViewMainMenu viewMainMenu = new ViewMainMenu();
+        Application app = new Application(viewWelcomeMessage);
+
+        app.start(viewWelcomeMessage, viewMainMenu);
     }
 }

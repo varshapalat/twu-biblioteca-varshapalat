@@ -11,8 +11,8 @@ public class View {
 
     public String acceptInput() {
         Scanner scanner = new Scanner(System.in);
-        String choice = scanner.nextLine();
-        return choice;
+        String userInput = scanner.nextLine();
+        return userInput;
     }
 
     public void print(Message s) {
