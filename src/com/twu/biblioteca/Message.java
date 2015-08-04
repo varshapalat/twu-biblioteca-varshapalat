@@ -21,6 +21,7 @@ enum Message {
     UnsuccesfulMovieReturn("That is not a valid movie to return.\n"),
     Initial("1.Login\n2.Quit\n"),
     EnterPassword("Enter the password:\n"),
+    InvalidLogin("Sorry! You entered the wrong login id and password\n"),
     Login("Login\nEnter library number(xxx-xxxx):\n");
     private String value;
 

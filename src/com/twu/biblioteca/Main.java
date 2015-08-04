@@ -34,16 +34,16 @@ public class Main {
         Library movieLibrary = new Library(availableMovies, checkedOutMovies);
         Dispatcher dispatcher = new Dispatcher(view, bookLibrary, movieLibrary);
 
-        User userOne = new User("123-4567", "qwerty");
-        User userTwo = new User("abc-defg", "qwerty");
-        User userThree = new User("var-shap", "qwerty");
+        User userOne = new User("123-4567", "qwerty", "librarian");
+        User userTwo = new User("abc-defg", "qwerty", "customer");
+        User userThree = new User("var-shap", "qwerty", "customer");
 
-        ArrayList<User> UserList = new ArrayList<User>();
-        UserList.add(userOne);
-        UserList.add(userTwo);
-        UserList.add(userThree);
+        ArrayList<User> userList = new ArrayList<User>();
+        userList.add(userOne);
+        userList.add(userTwo);
+        userList.add(userThree);
 
-        Authenticator authenticator = new Authenticator(UserList);
+        Authenticator authenticator = new Authenticator(userList);
 
         Application application = new Application(authenticator);
         application.start(view);

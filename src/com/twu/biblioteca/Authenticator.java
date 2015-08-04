@@ -8,11 +8,11 @@ public class Authenticator {
         this.userList = userList;
     }
 
-    public boolean authenticate(String loginId, String password) {
+    public String authenticate(String loginId, String password) {
         for (User anUserList : userList) {
             if ((loginId.equals(anUserList.loginId)) && password.equals(anUserList.password))
-                return true;
+                return anUserList.role;
         }
-        return false;
+        return String.valueOf(false);
     }
 }

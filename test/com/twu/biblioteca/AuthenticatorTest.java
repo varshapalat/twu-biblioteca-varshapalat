@@ -9,9 +9,9 @@ import static org.junit.Assert.assertEquals;
 public class AuthenticatorTest {
     @Test
     public void authenticateAUser() {
-        User userOne = new User("123-4567", "qwerty");
-        User userTwo = new User("abc-defg", "qwerty");
-        User userThree = new User("var-shap", "qwerty");
+        User userOne = new User("123-4567", "qwerty", "librarian");
+        User userTwo = new User("abc-defg", "qwerty", "customer");
+        User userThree = new User("var-shap", "qwerty", "customer");
 
         ArrayList<User> UserList = new ArrayList<User>();
         UserList.add(userOne);
@@ -20,6 +20,6 @@ public class AuthenticatorTest {
 
         Authenticator authenticator = new Authenticator(UserList);
 
-        assertEquals(true, authenticator.authenticate("123-4567", "qwerty"));
+        assertEquals("librarian", authenticator.authenticate("123-4567", "qwerty"));
     }
 }
