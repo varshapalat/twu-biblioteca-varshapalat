@@ -9,7 +9,10 @@ public class Application {
         view.print(Message.Initial);
         String choice = view.acceptInput();
         if (choice.equals("1")) {
-
+            view.print(Message.Login);
+            String loginId = view.acceptInput();
+            view.print(Message.EnterPassword);
+            String password = view.acceptInput();
         }
         else {
         }

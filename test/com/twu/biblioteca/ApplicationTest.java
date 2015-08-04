@@ -25,6 +25,6 @@ public class ApplicationTest {
         when(view.acceptInput()).thenReturn("1");
         application.start(view);
 
-        verify(view).acceptInput();
+        verify(view,times(3)).acceptInput();
     }
 }
