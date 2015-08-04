@@ -6,14 +6,14 @@ import org.junit.Test;
 import static org.mockito.Mockito.*;
 
 
-public class BibliotecaAppTest {
+public class DispatcherTest {
 
     @Test
     public void applicationCallsViewToPrintAppropriateMessage() {
         View view = mock(View.class);
         Library bookLibrary = mock(Library.class);
         Library movieLibrary = mock(Library.class);
-        BibliotecaApp application = new BibliotecaApp(view, bookLibrary, movieLibrary);
+        Dispatcher application = new Dispatcher(view, bookLibrary, movieLibrary);
         Message s = Message.Welcome;
 
         when(view.acceptInput()).thenReturn("9");
@@ -28,7 +28,7 @@ public class BibliotecaAppTest {
         View view = mock(View.class);
         Library bookLibrary = mock(Library.class);
         Library movieLibrary = mock(Library.class);
-        BibliotecaApp application = new BibliotecaApp(view, bookLibrary, movieLibrary);
+        Dispatcher application = new Dispatcher(view, bookLibrary, movieLibrary);
         String list = bookLibrary.listOfAvailableLibraryItems();
 
         when(view.acceptInput()).thenReturn("1").thenReturn("9");
@@ -43,7 +43,7 @@ public class BibliotecaAppTest {
         View view = mock(View.class);
         Library bookLibrary = mock(Library.class);
         Library movieLibrary = mock(Library.class);
-        BibliotecaApp application = new BibliotecaApp(view, bookLibrary, movieLibrary);
+        Dispatcher application = new Dispatcher(view, bookLibrary, movieLibrary);
 
         when(view.acceptInput()).thenReturn("9");
 
@@ -57,7 +57,7 @@ public class BibliotecaAppTest {
         View view = mock(View.class);
         Library bookLibrary = mock(Library.class);
         Library movieLibrary = mock(Library.class);
-        BibliotecaApp application = new BibliotecaApp(view, bookLibrary, movieLibrary);
+        Dispatcher application = new Dispatcher(view, bookLibrary, movieLibrary);
 
         when(view.acceptInput()).thenReturn("9");
 
@@ -71,7 +71,7 @@ public class BibliotecaAppTest {
         View view = mock(View.class);
         Library bookLibrary = mock(Library.class);
         Library movieLibrary = mock(Library.class);
-        BibliotecaApp application = new BibliotecaApp(view, bookLibrary, movieLibrary);
+        Dispatcher application = new Dispatcher(view, bookLibrary, movieLibrary);
 
         when(view.acceptInput()).thenReturn("7").thenReturn("9");
 
@@ -85,14 +85,12 @@ public class BibliotecaAppTest {
         View view = mock(View.class);
         Library bookLibrary = mock(Library.class);
         Library movieLibrary = mock(Library.class);
-        BibliotecaApp application = new BibliotecaApp(view, bookLibrary, movieLibrary);
-        String list = bookLibrary.listOfCheckedOutLibraryItems();
+        Dispatcher application = new Dispatcher(view, bookLibrary, movieLibrary);
 
         when(view.acceptInput()).thenReturn("3").thenReturn("9");
-
         application.start();
 
-        verify(view).printList(list);
+        verify(view).printList(anyString());
     }
 
     @Test
@@ -100,7 +98,7 @@ public class BibliotecaAppTest {
         View view = mock(View.class);
         Library bookLibrary = mock(Library.class);
         Library movieLibrary = mock(Library.class);
-        BibliotecaApp app = new BibliotecaApp(view, bookLibrary, movieLibrary);
+        Dispatcher app = new Dispatcher(view, bookLibrary, movieLibrary);
 
         when(view.acceptInput()).thenReturn("4").thenReturn("9");
         when(movieLibrary.listOfCheckedOutLibraryItems()).thenReturn(anyString());
@@ -115,7 +113,7 @@ public class BibliotecaAppTest {
         View view = mock(View.class);
         Library bookLibrary = mock(Library.class);
         Library movieLibrary = mock(Library.class);
-        BibliotecaApp app = new BibliotecaApp(view, bookLibrary, movieLibrary);
+        Dispatcher app = new Dispatcher(view, bookLibrary, movieLibrary);
 
         when(view.acceptInput()).thenReturn("6").thenReturn("9");
 
@@ -129,7 +127,7 @@ public class BibliotecaAppTest {
         View view = mock(View.class);
         Library bookLibrary = mock(Library.class);
         Library movieLibrary = mock(Library.class);
-        BibliotecaApp app = new BibliotecaApp(view, bookLibrary, movieLibrary);
+        Dispatcher app = new Dispatcher(view, bookLibrary, movieLibrary);
 
         when(view.acceptInput()).thenReturn("8").thenReturn("9");
 

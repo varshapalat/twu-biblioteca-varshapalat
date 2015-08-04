@@ -1,12 +1,12 @@
 package com.twu.biblioteca;
 
 
-public class BibliotecaApp {
+public class Dispatcher {
     Library bookLibrary;
     Library movieLibrary;
     View view;
 
-    public BibliotecaApp(View view, Library bookLibrary, Library movieLibrary) {
+    public Dispatcher(View view, Library bookLibrary, Library movieLibrary) {
         this.bookLibrary = bookLibrary;
         this.movieLibrary = movieLibrary;
         this.view = view;
@@ -17,9 +17,6 @@ public class BibliotecaApp {
         view.print(Message.Line);
         view.print(Message.Welcome);
         view.print(Message.Line);
-
-        view.print(Message.Login);
-        view.acceptInput();
 
         while (!choice.equals("9")) {
             view.print(Message.MainMenu);

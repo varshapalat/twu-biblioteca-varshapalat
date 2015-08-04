@@ -15,8 +15,10 @@
             <classpath location="lib/junit-4.11.jar" path="antBuild"/>
             <classpath location="lib/mockito-all-1.9.5.jar" path="antBuild"/>
             <test name="com.twu.biblioteca.ViewTest" haltonfailure="true" haltonerror="true"/>
-            <test name="com.twu.biblioteca.BibliotecaAppTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.DispatcherTest" haltonfailure="true" haltonerror="true"/>
             <test name="com.twu.biblioteca.LibraryTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.BookTest" haltonfailure="true" haltonerror="true"/>
+            <test name="com.twu.biblioteca.MovieTest" haltonfailure="true" haltonerror="true"/>
         </junit>
     </target>
 

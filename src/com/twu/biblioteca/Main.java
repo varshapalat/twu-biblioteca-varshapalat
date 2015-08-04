@@ -32,11 +32,20 @@ public class Main {
 
         Library bookLibrary = new Library(availableBooks, checkedOutBooks);
         Library movieLibrary = new Library(availableMovies, checkedOutMovies);
+        Dispatcher dispatcher = new Dispatcher(view, bookLibrary, movieLibrary);
 
-        ViewWelcomeMessage viewWelcomeMessage = new ViewWelcomeMessage();
-        ViewMainMenu viewMainMenu = new ViewMainMenu();
-        Application app = new Application(viewWelcomeMessage);
+        User userOne = new User("123-4567", "qwerty");
+        User userTwo = new User("123-4567", "qwerty");
+        User userThree = new User("123-4567", "qwerty");
 
-        app.start(viewWelcomeMessage, viewMainMenu);
+        ArrayList<User> UserList = new ArrayList<User>();
+        UserList.add(userOne);
+        UserList.add(userTwo);
+        UserList.add(userThree);
+
+        Application application = new Application();
+
+
+        //application.start();
     }
 }
