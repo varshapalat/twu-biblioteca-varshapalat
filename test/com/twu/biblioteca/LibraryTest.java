@@ -23,7 +23,7 @@ public class LibraryTest {
         expectedLibraryItems.add(bookThree);
         Library library = new Library(avialableLibraryItems, checkedOutLibraryItems);
 
-        boolean actual = library.checkout("Kane and Abel");
+        boolean actual = library.checkout("Kane and Abel", "123-4567");
 
         assertEquals(expectedLibraryItems, avialableLibraryItems);
         assertEquals(true, actual);
@@ -82,8 +82,8 @@ public class LibraryTest {
         listOfAvailableLibraryBooks.add(bookOne);
         listOfAvailableLibraryBooks.add(bookThree);
         Library library = new Library(listOfAvailableLibraryBooks, listOfCheckedOutBooks);
-        library.checkout("The Da Vinci Code");
-        library.checkout("The Alchemist");
+        library.checkout("The Da Vinci Code", "123-4567");
+        library.checkout("The Alchemist", "123-4567");
 
         String listOfBookDetails = library.listOfCheckedOutLibraryItems();
 
@@ -108,7 +108,7 @@ public class LibraryTest {
         expectedLibraryItems.add(movieThree);
         Library library = new Library(avialableLibraryItems, checkedOutLibraryItems);
 
-        boolean actual = library.checkout("Gladiator");
+        boolean actual = library.checkout("Gladiator", "123-4567");
 
         assertEquals(expectedLibraryItems, avialableLibraryItems);
         assertEquals(true, actual);
@@ -170,8 +170,8 @@ public class LibraryTest {
         availableMovies.add(movieTwo);
         availableMovies.add(movieThree);
         Library library = new Library(availableMovies, checkedOutMovies);
-        library.checkout("Gone Girl");
-        library.checkout("Matrix");
+        library.checkout("Gone Girl", "123-4567");
+        library.checkout("Matrix", "123-4567");
 
         String listOfBookDetails = library.listOfCheckedOutLibraryItems();
 

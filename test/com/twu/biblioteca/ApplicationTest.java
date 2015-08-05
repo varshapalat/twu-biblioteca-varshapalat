@@ -49,4 +49,18 @@ public class ApplicationTest {
 
         verify(authenticator).authenticate("123-4567", "qwerty");
     }
+
+    @Test
+    public void applicationCallsDispatcherToPerformAppropriateFunctionality() {
+        Authenticator authenticator = mock(Authenticator.class);
+        Dispatcher dispatcher = mock(Dispatcher.class);
+        View view = mock(View.class);
+        Application application = new Application(authenticator, dispatcher);
+
+        when(view.acceptInput()).thenReturn("1").thenReturn("123-4567").thenReturn("qwerty").thenReturn("6").thenReturn("7").thenReturn("2");
+        when(authenticator.authenticate("123-4567", "qwerty")).thenReturn("librarian");
+        application.start(view);
+
+        verify(dispatcher, times(2)).start(anyString(), anyString());
+    }
 }

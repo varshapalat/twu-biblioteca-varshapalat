@@ -15,7 +15,7 @@ public class DispatcherTest {
         Library movieLibrary = mock(Library.class);
         Dispatcher dispatcher = new Dispatcher(view, bookLibrary, movieLibrary);
 
-        dispatcher.start("1");
+        dispatcher.start("1", "123-4567");
 
         verify(view).printList(anyString());
     }
@@ -27,7 +27,7 @@ public class DispatcherTest {
         Library movieLibrary = mock(Library.class);
         Dispatcher dispatcher = new Dispatcher(view, bookLibrary, movieLibrary);
 
-        dispatcher.start("5");
+        dispatcher.start("5", "123-4567");
 
         verify(bookLibrary).returnALibraryItem(anyString());
     }
@@ -39,7 +39,7 @@ public class DispatcherTest {
         Library movieLibrary = mock(Library.class);
         Dispatcher dispatcher = new Dispatcher(view, bookLibrary, movieLibrary);
 
-        dispatcher.start("8");
+        dispatcher.start("8", "123-4567");
 
         verify(view).printList(anyString());
     }
@@ -51,7 +51,7 @@ public class DispatcherTest {
         Library movieLibrary = mock(Library.class);
         Dispatcher dispatcher = new Dispatcher(view, bookLibrary, movieLibrary);
 
-        dispatcher.start("9");
+        dispatcher.start("9", "123-4567");
 
         verify(view).printList(anyString());
     }
@@ -63,9 +63,9 @@ public class DispatcherTest {
         Library movieLibrary = mock(Library.class);
         Dispatcher dispatcher = new Dispatcher(view, bookLibrary, movieLibrary);
 
-        dispatcher.start("4");
+        dispatcher.start("4", "123-4567");
 
-        verify(movieLibrary).checkout(anyString());
+        verify(movieLibrary).checkout(anyString(), anyString());
     }
 
     @Test
@@ -75,7 +75,7 @@ public class DispatcherTest {
         Library movieLibrary = mock(Library.class);
         Dispatcher dispatcher = new Dispatcher(view, bookLibrary, movieLibrary);
 
-        dispatcher.start("6");
+        dispatcher.start("6", "123-4567");
 
         verify(movieLibrary).returnALibraryItem(anyString());
     }

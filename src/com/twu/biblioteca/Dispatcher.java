@@ -12,7 +12,7 @@ public class Dispatcher {
         this.view = view;
     }
 
-    public void start(String choice) {
+    public void start(String choice, String loginId) {
 
             if (choice.equals("1")) {
                 view.print(Message.BookList);
@@ -23,7 +23,7 @@ public class Dispatcher {
             } else if (choice.equals("3")) {
                 view.print(Message.NameBook);
                 String bookName = view.acceptInput();
-                if (bookLibrary.checkout(bookName)) {
+                if (bookLibrary.checkout(bookName, loginId)) {
                     view.print(Message.SuccesfulBookCheckout);
                 }
                 else {
@@ -32,7 +32,7 @@ public class Dispatcher {
             } else if (choice.equals("4")) {
                 view.print(Message.NameMovie);
                 String movieName = view.acceptInput();
-                if(movieLibrary.checkout(movieName)) {
+                if(movieLibrary.checkout(movieName, loginId)) {
                     view.print(Message.SuccesfulMovieCheckout);
                 }
                 else {

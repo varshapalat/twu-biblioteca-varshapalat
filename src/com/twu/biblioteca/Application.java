@@ -27,11 +27,17 @@ public class Application {
                     do {
                         view.print(Message.LibrarianMainMenu);
                         option = view.acceptInput();
-                        dispatcher.start(option);
+                        dispatcher.start(option, loginId);
                     }while (!option.equals("7"));
                     view.print(Message.SuccessfulLogout);
                 } else if (authenticator.authenticate(loginId, password).equals("customer")) {
-                    view.print(Message.CustomerMainMenu);
+                    do {
+                        view.print(Message.CustomerMainMenu);
+                        option = view.acceptInput();
+                        if(!(option.equals("8") || option.equals("9")))
+                        dispatcher.start(option, loginId);
+                    }while (!option.equals("7"));
+                    view.print(Message.SuccessfulLogout);
                 } else {
                     view.print(Message.InvalidLogin);
                 }

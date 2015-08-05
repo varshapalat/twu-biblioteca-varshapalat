@@ -12,7 +12,7 @@ public class Library {
         this.checkedOutLibraryItems = checkedOutLibraryItems;
     }
 
-    public boolean checkout(String nameOfBookToCheckout) {
+    public boolean checkout(String nameOfBookToCheckout, String user) {
         for (LibraryItem item : availableLibraryItems) {
             if (item.hasTitle(nameOfBookToCheckout)) {
                 availableLibraryItems.remove(item);
