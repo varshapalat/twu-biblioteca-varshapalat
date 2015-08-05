@@ -6,6 +6,8 @@ import org.junit.Test;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import static org.junit.Assert.assertEquals;
 
 
@@ -43,7 +45,7 @@ public class ViewTest {
     public void viewCanPrintListOfBooks() {
         View view = new View();
         ArrayList<LibraryItem> availableBooks = new ArrayList<LibraryItem>();
-        ArrayList<LibraryItem> checkedOutBooks = new ArrayList<LibraryItem>();
+        HashMap<LibraryItem, String> checkedOutBooks = new HashMap<LibraryItem, String>();
 
         Book bookOne = new Book("The Da Vinci Code", "Dan Brown", "2000");
         Book bookTwo = new Book("Kane and Abel", "Jeffrey Archer", "1979");

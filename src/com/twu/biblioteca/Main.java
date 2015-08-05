@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class Main {
@@ -9,7 +10,7 @@ public class Main {
         View view = new View();
 
         ArrayList<LibraryItem> availableBooks = new ArrayList<LibraryItem>();
-        ArrayList<LibraryItem> checkedOutBooks = new ArrayList<LibraryItem>();
+        HashMap<LibraryItem, String> checkedOutBooks = new HashMap<LibraryItem, String>();
 
         Book bookOne = new Book("The Da Vinci Code", "Dan Brown", "2000");
         Book bookTwo = new Book("Kane and Abel", "Jeffrey Archer", "1979");
@@ -20,7 +21,7 @@ public class Main {
         availableBooks.add(bookThree);
 
         ArrayList<LibraryItem> availableMovies = new ArrayList<LibraryItem>();
-        ArrayList<LibraryItem> checkedOutMovies = new ArrayList<LibraryItem>();
+        HashMap<LibraryItem, String> checkedOutMovies = new HashMap<LibraryItem, String>();
 
         Movie movieOne = new Movie("Gone Girl", "David Fincher", "2014", "8");
         Movie movieTwo = new Movie("Gladiator", "Ridley Scott", "2000", "7.6");
