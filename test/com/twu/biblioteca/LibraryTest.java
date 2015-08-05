@@ -72,27 +72,24 @@ public class LibraryTest {
                 " ", listOfBookDetails);
     }
 
-   /* @Test
+    @Test
     public void libraryCanReturnListOfCheckedOutBooks() {
         Book bookOne = new Book("The Da Vinci Code", "Dan Brown", "2000");
         Book bookTwo = new Book("Kane and Abel", "Jeffrey Archer", "1979");
         Book bookThree = new Book("The Alchemist", "Paulo Coelho", "1988");
         ArrayList<LibraryItem> listOfAvailableLibraryBooks = new ArrayList<LibraryItem>();
         HashMap<LibraryItem, String> listOfCheckedOutBooks = new HashMap<LibraryItem, String>();
-        listOfCheckedOutBooks.put(bookTwo, "123-4567");
         listOfAvailableLibraryBooks.add(bookOne);
+        listOfAvailableLibraryBooks.add(bookTwo);
         listOfAvailableLibraryBooks.add(bookThree);
         Library library = new Library(listOfAvailableLibraryBooks, listOfCheckedOutBooks);
         library.checkout("The Da Vinci Code", "123-4567");
-        library.checkout("The Alchemist", "123-4567");
 
         String listOfBookDetails = library.listOfCheckedOutLibraryItems();
 
-        assertEquals("Kane and Abel\tJeffrey Archer\t\t1979\n" +
-                " The Da Vinci Code\tDan Brown\t\t2000\n" +
-                " The Alchemist\tPaulo Coelho\t\t1988\n" +
-                " ", listOfBookDetails);
-    }*/
+        assertEquals("The Da Vinci Code\tDan Brown\t\t2000\n" +
+                "123-4567\n", listOfBookDetails);
+    }
 
     @Test
     public void libraryCanCheckOutAMovie() {

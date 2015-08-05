@@ -45,8 +45,10 @@ public class Library {
 
     public String listOfCheckedOutLibraryItems() {
         String list = "";
-        for (int i = 0; i < checkedOutLibraryItems.size(); i++) {
-            list += String.format("%s ", checkedOutLibraryItems.get(i));
+        String userId;
+        for(LibraryItem key: checkedOutLibraryItems.keySet()) {
+            userId = checkedOutLibraryItems.get(key);
+            list += key + userId + "\n";
         }
         return list;
     }
