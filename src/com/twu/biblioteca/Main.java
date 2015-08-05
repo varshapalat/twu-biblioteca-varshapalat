@@ -45,7 +45,7 @@ public class Main {
 
         Authenticator authenticator = new Authenticator(userList);
 
-        Application application = new Application(authenticator);
+        Application application = new Application(authenticator, dispatcher);
         application.start(view);
     }
 }

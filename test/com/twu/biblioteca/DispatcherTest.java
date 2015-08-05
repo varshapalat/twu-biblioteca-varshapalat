@@ -13,42 +13,11 @@ public class DispatcherTest {
         View view = mock(View.class);
         Library bookLibrary = mock(Library.class);
         Library movieLibrary = mock(Library.class);
-        Dispatcher application = new Dispatcher(view, bookLibrary, movieLibrary);
-        String list = bookLibrary.listOfAvailableLibraryItems();
+        Dispatcher dispatcher = new Dispatcher(view, bookLibrary, movieLibrary);
 
-        when(view.acceptInput()).thenReturn("1").thenReturn("9");
+        dispatcher.start("1");
 
-        application.start();
-
-        verify(view).printList(list);
-    }
-
-    @Test
-    public void applicationCallsViewToPrintMainMenu() {
-        View view = mock(View.class);
-        Library bookLibrary = mock(Library.class);
-        Library movieLibrary = mock(Library.class);
-        Dispatcher application = new Dispatcher(view, bookLibrary, movieLibrary);
-
-        when(view.acceptInput()).thenReturn("9");
-
-        application.start();
-
-        verify(view, atMost(2)).print(Message.MainMenu);
-    }
-
-    @Test
-    public void applicationCallsViewToAcceptInputForMainMenuFromUser() {
-        View view = mock(View.class);
-        Library bookLibrary = mock(Library.class);
-        Library movieLibrary = mock(Library.class);
-        Dispatcher application = new Dispatcher(view, bookLibrary, movieLibrary);
-
-        when(view.acceptInput()).thenReturn("9");
-
-        application.start();
-
-        verify(view).acceptInput();
+        verify(view).printList(anyString());
     }
 
     @Test
@@ -56,11 +25,9 @@ public class DispatcherTest {
         View view = mock(View.class);
         Library bookLibrary = mock(Library.class);
         Library movieLibrary = mock(Library.class);
-        Dispatcher application = new Dispatcher(view, bookLibrary, movieLibrary);
+        Dispatcher dispatcher = new Dispatcher(view, bookLibrary, movieLibrary);
 
-        when(view.acceptInput()).thenReturn("7").thenReturn("9");
-
-        application.start();
+        dispatcher.start("5");
 
         verify(bookLibrary).returnALibraryItem(anyString());
     }
@@ -70,10 +37,9 @@ public class DispatcherTest {
         View view = mock(View.class);
         Library bookLibrary = mock(Library.class);
         Library movieLibrary = mock(Library.class);
-        Dispatcher application = new Dispatcher(view, bookLibrary, movieLibrary);
+        Dispatcher dispatcher = new Dispatcher(view, bookLibrary, movieLibrary);
 
-        when(view.acceptInput()).thenReturn("3").thenReturn("9");
-        application.start();
+        dispatcher.start("8");
 
         verify(view).printList(anyString());
     }
@@ -83,14 +49,11 @@ public class DispatcherTest {
         View view = mock(View.class);
         Library bookLibrary = mock(Library.class);
         Library movieLibrary = mock(Library.class);
-        Dispatcher app = new Dispatcher(view, bookLibrary, movieLibrary);
+        Dispatcher dispatcher = new Dispatcher(view, bookLibrary, movieLibrary);
 
-        when(view.acceptInput()).thenReturn("4").thenReturn("9");
-        when(movieLibrary.listOfCheckedOutLibraryItems()).thenReturn(anyString());
+        dispatcher.start("9");
 
-        app.start();
-
-        verify(view).printList(movieLibrary.listOfCheckedOutLibraryItems());
+        verify(view).printList(anyString());
     }
 
     @Test
@@ -98,11 +61,9 @@ public class DispatcherTest {
         View view = mock(View.class);
         Library bookLibrary = mock(Library.class);
         Library movieLibrary = mock(Library.class);
-        Dispatcher app = new Dispatcher(view, bookLibrary, movieLibrary);
+        Dispatcher dispatcher = new Dispatcher(view, bookLibrary, movieLibrary);
 
-        when(view.acceptInput()).thenReturn("6").thenReturn("9");
-
-        app.start();
+        dispatcher.start("4");
 
         verify(movieLibrary).checkout(anyString());
     }
@@ -112,11 +73,9 @@ public class DispatcherTest {
         View view = mock(View.class);
         Library bookLibrary = mock(Library.class);
         Library movieLibrary = mock(Library.class);
-        Dispatcher app = new Dispatcher(view, bookLibrary, movieLibrary);
+        Dispatcher dispatcher = new Dispatcher(view, bookLibrary, movieLibrary);
 
-        when(view.acceptInput()).thenReturn("8").thenReturn("9");
-
-        app.start();
+        dispatcher.start("6");
 
         verify(movieLibrary).returnALibraryItem(anyString());
     }

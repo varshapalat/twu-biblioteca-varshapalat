@@ -3,8 +3,16 @@ package com.twu.biblioteca;
 
 enum Message {
     Welcome("****************Welcome!!**************** \n ***********Biblioteca is now available***********\n"),
-    MainMenu("\n\n\n MAIN MENU\n1.List Available Books\n2.List Available Movies\n3.List Checked Out Books\n4.List Checked Out Movies\n" +
-            "5.Check Out Book\n6.Check Out Movie\n7.Return A Book\n8.Return A Movie\n9.Quit\nEnter your choice:\n"),
+    MainMenu("\n\n\n MAIN MENU\n1.List Available Books\n2.List Available Movies\n" +
+            "3.Check Out Book\n4.Check Out Movie\n5.Return A Book\n6.Return A Movie\n7.Quit\n8.List Checked Out Books\n" +
+            "9.List Checked Out Movies\n\nEnter your choice:\n"),
+    LibrarianMainMenu("\n\n\nMAIN MENU\n" +
+            "1.List Available Books\n2.List Available Movies\n3.Check Out Book\n4.Check Out Movie\n5.Return A Book\n6.Return A Movie\n7.Logout\n8.List Checked Out Books\n9.List Checked Out Movies\n" +
+            "Enter your choice:\n"),
+    CustomerMainMenu("\n\n\n" +
+            "MAIN MENU\n1.List Available Books\n2.List Available Movies\n3.Check Out Book\n4.Check Out Movie" +
+            "\n5.Return A Book\n6.Return A Movie\n7.Logout\n\nEnter your choice:\n"),
+
     Line("------------------------------------------------------------\n"),
     InvaildMenuOption("Select a valid Option!\n"),
     SuccesfulBookCheckout("Thank you! Enjoy the book\n"),
@@ -22,7 +30,7 @@ enum Message {
     Initial("1.Login\n2.Quit\n"),
     EnterPassword("Enter the password:\n"),
     InvalidLogin("Sorry! You entered the wrong login id and password\n"),
-    Login("Login\nEnter library number(xxx-xxxx):\n");
+    Login("Login\nEnter library number(xxx-xxxx):\n"), SuccessfulLogout("You have successfully logged out!\n");
     private String value;
 
     Message(String s) {

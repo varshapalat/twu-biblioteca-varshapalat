@@ -2,9 +2,9 @@ package com.twu.biblioteca;
 
 
 public class Dispatcher {
-    Library bookLibrary;
-    Library movieLibrary;
-    View view;
+    private Library bookLibrary;
+    private Library movieLibrary;
+    private View view;
 
     public Dispatcher(View view, Library bookLibrary, Library movieLibrary) {
         this.bookLibrary = bookLibrary;
@@ -12,12 +12,8 @@ public class Dispatcher {
         this.view = view;
     }
 
-    public void start() {
-        String choice = "0";
+    public void start(String choice) {
 
-        while (!choice.equals("9")) {
-            view.print(Message.MainMenu);
-            choice = view.acceptInput();
             if (choice.equals("1")) {
                 view.print(Message.BookList);
                 view.printList(bookLibrary.listOfAvailableLibraryItems());
@@ -25,12 +21,6 @@ public class Dispatcher {
                 view.print(Message.MovieList);
                 view.printList(movieLibrary.listOfAvailableLibraryItems());
             } else if (choice.equals("3")) {
-                view.print(Message.BookList);
-                view.printList(bookLibrary.listOfCheckedOutLibraryItems());
-            } else if (choice.equals("4")) {
-                view.print(Message.MovieList);
-                view.printList(movieLibrary.listOfCheckedOutLibraryItems());
-            } else if(choice.equals("5")) {
                 view.print(Message.NameBook);
                 String bookName = view.acceptInput();
                 if (bookLibrary.checkout(bookName)) {
@@ -39,7 +29,7 @@ public class Dispatcher {
                 else {
                     view.print(Message.UnsuccesfulBookCheckout);
                 }
-            } else if(choice.equals("6")) {
+            } else if (choice.equals("4")) {
                 view.print(Message.NameMovie);
                 String movieName = view.acceptInput();
                 if(movieLibrary.checkout(movieName)) {
@@ -48,7 +38,7 @@ public class Dispatcher {
                 else {
                     view.print(Message.UnsuccesfulMovieCheckout);
                 }
-            } else if(choice.equals("7")) {
+            } else if(choice.equals("5")) {
                 view.print(Message.NameBook);
                 String bookName = view.acceptInput();
                 if(bookLibrary.returnALibraryItem(bookName)) {
@@ -57,8 +47,7 @@ public class Dispatcher {
                 else {
                     view.print(Message.UnsuccesfulBookReturn);
                 }
-            }
-            else if(choice.equals("8")) {
+            } else if(choice.equals("6")) {
                 view.print(Message.NameMovie);
                 String movieName = view.acceptInput();
                 if(movieLibrary.returnALibraryItem(movieName)) {
@@ -67,9 +56,16 @@ public class Dispatcher {
                 else {
                     view.print(Message.UnsuccesfulMovieReturn);
                 }
+            } else if(choice.equals("7")) {
+
+            }
+            else if(choice.equals("8")) {
+                view.print(Message.BookList);
+                view.printList(bookLibrary.listOfCheckedOutLibraryItems());
             }
             else if(choice.equals("9")) {
-
+                view.print(Message.MovieList);
+                view.printList(movieLibrary.listOfCheckedOutLibraryItems());
             }
             else {
                 view.print(Message.InvaildMenuOption);
@@ -77,4 +73,4 @@ public class Dispatcher {
             }
         }
     }
-}
+

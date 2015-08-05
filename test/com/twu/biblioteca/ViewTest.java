@@ -74,13 +74,14 @@ public class ViewTest {
                 " MAIN MENU\n" +
                 "1.List Available Books\n" +
                 "2.List Available Movies\n" +
-                "3.List Checked Out Books\n" +
-                "4.List Checked Out Movies\n" +
-                "5.Check Out Book\n" +
-                "6.Check Out Movie\n" +
-                "7.Return A Book\n" +
-                "8.Return A Movie\n" +
-                "9.Quit\n" +
+                "3.Check Out Book\n" +
+                "4.Check Out Movie\n" +
+                "5.Return A Book\n" +
+                "6.Return A Movie\n" +
+                "7.Quit\n" +
+                "8.List Checked Out Books\n" +
+                "9.List Checked Out Movies\n" +
+                "\n" +
                 "Enter your choice:\n", outContent.toString());
     }
 

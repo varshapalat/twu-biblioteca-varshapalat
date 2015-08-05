@@ -1,9 +1,9 @@
 package com.twu.biblioteca;
 
 public class Book implements LibraryItem{
-    String title;
-    String author;
-    String yearPublished;
+    private String title;
+    private String author;
+    private String yearPublished;
 
     public Book(String title, String author, String yearPublished) {
         this.title = title;

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 
 public class Library {
-    ArrayList<LibraryItem> availableLibraryItems;
-    ArrayList<LibraryItem> checkedOutLibraryItems;
+    private ArrayList<LibraryItem> availableLibraryItems;
+    private ArrayList<LibraryItem> checkedOutLibraryItems;
 
     public Library(ArrayList<LibraryItem> availableLibraryItems, ArrayList<LibraryItem> checkedOutLibraryItems) {
         this.availableLibraryItems = availableLibraryItems;

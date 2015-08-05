@@ -1,19 +1,25 @@
 package com.twu.biblioteca;
 
 public class User {
-    String loginId;
-    String password;
-    String role;
+    private String loginId;
+    private String password;
+    private String role;
+
     public User(String loginId, String password, String role) {
         this.loginId = loginId;
         this.password = password;
         this.role = role;
     }
 
-    public boolean validate(String loginId, String password) {
-        if(loginId.equals(this.loginId) && password.equals(this.password))
+
+    public boolean hasUser(String thatLoginId, String thatPassword) {
+        if(thatLoginId.equals(this.loginId) && thatPassword.equals(this.password))
             return true;
         else
             return false;
+    }
+
+    public String getRole() {
+        return role;
     }
 }

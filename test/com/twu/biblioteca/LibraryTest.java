@@ -39,11 +39,11 @@ public class LibraryTest {
         Book bookThree = new Book("The Alchemist", "Paulo Coelho", "1988");
         listOfAvailableLibraryBooks.add(bookOne);
         listOfAvailableLibraryBooks.add(bookThree);
+        listOfCheckedOutBooks.add(bookTwo);
         expectedListOfBooks.add(bookOne);
         expectedListOfBooks.add(bookThree);
         expectedListOfBooks.add(bookTwo);
         Library library = new Library(listOfAvailableLibraryBooks, listOfCheckedOutBooks);
-        library.checkedOutLibraryItems.add(bookTwo);
 
         boolean actual = library.returnALibraryItem("Kane and Abel");
 
@@ -74,16 +74,21 @@ public class LibraryTest {
     @Test
     public void libraryCanReturnListOfCheckedOutBooks() {
         Book bookOne = new Book("The Da Vinci Code", "Dan Brown", "2000");
+        Book bookTwo = new Book("Kane and Abel", "Jeffrey Archer", "1979");
         Book bookThree = new Book("The Alchemist", "Paulo Coelho", "1988");
-        ArrayList<LibraryItem> listOfAvailableLibraryBooks = null;
+        ArrayList<LibraryItem> listOfAvailableLibraryBooks = new ArrayList<LibraryItem>();
         ArrayList<LibraryItem> listOfCheckedOutBooks = new ArrayList<LibraryItem>();
+        listOfCheckedOutBooks.add(bookTwo);
+        listOfAvailableLibraryBooks.add(bookOne);
+        listOfAvailableLibraryBooks.add(bookThree);
         Library library = new Library(listOfAvailableLibraryBooks, listOfCheckedOutBooks);
-        library.checkedOutLibraryItems.add(bookOne);
-        library.checkedOutLibraryItems.add(bookThree);
+        library.checkout("The Da Vinci Code");
+        library.checkout("The Alchemist");
 
         String listOfBookDetails = library.listOfCheckedOutLibraryItems();
 
-        assertEquals("The Da Vinci Code\tDan Brown\t\t2000\n" +
+        assertEquals("Kane and Abel\tJeffrey Archer\t\t1979\n" +
+                " The Da Vinci Code\tDan Brown\t\t2000\n" +
                 " The Alchemist\tPaulo Coelho\t\t1988\n" +
                 " ", listOfBookDetails);
     }
@@ -119,11 +124,11 @@ public class LibraryTest {
         Movie movieThree = new Movie("Matrix", "The Wachowskis", "1999", "8.2");
         listOfAvailableLibraryBooks.add(movieOne);
         listOfAvailableLibraryBooks.add(movieThree);
+        listOfCheckedOutBooks.add(movieTwo);
         expectedListOfBooks.add(movieOne);
         expectedListOfBooks.add(movieThree);
         expectedListOfBooks.add(movieTwo);
         Library library = new Library(listOfAvailableLibraryBooks, listOfCheckedOutBooks);
-        library.checkedOutLibraryItems.add(movieTwo);
 
         boolean actual = library.returnALibraryItem("Gladiator");
 
@@ -133,15 +138,15 @@ public class LibraryTest {
 
     @Test
     public void libraryCanReturnListOfAvailableMovies() {
-        ArrayList<LibraryItem> listOfAvailableLibraryBooks = new ArrayList<LibraryItem>();
-        ArrayList<LibraryItem> listOfCheckedOutBooks = new ArrayList<LibraryItem>();
+        ArrayList<LibraryItem> availableMovies = new ArrayList<LibraryItem>();
+        ArrayList<LibraryItem> checkedOutMovies = new ArrayList<LibraryItem>();
         Movie movieOne = new Movie("Gone Girl", "David Fincher", "2014", "8");
         Movie movieTwo = new Movie("Gladiator", "Ridley Scott", "2000", "7.6");
         Movie movieThree = new Movie("Matrix", "The Wachowskis", "1999", "8.2");
-        listOfAvailableLibraryBooks.add(movieOne);
-        listOfAvailableLibraryBooks.add(movieTwo);
-        listOfAvailableLibraryBooks.add(movieThree);
-        Library library = new Library(listOfAvailableLibraryBooks, listOfCheckedOutBooks);
+        availableMovies.add(movieOne);
+        availableMovies.add(movieTwo);
+        availableMovies.add(movieThree);
+        Library library = new Library(availableMovies, checkedOutMovies);
 
         String listOfBookDetails = library.listOfAvailableLibraryItems();
 
@@ -154,12 +159,19 @@ public class LibraryTest {
     @Test
     public void libraryCanReturnListOfCheckedOutMovies() {
         Movie movieOne = new Movie("Gone Girl", "David Fincher", "2014", "8");
+        Movie movieTwo = new Movie("Gladiator", "Ridley Scott", "2000", "7.6");
         Movie movieThree = new Movie("Matrix", "The Wachowskis", "1999", "8.2");
-        ArrayList<LibraryItem> listOfAvailableLibraryBooks = null;
-        ArrayList<LibraryItem> listOfCheckedOutBooks = new ArrayList<LibraryItem>();
-        Library library = new Library(listOfAvailableLibraryBooks, listOfCheckedOutBooks);
-        library.checkedOutLibraryItems.add(movieOne);
-        library.checkedOutLibraryItems.add(movieThree);
+
+        ArrayList<LibraryItem> availableMovies = new ArrayList<LibraryItem>();
+        ArrayList<LibraryItem> checkedOutMovies = new ArrayList<LibraryItem>();
+
+
+        availableMovies.add(movieOne);
+        availableMovies.add(movieTwo);
+        availableMovies.add(movieThree);
+        Library library = new Library(availableMovies, checkedOutMovies);
+        library.checkout("Gone Girl");
+        library.checkout("Matrix");
 
         String listOfBookDetails = library.listOfCheckedOutLibraryItems();
 

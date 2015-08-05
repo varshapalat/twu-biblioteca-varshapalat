@@ -1,10 +1,10 @@
 package com.twu.biblioteca;
 
 public class Movie implements LibraryItem{
-    String name;
-    String year;
-    String director;
-    String rating;
+    private String name;
+    private String year;
+    private String director;
+    private String rating;
 
     public Movie(String name, String year, String director, String rating) {
         this.name = name;

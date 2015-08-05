@@ -7,9 +7,17 @@ import static org.junit.Assert.assertEquals;
 public class UserTest {
 
     @Test
-    public void userCanValidateBasedOnLoginIdAndPassword() {
-    User user = new User("123-4567", "qwerty", "librarian");
+    public void userShouldTellIfLoginIdAndPasswordMatch() {
+        User user = new User("123-4567", "qwerty", "librarian");
 
-    assertEquals(true, user.validate("123-4567", "qwerty"));
+        assertEquals(true, user.hasUser("123-4567", "qwerty"));
     }
+
+    @Test
+    public void roleIsReturnedForEachUser() {
+        User user = new User("123-4567", "qwerty", "librarian");
+
+        assertEquals("librarian", user.getRole());
+    }
+
 }
