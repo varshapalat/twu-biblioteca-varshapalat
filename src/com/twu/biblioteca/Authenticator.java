@@ -11,7 +11,7 @@ public class Authenticator {
     public String authenticate(String loginId, String password) {
         for (User anUserList : userList) {
             if(anUserList.hasUser(loginId, password)) {
-                return anUserList.getRole();
+                return anUserList.getRole() ;
             }
         }
         return "no role";

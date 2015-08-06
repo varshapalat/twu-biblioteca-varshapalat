@@ -41,7 +41,7 @@ public class Dispatcher {
             } else if(choice.equals("5")) {
                 view.print(Message.NameBook);
                 String bookName = view.acceptInput();
-                if(bookLibrary.returnALibraryItem(bookName)) {
+                if(bookLibrary.returnALibraryItem(bookName, loginId)) {
                     view.print(Message.SuccessfulBookReturn);
                 }
                 else {
@@ -50,7 +50,7 @@ public class Dispatcher {
             } else if(choice.equals("6")) {
                 view.print(Message.NameMovie);
                 String movieName = view.acceptInput();
-                if(movieLibrary.returnALibraryItem(movieName)) {
+                if(movieLibrary.returnALibraryItem(movieName, loginId)) {
                     view.print(Message.SuccessfulMovieReturn);
                 }
                 else {
@@ -66,6 +66,9 @@ public class Dispatcher {
             else if(choice.equals("9")) {
                 view.print(Message.MovieList);
                 view.printList(movieLibrary.listOfCheckedOutLibraryItems());
+            }
+            else if(choice.equals("10")) {
+                view.print(Message.UserDetailsList);
             }
             else {
                 view.print(Message.InvaildMenuOption);

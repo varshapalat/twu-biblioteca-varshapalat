@@ -29,7 +29,7 @@ public class DispatcherTest {
 
         dispatcher.start("5", "123-4567");
 
-        verify(bookLibrary).returnALibraryItem(anyString());
+        verify(bookLibrary).returnALibraryItem(anyString(), anyString());
     }
 
     @Test
@@ -77,6 +77,6 @@ public class DispatcherTest {
 
         dispatcher.start("6", "123-4567");
 
-        verify(movieLibrary).returnALibraryItem(anyString());
+        verify(movieLibrary).returnALibraryItem(anyString(), anyString());
     }
 }

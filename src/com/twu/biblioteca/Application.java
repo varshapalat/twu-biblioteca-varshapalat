@@ -35,7 +35,9 @@ public class Application {
                         view.print(Message.CustomerMainMenu);
                         option = view.acceptInput();
                         if(!(option.equals("8") || option.equals("9")))
-                        dispatcher.start(option, loginId);
+                           dispatcher.start(option, loginId);
+                        else if(option.equals("8"))
+                            dispatcher.start("10",loginId);
                     }while (!option.equals("7"));
                     view.print(Message.SuccessfulLogout);
                 } else {

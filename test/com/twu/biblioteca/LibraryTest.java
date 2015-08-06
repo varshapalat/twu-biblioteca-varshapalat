@@ -46,7 +46,7 @@ public class LibraryTest {
         expectedListOfBooks.add(bookTwo);
         Library library = new Library(listOfAvailableLibraryBooks, listOfCheckedOutBooks);
 
-        boolean actual = library.returnALibraryItem("Kane and Abel");
+        boolean actual = library.returnALibraryItem("Kane and Abel", "123-4567");
 
         assertEquals(expectedListOfBooks, listOfAvailableLibraryBooks);
         assertEquals(true, actual);
@@ -70,25 +70,6 @@ public class LibraryTest {
                 " Kane and Abel\tJeffrey Archer\t\t1979\n" +
                 " The Alchemist\tPaulo Coelho\t\t1988\n" +
                 " ", listOfBookDetails);
-    }
-
-    @Test
-    public void libraryCanReturnListOfCheckedOutBooks() {
-        Book bookOne = new Book("The Da Vinci Code", "Dan Brown", "2000");
-        Book bookTwo = new Book("Kane and Abel", "Jeffrey Archer", "1979");
-        Book bookThree = new Book("The Alchemist", "Paulo Coelho", "1988");
-        ArrayList<LibraryItem> listOfAvailableLibraryBooks = new ArrayList<LibraryItem>();
-        HashMap<LibraryItem, String> listOfCheckedOutBooks = new HashMap<LibraryItem, String>();
-        listOfAvailableLibraryBooks.add(bookOne);
-        listOfAvailableLibraryBooks.add(bookTwo);
-        listOfAvailableLibraryBooks.add(bookThree);
-        Library library = new Library(listOfAvailableLibraryBooks, listOfCheckedOutBooks);
-        library.checkout("The Da Vinci Code", "123-4567");
-
-        String listOfBookDetails = library.listOfCheckedOutLibraryItems();
-
-        assertEquals("The Da Vinci Code\tDan Brown\t\t2000\n" +
-                "123-4567\n", listOfBookDetails);
     }
 
     @Test
@@ -128,7 +109,7 @@ public class LibraryTest {
         expectedListOfBooks.add(movieTwo);
         Library library = new Library(listOfAvailableLibraryBooks, listOfCheckedOutBooks);
 
-        boolean actual = library.returnALibraryItem("Gladiator");
+        boolean actual = library.returnALibraryItem("Gladiator", "123-4567");
 
         assertEquals(expectedListOfBooks, listOfAvailableLibraryBooks);
         assertEquals(true, actual);
@@ -154,7 +135,7 @@ public class LibraryTest {
                 " ", listOfBookDetails);
     }
 
-   /* @Test
+   @Test
     public void libraryCanReturnListOfCheckedOutMovies() {
         Movie movieOne = new Movie("Gone Girl", "David Fincher", "2014", "8");
         Movie movieTwo = new Movie("Gladiator", "Ridley Scott", "2000", "7.6");
@@ -168,14 +149,31 @@ public class LibraryTest {
         availableMovies.add(movieTwo);
         availableMovies.add(movieThree);
         Library library = new Library(availableMovies, checkedOutMovies);
-        library.checkout("Gone Girl", "123-4567");
         library.checkout("Matrix", "123-4567");
 
         String listOfBookDetails = library.listOfCheckedOutLibraryItems();
 
-        assertEquals("Gone Girl\tDavid Fincher\t2014\t8\n" +
-                " Matrix\tThe Wachowskis\t1999\t8.2\n" +
-                " ", listOfBookDetails);
-    }*/
+        assertEquals("Matrix\tThe Wachowskis\t1999\t8.2\n" +
+                "123-4567\n", listOfBookDetails);
+    }
+
+    @Test
+    public void libraryCanReturnListOfCheckedOutBooks() {
+        Book bookOne = new Book("The Da Vinci Code", "Dan Brown", "2000");
+        Book bookTwo = new Book("Kane and Abel", "Jeffrey Archer", "1979");
+        Book bookThree = new Book("The Alchemist", "Paulo Coelho", "1988");
+        ArrayList<LibraryItem> listOfAvailableLibraryBooks = new ArrayList<LibraryItem>();
+        HashMap<LibraryItem, String> listOfCheckedOutBooks = new HashMap<LibraryItem, String>();
+        listOfAvailableLibraryBooks.add(bookOne);
+        listOfAvailableLibraryBooks.add(bookTwo);
+        listOfAvailableLibraryBooks.add(bookThree);
+        Library library = new Library(listOfAvailableLibraryBooks, listOfCheckedOutBooks);
+        library.checkout("The Da Vinci Code", "123-4567");
+
+        String listOfBookDetails = library.listOfCheckedOutLibraryItems();
+
+        assertEquals("The Da Vinci Code\tDan Brown\t\t2000\n" +
+                "123-4567\n", listOfBookDetails);
+    }
 
 }

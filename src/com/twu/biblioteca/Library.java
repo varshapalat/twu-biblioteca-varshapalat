@@ -24,9 +24,9 @@ public class Library {
         return false;
     }
 
-    public boolean returnALibraryItem(String nameOfBookToReturn) {
+    public boolean returnALibraryItem(String nameOfBookToReturn, String user) {
         for (LibraryItem item : checkedOutLibraryItems.keySet()) {
-            if (item.hasTitle(nameOfBookToReturn)) {
+            if (item.hasTitle(nameOfBookToReturn) && user.equals(checkedOutLibraryItems.get(item))) {
                 checkedOutLibraryItems.remove(item);
                 availableLibraryItems.add(item);
                 return true;

@@ -7,11 +7,11 @@ enum Message {
             "3.Check Out Book\n4.Check Out Movie\n5.Return A Book\n6.Return A Movie\n7.Quit\n8.List Checked Out Books\n" +
             "9.List Checked Out Movies\n\nEnter your choice:\n"),
     LibrarianMainMenu("\n\n\nMAIN MENU\n" +
-            "1.List Available Books\n2.List Available Movies\n3.Check Out Book\n4.Check Out Movie\n5.Return A Book\n6.Return A Movie\n7.Logout\n8.List Checked Out Books\n9.List Checked Out Movies\n" +
+            "1.List Available Books\n2.List Available Movies\n3.Check Out Book\n4.Check Out Movie\n5.Return A Book\n6.Return A Movie\n7.Logout\n8.List Checked Out Books\n9.List Checked Out Movies\n10.My UserInformation\n" +
             "Enter your choice:\n"),
     CustomerMainMenu("\n\n\n" +
             "MAIN MENU\n1.List Available Books\n2.List Available Movies\n3.Check Out Book\n4.Check Out Movie" +
-            "\n5.Return A Book\n6.Return A Movie\n7.Logout\n\nEnter your choice:\n"),
+            "\n5.Return A Book\n6.Return A Movie\n7.Logout\n8.My User Information\nEnter your choice:\n"),
 
     Line("------------------------------------------------------------\n"),
     InvaildMenuOption("Select a valid Option!\n"),
@@ -30,7 +30,9 @@ enum Message {
     Initial("1.Login\n2.Quit\n"),
     EnterPassword("Enter the password:\n"),
     InvalidLogin("Sorry! You entered the wrong login id and password\n"),
-    Login("Login\nEnter library number(xxx-xxxx):\n"), SuccessfulLogout("You have successfully logged out!\n");
+    Login("Login\nEnter library number(xxx-xxxx):\n"),
+    SuccessfulLogout("You have successfully logged out!\n"),
+    UserDetailsList("Login Id\tUser Name\tEmail\tPhone Number\n");
     private String value;
 
     Message(String s) {

@@ -1,14 +1,20 @@
 package com.twu.biblioteca;
 
 public class User {
+    private  String name;
     private String loginId;
     private String password;
     private String role;
+    private String emailId;
+    private String phoneNumber;
 
-    public User(String loginId, String password, String role) {
+    public User(String loginId, String password, String role, String name, String emailId, String phoneNumber) {
         this.loginId = loginId;
         this.password = password;
         this.role = role;
+        this.name = name;
+        this.emailId = emailId;
+        this.phoneNumber = phoneNumber;
     }
 
 
@@ -21,5 +27,11 @@ public class User {
 
     public String getRole() {
         return role;
+    }
+
+    public String getUserDetails(String thatLoginId) {
+        if(thatLoginId.equals(this.loginId))
+            return loginId +"\t"+ name +"\t" +emailId +"\t"+ phoneNumber ;
+        return null;
     }
 }

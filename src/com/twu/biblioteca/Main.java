@@ -35,9 +35,9 @@ public class Main {
         Library movieLibrary = new Library(availableMovies, checkedOutMovies);
         Dispatcher dispatcher = new Dispatcher(view, bookLibrary, movieLibrary);
 
-        User userOne = new User("123-4567", "qwerty", "librarian");
-        User userTwo = new User("abc-defg", "qwerty", "customer");
-        User userThree = new User("var-shap", "qwerty", "customer");
+        User userOne = new User("123-4567", "qwerty", "librarian", "Ram", "ram@gmail.com", "999999999");
+        User userTwo = new User("abc-defg", "qwerty", "customer", "Nancy", "nancy@gmail.com", "8888888888");
+        User userThree = new User("var-shap", "qwerty", "customer", "Varsha", "varsha@gmail.com", "7777777777");
 
         ArrayList<User> userList = new ArrayList<User>();
         userList.add(userOne);
