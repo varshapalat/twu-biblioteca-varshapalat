@@ -70,7 +70,7 @@ public class Dispatcher {
             }
             else if(choice.equals("9")) {
                 messageView.printMessage(Message.MovieList);
-                templateView.printCheckedOutBookList(movieLibrary.getCheckedOutLibraryItems());
+                templateView.printCheckedOutMovieList(movieLibrary.getCheckedOutLibraryItems());
             }
             else if(choice.equals("10")) {
                 messageView.printMessage(Message.UserDetailsList);

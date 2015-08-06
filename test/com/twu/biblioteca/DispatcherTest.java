@@ -71,7 +71,7 @@ public class DispatcherTest {
 
         dispatcher.start("9", "123-4567", userDetails);
 
-        verify(templateView).printCheckedOutBookList(list);
+        verify(templateView).printCheckedOutMovieList(list);
     }
 
     @Test

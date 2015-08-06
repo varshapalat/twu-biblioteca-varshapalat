@@ -64,13 +64,24 @@ public class TemplateViewTest {
     }
 
     @Test
-    public void printListOfCheckedOutMovies() {
+    public void printListOfCheckedOutBooks() {
         TemplateView templateView = new TemplateView();
         HashMap<LibraryItem, String> bookList = new HashMap<LibraryItem, String>();
         Book bookOne = new Book("The Da Vinci Code", "Dan Brown", "2000");
         bookList.put(bookOne, "123-4567");
         templateView.printCheckedOutBookList(bookList);
 
-        assertEquals("        The Da Vinci Code       Dan Brown       2000   123-4567", outContent.toString());
+        assertEquals("        The Da Vinci Code       Dan Brown       2000   123-4567\n", outContent.toString());
+    }
+
+    @Test
+    public void printListOfCheckedOutMovies() {
+        TemplateView templateView = new TemplateView();
+        HashMap<LibraryItem, String> movieList = new HashMap<LibraryItem, String>();
+        Movie movieOne = new Movie("Gone Girl", "David Fincher", "2014", "8");
+        movieList.put(movieOne, "123-4567");
+        templateView.printCheckedOutMovieList(movieList);
+
+        assertEquals("           Gone Girl        David Fincher            2014     8   123-4567\n", outContent.toString());
     }
 }

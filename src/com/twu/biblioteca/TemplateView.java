@@ -28,4 +28,12 @@ public class TemplateView {
         }
     }
 
+    public void printCheckedOutMovieList(HashMap<LibraryItem, String> checkedOutMovieList) {
+        String userId;
+        for(LibraryItem eachMovie: checkedOutMovieList.keySet()) {
+            Movie movie = (Movie) eachMovie;
+            userId = checkedOutMovieList.get(eachMovie);
+            System.out.format("%20s %20s %15s %5s %10s\n", movie.getName(), movie.getYear(), movie.getDirector(), movie.getRating(), userId);
+        }
+    }
 }
