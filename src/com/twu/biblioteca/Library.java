@@ -37,8 +37,8 @@ public class Library {
 
     public String listOfAvailableLibraryItems() {
         String list = "";
-        for (int i = 0; i < availableLibraryItems.size(); i++) {
-            list += String.format("%s ", availableLibraryItems.get(i));
+        for (LibraryItem availableLibraryItem : availableLibraryItems) {
+            list += String.format("%s ", availableLibraryItem);
         }
         return list;
     }

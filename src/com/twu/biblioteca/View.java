@@ -3,7 +3,7 @@ package com.twu.biblioteca;
 import java.util.Scanner;
 
 
-public class View {
+public class  View {
 
     public void printList(String list) {
         System.out.print(list);

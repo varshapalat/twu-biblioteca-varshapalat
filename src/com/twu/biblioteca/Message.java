@@ -1,13 +1,15 @@
 package com.twu.biblioteca;
 
 
-enum Message {
+public enum Message {
     Welcome("****************Welcome!!**************** \n ***********Biblioteca is now available***********\n"),
     MainMenu("\n\n\n MAIN MENU\n1.List Available Books\n2.List Available Movies\n" +
             "3.Check Out Book\n4.Check Out Movie\n5.Return A Book\n6.Return A Movie\n7.Quit\n8.List Checked Out Books\n" +
             "9.List Checked Out Movies\n\nEnter your choice:\n"),
     LibrarianMainMenu("\n\n\nMAIN MENU\n" +
-            "1.List Available Books\n2.List Available Movies\n3.Check Out Book\n4.Check Out Movie\n5.Return A Book\n6.Return A Movie\n7.Logout\n8.List Checked Out Books\n9.List Checked Out Movies\n10.My UserInformation\n" +
+            "1.List Available Books\n2.List Available Movies\n3.Check Out Book\n4.Check Out Movie\n5.Return A Book\n" +
+            "6.Return A Movie\n7.Logout\n8.List Checked Out Books\n9.List Checked Out Movies\n" +
+            "10.My UserInformation\n11.Customer Contact Details" +
             "Enter your choice:\n"),
     CustomerMainMenu("\n\n\n" +
             "MAIN MENU\n1.List Available Books\n2.List Available Movies\n3.Check Out Book\n4.Check Out Movie" +
@@ -35,8 +37,8 @@ enum Message {
     UserDetailsList("Login Id\tUser Name\tEmail\tPhone Number\n");
     private String value;
 
-    Message(String s) {
-        value = s;
+    Message(String message) {
+        value = message;
     }
 
     String getMessage() {
