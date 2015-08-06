@@ -19,4 +19,16 @@ public class Book implements LibraryItem{
     public String toString() {
         return title +"\t"+ author +"\t\t" + yearPublished + "\n";
     }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getYearPublished() {
+        return yearPublished;
+    }
 }
