@@ -41,12 +41,14 @@ public class Main {
 
         ArrayList<User> userList = new ArrayList<User>();
         userList.add(userOne);
+
         userList.add(userTwo);
         userList.add(userThree);
+        UserDetails userDetails = new UserDetails(userList);
 
         Authenticator authenticator = new Authenticator(userList);
 
-        Application application = new Application(authenticator, dispatcher);
+        Application application = new Application(authenticator, dispatcher, userDetails);
         application.start(view);
     }
 }

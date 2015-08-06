@@ -2,6 +2,8 @@ package com.twu.biblioteca;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.mockito.Mockito.*;
 
 public class ApplicationTest {
@@ -10,7 +12,8 @@ public class ApplicationTest {
     public void applicationCallsViewToPrintWelcomeMessage() {
         Authenticator authenticator = mock(Authenticator.class);
         Dispatcher dispatcher = mock(Dispatcher.class);
-        Application application = new Application(authenticator, dispatcher);
+        UserDetails userDetails = mock(UserDetails.class);
+        Application application = new Application(authenticator, dispatcher, userDetails);
         View view = mock(View.class);
 
         when(view.acceptInput()).thenReturn("1").thenReturn("123-4567").thenReturn("qwerty").thenReturn("7").thenReturn("2");
@@ -25,7 +28,8 @@ public class ApplicationTest {
         View view = mock(View.class);
        Dispatcher dispatcher = mock(Dispatcher.class);
         Authenticator authenticator = mock(Authenticator.class);
-        Application application = new Application(authenticator, dispatcher);
+       UserDetails userDetails = mock(UserDetails.class);
+        Application application = new Application(authenticator, dispatcher, userDetails);
 
         when(view.acceptInput()).thenReturn("1").thenReturn("2").thenReturn("2").thenReturn("7").thenReturn("2").thenReturn("2");
         when(authenticator.authenticate(anyString(), anyString())).thenReturn("librarian");
@@ -39,7 +43,8 @@ public class ApplicationTest {
         View view = mock(View.class);
         Dispatcher dispatcher = mock(Dispatcher.class);
         Authenticator authenticator = mock(Authenticator.class);
-        Application application = new Application(authenticator, dispatcher);
+        UserDetails userDetails = mock(UserDetails.class);
+        Application application = new Application(authenticator, dispatcher, userDetails);
 
 
         when(view.acceptInput()).thenReturn("1").thenReturn("123-4567").thenReturn("qwerty").thenReturn("7").thenReturn("2");
@@ -55,12 +60,13 @@ public class ApplicationTest {
         Authenticator authenticator = mock(Authenticator.class);
         Dispatcher dispatcher = mock(Dispatcher.class);
         View view = mock(View.class);
-        Application application = new Application(authenticator, dispatcher);
+        UserDetails userDetails = mock(UserDetails.class);
+        Application application = new Application(authenticator, dispatcher, userDetails);
 
         when(view.acceptInput()).thenReturn("1").thenReturn("123-4567").thenReturn("qwerty").thenReturn("6").thenReturn("7").thenReturn("2");
         when(authenticator.authenticate("123-4567", "qwerty")).thenReturn("librarian");
         application.start(view);
 
-        verify(dispatcher, times(2)).start(anyString(), anyString());
+        verify(dispatcher).start("6", "123-4567", userDetails);
     }
 }

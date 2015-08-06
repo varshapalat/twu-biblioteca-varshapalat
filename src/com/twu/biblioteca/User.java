@@ -32,6 +32,6 @@ public class User {
     public String getUserDetails(String thatLoginId) {
         if(thatLoginId.equals(this.loginId))
             return loginId +"\t"+ name +"\t" +emailId +"\t"+ phoneNumber ;
-        return null;
+        return "Not found";
     }
 }

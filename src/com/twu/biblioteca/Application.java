@@ -1,12 +1,16 @@
 package com.twu.biblioteca;
 
+import java.util.ArrayList;
+
 public class Application {
     private Authenticator authenticator;
     private Dispatcher dispatcher;
+    private UserDetails userDetails;
 
-    public Application(Authenticator authenticator, Dispatcher dispatcher) {
+    public Application(Authenticator authenticator, Dispatcher dispatcher, UserDetails userDetails) {
         this.authenticator = authenticator;
         this.dispatcher = dispatcher;
+        this.userDetails = userDetails;
     }
 
     public void start(View view) {
@@ -27,7 +31,7 @@ public class Application {
                     do {
                         view.print(Message.LibrarianMainMenu);
                         option = view.acceptInput();
-                        dispatcher.start(option, loginId);
+                        dispatcher.start(option, loginId, userDetails);
                     }while (!option.equals("7"));
                     view.print(Message.SuccessfulLogout);
                 } else if (authenticator.authenticate(loginId, password).equals("customer")) {
@@ -35,9 +39,9 @@ public class Application {
                         view.print(Message.CustomerMainMenu);
                         option = view.acceptInput();
                         if(!(option.equals("8") || option.equals("9")))
-                           dispatcher.start(option, loginId);
+                           dispatcher.start(option, loginId, userDetails);
                         else if(option.equals("8"))
-                            dispatcher.start("10",loginId);
+                            dispatcher.start("10",loginId, userDetails);
                     }while (!option.equals("7"));
                     view.print(Message.SuccessfulLogout);
                 } else {

@@ -1,6 +1,7 @@
 package com.twu.biblioteca;
 
 
+
 public class Dispatcher {
     private Library bookLibrary;
     private Library movieLibrary;
@@ -12,7 +13,7 @@ public class Dispatcher {
         this.view = view;
     }
 
-    public void start(String choice, String loginId) {
+    public void start(String choice, String loginId, UserDetails userDetails) {
 
             if (choice.equals("1")) {
                 view.print(Message.BookList);
@@ -69,6 +70,7 @@ public class Dispatcher {
             }
             else if(choice.equals("10")) {
                 view.print(Message.UserDetailsList);
+                view.printList(userDetails.getDetailsOf(loginId));
             }
             else {
                 view.print(Message.InvaildMenuOption);
