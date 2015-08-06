@@ -21,4 +21,20 @@ public class Movie implements LibraryItem{
     public String toString() {
         return name + "\t" + year + "\t" + director + "\t" + rating + "\n";
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public String getRating() {
+        return rating;
+    }
 }

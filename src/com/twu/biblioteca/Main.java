@@ -7,7 +7,9 @@ import java.util.HashMap;
 public class Main {
 
     public static void main(String [] args) {
+        MessageView messageView = new MessageView();
         View view = new View();
+        TemplateView templateView = new TemplateView();
 
         ArrayList<LibraryItem> availableBooks = new ArrayList<LibraryItem>();
         HashMap<LibraryItem, String> checkedOutBooks = new HashMap<LibraryItem, String>();
@@ -33,7 +35,7 @@ public class Main {
 
         Library bookLibrary = new Library(availableBooks, checkedOutBooks);
         Library movieLibrary = new Library(availableMovies, checkedOutMovies);
-        Dispatcher dispatcher = new Dispatcher(view, bookLibrary, movieLibrary);
+        Dispatcher dispatcher = new Dispatcher(view, messageView, templateView, bookLibrary, movieLibrary);
 
         User userOne = new User("123-4567", "qwerty", "librarian", "Ram", "ram@gmail.com", "999999999");
         User userTwo = new User("abc-defg", "qwerty", "customer", "Nancy", "nancy@gmail.com", "8888888888");
@@ -41,7 +43,6 @@ public class Main {
 
         ArrayList<User> userList = new ArrayList<User>();
         userList.add(userOne);
-
         userList.add(userTwo);
         userList.add(userThree);
         UserDetails userDetails = new UserDetails(userList);
@@ -49,6 +50,6 @@ public class Main {
         Authenticator authenticator = new Authenticator(userList);
 
         Application application = new Application(authenticator, dispatcher, userDetails);
-        application.start(view);
+        application.start(messageView, view);
     }
 }

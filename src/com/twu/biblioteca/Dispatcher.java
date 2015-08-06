@@ -6,75 +6,79 @@ public class Dispatcher {
     private Library bookLibrary;
     private Library movieLibrary;
     private View view;
+    private MessageView messageView;
+    private TemplateView templateView;
 
-    public Dispatcher(View view, Library bookLibrary, Library movieLibrary) {
+    public Dispatcher(View view, MessageView messageView, TemplateView templateView, Library bookLibrary, Library movieLibrary) {
         this.bookLibrary = bookLibrary;
         this.movieLibrary = movieLibrary;
+        this.messageView = messageView;
+        this.templateView = templateView;
         this.view = view;
     }
 
     public void start(String choice, String loginId, UserDetails userDetails) {
 
             if (choice.equals("1")) {
-                view.print(Message.BookList);
-                view.printList(bookLibrary.listOfAvailableLibraryItems());
+                messageView.printMessage(Message.BookList);
+                templateView.printBookList(bookLibrary.getAvailableLibraryItems());
             } else if (choice.equals("2")) {
-                view.print(Message.MovieList);
-                view.printList(movieLibrary.listOfAvailableLibraryItems());
+                messageView.printMessage(Message.MovieList);
+                templateView.printMovieList(movieLibrary.getAvailableLibraryItems());
             } else if (choice.equals("3")) {
-                view.print(Message.NameBook);
+                messageView.printMessage(Message.NameBook);
                 String bookName = view.acceptInput();
                 if (bookLibrary.checkout(bookName, loginId)) {
-                    view.print(Message.SuccesfulBookCheckout);
+                    messageView.printMessage(Message.SuccesfulBookCheckout);
                 }
                 else {
-                    view.print(Message.UnsuccesfulBookCheckout);
+                    messageView.printMessage(Message.UnsuccesfulBookCheckout);
                 }
             } else if (choice.equals("4")) {
-                view.print(Message.NameMovie);
+                messageView.printMessage(Message.NameMovie);
                 String movieName = view.acceptInput();
                 if(movieLibrary.checkout(movieName, loginId)) {
-                    view.print(Message.SuccesfulMovieCheckout);
+                    messageView.printMessage(Message.SuccesfulMovieCheckout);
                 }
                 else {
-                    view.print(Message.UnsuccesfulMovieCheckout);
+                    messageView.printMessage(Message.UnsuccesfulMovieCheckout);
                 }
             } else if(choice.equals("5")) {
-                view.print(Message.NameBook);
+                messageView.printMessage(Message.NameBook);
                 String bookName = view.acceptInput();
                 if(bookLibrary.returnALibraryItem(bookName, loginId)) {
-                    view.print(Message.SuccessfulBookReturn);
+                    messageView.printMessage(Message.SuccessfulBookReturn);
                 }
                 else {
-                    view.print(Message.UnsuccesfulBookReturn);
+                    messageView.printMessage(Message.UnsuccesfulBookReturn);
                 }
             } else if(choice.equals("6")) {
-                view.print(Message.NameMovie);
+                messageView.printMessage(Message.NameMovie);
                 String movieName = view.acceptInput();
                 if(movieLibrary.returnALibraryItem(movieName, loginId)) {
-                    view.print(Message.SuccessfulMovieReturn);
+                    messageView.printMessage(Message.SuccessfulMovieReturn);
                 }
                 else {
-                    view.print(Message.UnsuccesfulMovieReturn);
+                    messageView.printMessage(Message.UnsuccesfulMovieReturn);
                 }
             } else if(choice.equals("7")) {
 
             }
             else if(choice.equals("8")) {
-                view.print(Message.BookList);
-                view.printList(bookLibrary.listOfCheckedOutLibraryItems());
+                messageView.printMessage(Message.BookList);
+                templateView.printCheckedOutBookList(bookLibrary.getCheckedOutLibraryItems());
             }
             else if(choice.equals("9")) {
-                view.print(Message.MovieList);
-                view.printList(movieLibrary.listOfCheckedOutLibraryItems());
+                messageView.printMessage(Message.MovieList);
+                templateView.printCheckedOutBookList(movieLibrary.getCheckedOutLibraryItems());
             }
             else if(choice.equals("10")) {
-                view.print(Message.UserDetailsList);
+                messageView.printMessage(Message.UserDetailsList);
                 view.printList(userDetails.getDetailsOf(loginId));
             }
             else {
-                view.print(Message.InvaildMenuOption);
-                view.print(Message.Line);
+                messageView.printMessage(Message.InvaildMenuOption);
+                messageView.printMessage(Message.Line);
             }
         }
     }

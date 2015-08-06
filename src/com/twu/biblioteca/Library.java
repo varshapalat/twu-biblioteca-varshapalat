@@ -5,7 +5,7 @@ import java.util.HashMap;
 
 
 public class Library {
-    private ArrayList<LibraryItem> availableLibraryItems;
+    public ArrayList<LibraryItem> availableLibraryItems;
     private HashMap<LibraryItem, String> checkedOutLibraryItems;
 
     public Library(ArrayList<LibraryItem> availableLibraryItems, HashMap<LibraryItem, String> checkedOutLibraryItems) {
@@ -51,6 +51,14 @@ public class Library {
             list += key + userId + "\n";
         }
         return list;
+    }
+
+    public ArrayList<LibraryItem> getAvailableLibraryItems() {
+        return availableLibraryItems;
+    }
+
+    public HashMap<LibraryItem, String> getCheckedOutLibraryItems() {
+        return checkedOutLibraryItems;
     }
 }
 
