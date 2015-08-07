@@ -1,33 +1,32 @@
 package com.twu.biblioteca;
 
 
+import java.util.ArrayList;
 
 public class Dispatcher {
     private Library bookLibrary;
     private Library movieLibrary;
-    private View view;
+    private Input input;
     private MessageView messageView;
     private TemplateView templateView;
 
-    public Dispatcher(View view, MessageView messageView, TemplateView templateView, Library bookLibrary, Library movieLibrary) {
+    public Dispatcher(Input input, MessageView messageView, TemplateView templateView, Library bookLibrary, Library movieLibrary) {
         this.bookLibrary = bookLibrary;
         this.movieLibrary = movieLibrary;
         this.messageView = messageView;
         this.templateView = templateView;
-        this.view = view;
+        this.input = input;
     }
 
-    public void start(String choice, String loginId, UserDetails userDetails) {
+    public void start(String choice, String loginId, ArrayList<User> userList) {
 
             if (choice.equals("1")) {
-                messageView.printMessage(Message.BookList);
                 templateView.printBookList(bookLibrary.getAvailableLibraryItems());
             } else if (choice.equals("2")) {
-                messageView.printMessage(Message.MovieList);
                 templateView.printMovieList(movieLibrary.getAvailableLibraryItems());
             } else if (choice.equals("3")) {
                 messageView.printMessage(Message.NameBook);
-                String bookName = view.acceptInput();
+                String bookName = input.acceptInput();
                 if (bookLibrary.checkout(bookName, loginId)) {
                     messageView.printMessage(Message.SuccesfulBookCheckout);
                 }
@@ -36,7 +35,7 @@ public class Dispatcher {
                 }
             } else if (choice.equals("4")) {
                 messageView.printMessage(Message.NameMovie);
-                String movieName = view.acceptInput();
+                String movieName = input.acceptInput();
                 if(movieLibrary.checkout(movieName, loginId)) {
                     messageView.printMessage(Message.SuccesfulMovieCheckout);
                 }
@@ -45,7 +44,7 @@ public class Dispatcher {
                 }
             } else if(choice.equals("5")) {
                 messageView.printMessage(Message.NameBook);
-                String bookName = view.acceptInput();
+                String bookName = input.acceptInput();
                 if(bookLibrary.returnALibraryItem(bookName, loginId)) {
                     messageView.printMessage(Message.SuccessfulBookReturn);
                 }
@@ -54,7 +53,7 @@ public class Dispatcher {
                 }
             } else if(choice.equals("6")) {
                 messageView.printMessage(Message.NameMovie);
-                String movieName = view.acceptInput();
+                String movieName = input.acceptInput();
                 if(movieLibrary.returnALibraryItem(movieName, loginId)) {
                     messageView.printMessage(Message.SuccessfulMovieReturn);
                 }
@@ -65,16 +64,13 @@ public class Dispatcher {
 
             }
             else if(choice.equals("8")) {
-                messageView.printMessage(Message.BookList);
                 templateView.printCheckedOutBookList(bookLibrary.getCheckedOutLibraryItems());
             }
             else if(choice.equals("9")) {
-                messageView.printMessage(Message.MovieList);
                 templateView.printCheckedOutMovieList(movieLibrary.getCheckedOutLibraryItems());
             }
             else if(choice.equals("10")) {
-                messageView.printMessage(Message.UserDetailsList);
-                view.printList(userDetails.getDetailsOf(loginId));
+                templateView.printUserDetails(userList, loginId);
             }
             else {
                 messageView.printMessage(Message.InvaildMenuOption);

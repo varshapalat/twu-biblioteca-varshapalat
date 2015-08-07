@@ -29,6 +29,22 @@ public class User {
         return role;
     }
 
+    public String getLoginId() {
+        return loginId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmailId() {
+        return emailId;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
     public String getUserDetails(String thatLoginId) {
         if(thatLoginId.equals(this.loginId))
             return loginId +"\t"+ name +"\t" +emailId +"\t"+ phoneNumber ;

@@ -9,7 +9,7 @@ public enum Message {
     LibrarianMainMenu("\n\n\nMAIN MENU\n" +
             "1.List Available Books\n2.List Available Movies\n3.Check Out Book\n4.Check Out Movie\n5.Return A Book\n" +
             "6.Return A Movie\n7.Logout\n8.List Checked Out Books\n9.List Checked Out Movies\n" +
-            "10.My UserInformation\n11.Customer Contact Details" +
+            "10.My UserInformation\n11.Customer Contact Details\n" +
             "Enter your choice:\n"),
     CustomerMainMenu("\n\n\n" +
             "MAIN MENU\n1.List Available Books\n2.List Available Movies\n3.Check Out Book\n4.Check Out Movie" +

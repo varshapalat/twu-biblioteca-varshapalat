@@ -1,8 +1,8 @@
-System.out.println in the view.printbooklist(logic error)                  Done
+System.out.println in the input.printbooklist(logic error)                  Done
 add license
 branch on type (polymorphism)
-view class existence(state of view)
-better view                                                                Done
+input class existence(state of input)
+better input                                                                Done
 change data type of list                                                   Done
 Law of demeter + tell don't ask                                            Done
 Tell dont ask                                                              Done

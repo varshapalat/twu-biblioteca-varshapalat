@@ -5,7 +5,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -40,9 +39,14 @@ public class TemplateViewTest {
 
         templateView.printBookList(bookList);
 
-        assertEquals("        The Da Vinci Code            Dan Brown       2000\n" +
-                "            Kane and Abel       Jeffrey Archer       1979\n" +
-                "            The Alchemist         Paulo Coelho       1988\n", outContent.toString());
+        assertEquals("                                  BOOKS\n" +
+                "---------------------------------------------------------------------\n" +
+                "               TITLE\t|            AUTHOR\t|       YEAR PUBLISHED\n" +
+                "---------------------------------------------------------------------\n" +
+                "        The Da Vinci Code\t|            Dan Brown\t|       2000\n" +
+                "            Kane and Abel\t|       Jeffrey Archer\t|       1979\n" +
+                "            The Alchemist\t|         Paulo Coelho\t|       1988\n" +
+                "---------------------------------------------------------------------\n", outContent.toString());
     }
 
     @Test
@@ -58,9 +62,14 @@ public class TemplateViewTest {
 
         templateView.printMovieList(movieList);
 
-        assertEquals("           Gone Girl        David Fincher            2014     8\n" +
-                "           Gladiator         Ridley Scott            2000   7.6\n" +
-                "              Matrix       The Wachowskis            1999   8.2\n", outContent.toString());
+        assertEquals("                                 MOVIES\n" +
+                "-------------------------------------------------------------------------------------------\n" +
+                "         MOVIE NAME\t\t|          DIRECTOR\t|            YEAR\t|     RATING\n" +
+                "-------------------------------------------------------------------------------------------\n" +
+                "           Gone Girl\t|        David Fincher\t|            2014\t|     8\n" +
+                "           Gladiator\t|         Ridley Scott\t|            2000\t|   7.6\n" +
+                "              Matrix\t|       The Wachowskis\t|            1999\t|   8.2\n" +
+                "-------------------------------------------------------------------------------------------\n", outContent.toString());
     }
 
     @Test
@@ -71,7 +80,12 @@ public class TemplateViewTest {
         bookList.put(bookOne, "123-4567");
         templateView.printCheckedOutBookList(bookList);
 
-        assertEquals("        The Da Vinci Code       Dan Brown       2000   123-4567\n", outContent.toString());
+        assertEquals("                                  BOOKS\n" +
+                "-------------------------------------------------------------------------------------------------\n" +
+                "               TITLE\t|            AUTHOR\t|       YEAR PUBLISHED\t|       USER\n" +
+                "-------------------------------------------------------------------------------------------------\n" +
+                "        The Da Vinci Code\t|       Dan Brown\t|       2000\t\t|   123-4567\n" +
+                "-------------------------------------------------------------------------------------------\n", outContent.toString());
     }
 
     @Test
@@ -82,6 +96,27 @@ public class TemplateViewTest {
         movieList.put(movieOne, "123-4567");
         templateView.printCheckedOutMovieList(movieList);
 
-        assertEquals("           Gone Girl        David Fincher            2014     8   123-4567\n", outContent.toString());
+        assertEquals("                                           MOVIES\n" +
+                "------------------------------------------------------------------------------------------------------------\n" +
+                "         MOVIE NAME\t\t|          DIRECTOR\t|            YEAR\t|     RATING\t|       USER\n" +
+                "-------------------------------------------------------------------------------------------------------------\n" +
+                "           Gone Girl\t|        David Fincher\t|            2014\t|     8\t\t|   123-4567\n" +
+                "-------------------------------------------------------------------------------------------\n", outContent.toString());
+    }
+
+    @Test
+    public void printUserProfileInformation() {
+        TemplateView templateView = new TemplateView();
+        HashMap<LibraryItem, String> movieList = new HashMap<LibraryItem, String>();
+        Movie movieOne = new Movie("Gone Girl", "David Fincher", "2014", "8");
+        movieList.put(movieOne, "123-4567");
+        templateView.printCheckedOutMovieList(movieList);
+
+        assertEquals("                                           MOVIES\n" +
+                "------------------------------------------------------------------------------------------------------------\n" +
+                "         MOVIE NAME\t\t|          DIRECTOR\t|            YEAR\t|     RATING\t|       USER\n" +
+                "-------------------------------------------------------------------------------------------------------------\n" +
+                "           Gone Girl\t|        David Fincher\t|            2014\t|     8\t\t|   123-4567\n" +
+                "-------------------------------------------------------------------------------------------\n", outContent.toString());
     }
 }

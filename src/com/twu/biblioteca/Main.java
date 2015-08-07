@@ -8,7 +8,7 @@ public class Main {
 
     public static void main(String [] args) {
         MessageView messageView = new MessageView();
-        View view = new View();
+        Input input = new Input();
         TemplateView templateView = new TemplateView();
 
         ArrayList<LibraryItem> availableBooks = new ArrayList<LibraryItem>();
@@ -35,7 +35,7 @@ public class Main {
 
         Library bookLibrary = new Library(availableBooks, checkedOutBooks);
         Library movieLibrary = new Library(availableMovies, checkedOutMovies);
-        Dispatcher dispatcher = new Dispatcher(view, messageView, templateView, bookLibrary, movieLibrary);
+        Dispatcher dispatcher = new Dispatcher(input, messageView, templateView, bookLibrary, movieLibrary);
 
         User userOne = new User("123-4567", "qwerty", "librarian", "Ram", "ram@gmail.com", "999999999");
         User userTwo = new User("abc-defg", "qwerty", "customer", "Nancy", "nancy@gmail.com", "8888888888");
@@ -45,11 +45,10 @@ public class Main {
         userList.add(userOne);
         userList.add(userTwo);
         userList.add(userThree);
-        UserDetails userDetails = new UserDetails(userList);
 
         Authenticator authenticator = new Authenticator(userList);
 
-        Application application = new Application(authenticator, dispatcher, userDetails);
-        application.start(messageView, view);
+        Application application = new Application(authenticator, dispatcher, userList);
+        application.start(messageView, input);
     }
 }
