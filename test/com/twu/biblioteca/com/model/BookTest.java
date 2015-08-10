@@ -1,5 +1,6 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.com.model;
 
+import com.twu.biblioteca.com.model.Book;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -14,27 +15,20 @@ public class BookTest {
     }
 
     @Test
-    public void printEachBookDetail() {
-        Book book = new Book("The Alchemist", "Paulo Coelho", "1988");
-
-        assertEquals("The Alchemist\tPaulo Coelho\t\t1988\n", book.toString());
-    }
-
-    @Test
-    public void getBookTitle() {
+    public void bookReturnsTitle() {
         Book book = new Book("The Alchemist", "Paulo Coelho", "1988");
 
         assertEquals("The Alchemist", book.getTitle());
     }
 
     @Test
-    public void getBookAuthor() {
+    public void bookReturnsAuthor() {
         Book book = new Book("The Alchemist", "Paulo Coelho", "1988");
 
         assertEquals("Paulo Coelho", book.getAuthor());
     }
     @Test
-    public void getBookPublishedYear() {
+    public void bookReturnsYearPublished() {
         Book book = new Book("The Alchemist", "Paulo Coelho", "1988");
 
         assertEquals("1988", book.getYearPublished());

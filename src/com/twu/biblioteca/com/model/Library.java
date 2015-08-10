@@ -1,11 +1,13 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.com.model;
+
+import com.twu.biblioteca.LibraryItem;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 
 public class Library {
-    public ArrayList<LibraryItem> availableLibraryItems;
+    private ArrayList<LibraryItem> availableLibraryItems;
     private HashMap<LibraryItem, String> checkedOutLibraryItems;
 
     public Library(ArrayList<LibraryItem> availableLibraryItems, HashMap<LibraryItem, String> checkedOutLibraryItems) {
@@ -33,24 +35,6 @@ public class Library {
             }
         }
         return false;
-    }
-
-    public String listOfAvailableLibraryItems() {
-        String list = "";
-        for (LibraryItem availableLibraryItem : availableLibraryItems) {
-            list += String.format("%s ", availableLibraryItem);
-        }
-        return list;
-    }
-
-    public String listOfCheckedOutLibraryItems() {
-        String list = "";
-        String userId;
-        for(LibraryItem key: checkedOutLibraryItems.keySet()) {
-            userId = checkedOutLibraryItems.get(key);
-            list += key + userId + "\n";
-        }
-        return list;
     }
 
     public ArrayList<LibraryItem> getAvailableLibraryItems() {

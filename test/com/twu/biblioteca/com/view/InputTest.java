@@ -1,33 +1,27 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.com.view;
 
+import com.twu.biblioteca.com.view.Input;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
 
 import static org.junit.Assert.assertEquals;
 
 
-public class ViewTest {
+public class InputTest {
 
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    PrintStream original;
     InputStream originalIn;
 
 
     @Before
     public void setUpStreams() {
-        original = System.out;
         originalIn = System.in;
-        System.setOut(new PrintStream(outContent));
     }
 
     @After
     public void cleanUpStreams() {
-        System.setOut(original);
         System.setIn(originalIn);
     }
 

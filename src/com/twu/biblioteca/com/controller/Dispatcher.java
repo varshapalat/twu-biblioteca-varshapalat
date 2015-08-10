@@ -1,5 +1,11 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.com.controller;
 
+
+import com.twu.biblioteca.com.model.Library;
+import com.twu.biblioteca.com.model.User;
+import com.twu.biblioteca.com.view.Input;
+import com.twu.biblioteca.com.view.Message;
+import com.twu.biblioteca.com.view.MessageView;
 
 import java.util.ArrayList;
 
@@ -72,9 +78,11 @@ public class Dispatcher {
             else if(choice.equals("10")) {
                 templateView.printUserDetails(userList, loginId);
             }
+            else if(choice.equals("11")) {
+                templateView.printCustomerDetails(userList);
+            }
             else {
                 messageView.printMessage(Message.InvaildMenuOption);
-                messageView.printMessage(Message.Line);
             }
         }
     }

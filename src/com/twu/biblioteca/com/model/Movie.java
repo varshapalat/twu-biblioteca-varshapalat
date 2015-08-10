@@ -1,6 +1,8 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.com.model;
 
-public class Movie implements LibraryItem{
+import com.twu.biblioteca.com.model.LibraryItem;
+
+public class Movie implements LibraryItem {
     private String name;
     private String year;
     private String director;
@@ -15,11 +17,6 @@ public class Movie implements LibraryItem{
 
     public boolean hasTitle(String givenTitle) {
         return givenTitle.equals(name);
-    }
-
-    @Override
-    public String toString() {
-        return name + "\t" + year + "\t" + director + "\t" + rating + "\n";
     }
 
     public String getName() {

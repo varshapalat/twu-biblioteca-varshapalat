@@ -1,5 +1,10 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.com.view;
 
+import com.twu.biblioteca.com.model.Book;
+import com.twu.biblioteca.com.model.LibraryItem;
+import com.twu.biblioteca.com.model.Movie;
+import com.twu.biblioteca.com.model.User;
+import com.twu.biblioteca.com.view.TemplateView;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -118,5 +123,28 @@ public class TemplateViewTest {
                 "-------------------------------------------------------------------------------------------------------------\n" +
                 "           Gone Girl\t|        David Fincher\t|            2014\t|     8\t\t|   123-4567\n" +
                 "-------------------------------------------------------------------------------------------\n", outContent.toString());
+    }
+
+    @Test
+    public void printAllCustomerContactInformation() {
+        TemplateView templateView = new TemplateView();
+        User userOne = new User("123-4567", "qwerty", "librarian", "Ram", "ram@gmail.com", "999999999");
+        User userTwo = new User("abc-defg", "qwerty", "customer", "Nancy", "nancy@gmail.com", "8888888888");
+        User userThree = new User("var-shap", "qwerty", "customer", "Varsha", "varsha@gmail.com", "7777777777");
+
+        ArrayList<User> userList = new ArrayList<User>();
+        userList.add(userOne);
+        userList.add(userTwo);
+        userList.add(userThree);
+
+
+        templateView.printCustomerDetails(userList);
+
+        assertEquals("                                 CUSTOMER DETAILS\n" +
+                "--------------------------------------------------------------------------------------\n" +
+                "                NAME\t|  LOGIN ID\t|       EMAIL ID\t|PHONE NUMBER\n" +
+                "                 Ram\t|  123-4567\t|  ram@gmail.com\t|   999999999\n" +
+                "               Nancy\t|  abc-defg\t|nancy@gmail.com\t|  8888888888\n" +
+                "              Varsha\t|  var-shap\t|varsha@gmail.com\t|  7777777777\n", outContent.toString());
     }
 }

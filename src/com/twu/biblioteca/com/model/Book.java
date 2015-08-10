@@ -1,6 +1,8 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.com.model;
 
-public class Book implements LibraryItem{
+import com.twu.biblioteca.LibraryItem;
+
+public class Book implements LibraryItem {
     private String title;
     private String author;
     private String yearPublished;
@@ -13,11 +15,6 @@ public class Book implements LibraryItem{
 
     public boolean hasTitle(String givenTitle) {
         return givenTitle.equals(title);
-    }
-
-    @Override
-    public String toString() {
-        return title +"\t"+ author +"\t\t" + yearPublished + "\n";
     }
 
     public String getTitle() {

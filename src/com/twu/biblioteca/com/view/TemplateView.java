@@ -1,9 +1,17 @@
-package com.twu.biblioteca;
+package com.twu.biblioteca.com.view;
+
+import com.twu.biblioteca.Book;
+import com.twu.biblioteca.LibraryItem;
+import com.twu.biblioteca.Movie;
+import com.twu.biblioteca.User;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class TemplateView {
+    Book book;
+    Movie movie;
+    User user;
 
     public void printBookList(ArrayList<LibraryItem> bookItems) {
         System.out.format("%40s", "BOOKS\n");
@@ -11,7 +19,7 @@ public class TemplateView {
         System.out.format("%20s\t| %17s\t| %20s\n", "TITLE","AUTHOR", "YEAR PUBLISHED");
         System.out.format("---------------------------------------------------------------------\n");
         for (LibraryItem eachBook : bookItems) {
-            Book book = (Book) eachBook;
+            book = (Book) eachBook;
             System.out.format("%25s\t| %20s\t| %10s\n", book.getTitle(), book.getAuthor(), book.getYearPublished());
         }
         System.out.format("---------------------------------------------------------------------\n");
@@ -23,7 +31,7 @@ public class TemplateView {
         System.out.format("%19s\t\t| %17s\t| %15s\t| %10s\n","MOVIE NAME", "DIRECTOR", "YEAR", "RATING");
         System.out.format("-------------------------------------------------------------------------------------------\n");
         for (LibraryItem eachMovie : movieList) {
-            Movie movie = (Movie) eachMovie;
+            movie = (Movie) eachMovie;
             System.out.format("%20s\t| %20s\t| %15s\t| %5s\n", movie.getName(), movie.getYear(), movie.getDirector(), movie.getRating());
         }
         System.out.format("-------------------------------------------------------------------------------------------\n");
@@ -36,7 +44,7 @@ public class TemplateView {
         System.out.format("%20s\t| %17s\t| %20s\t| %10s\n", "TITLE","AUTHOR", "YEAR PUBLISHED", "USER");
         System.out.format("-------------------------------------------------------------------------------------------------\n");
         for(LibraryItem eachBook: checkedOutBookList.keySet()) {
-            Book book = (Book) eachBook;
+            book = (Book) eachBook;
             userId = checkedOutBookList.get(eachBook);
             System.out.format("%25s\t| %15s\t| %10s\t\t| %10s\n",book.getTitle(), book.getAuthor(), book.getYearPublished(), userId);
         }
@@ -50,7 +58,7 @@ public class TemplateView {
         System.out.format("%19s\t\t| %17s\t| %15s\t| %10s\t| %10s\n","MOVIE NAME", "DIRECTOR", "YEAR", "RATING", "USER");
         System.out.format("-------------------------------------------------------------------------------------------------------------\n");
         for(LibraryItem eachMovie: checkedOutMovieList.keySet()) {
-            Movie movie = (Movie) eachMovie;
+            movie = (Movie) eachMovie;
             userId = checkedOutMovieList.get(eachMovie);
             System.out.format("%20s\t| %20s\t| %15s\t| %5s\t\t| %10s\n", movie.getName(), movie.getYear(), movie.getDirector(), movie.getRating(), userId);
         }
@@ -67,6 +75,15 @@ public class TemplateView {
                 System.out.format("E-MAIL ID: %10s\n", user.getEmailId());
                 System.out.format("PHONE NO: %10s\n", user.getPhoneNumber());
             }
+        }
+    }
+
+    public void printCustomerDetails(ArrayList<User> userList) {
+        System.out.format("%50s","CUSTOMER DETAILS\n");
+        System.out.format("--------------------------------------------------------------------------------------\n");
+        System.out.format("%20s\t|%10s\t|%15s\t|%12s","NAME", "LOGIN ID", "EMAIL ID", "PHONE NUMBER\n");
+        for (User user: userList) {
+            System.out.format("%20s\t|%10s\t|%15s\t|%12s\n", user.getName(), user.getLoginId(), user.getEmailId(), user.getPhoneNumber());
         }
     }
 }
