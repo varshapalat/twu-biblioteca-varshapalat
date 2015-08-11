@@ -1,7 +1,5 @@
 package com.twu.biblioteca.com.view;
 
-import com.twu.biblioteca.com.view.Message;
-import com.twu.biblioteca.com.view.MessageView;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

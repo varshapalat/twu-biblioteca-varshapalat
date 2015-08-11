@@ -1,7 +1,5 @@
 package com.twu.biblioteca.com.model;
 
-import com.twu.biblioteca.LibraryItem;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 

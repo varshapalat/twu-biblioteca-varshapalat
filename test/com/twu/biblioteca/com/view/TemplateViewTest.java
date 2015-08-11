@@ -4,7 +4,6 @@ import com.twu.biblioteca.com.model.Book;
 import com.twu.biblioteca.com.model.LibraryItem;
 import com.twu.biblioteca.com.model.Movie;
 import com.twu.biblioteca.com.model.User;
-import com.twu.biblioteca.com.view.TemplateView;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

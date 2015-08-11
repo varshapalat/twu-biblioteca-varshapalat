@@ -1,7 +1,6 @@
 package com.twu.biblioteca.com.controller;
 
 
-import com.twu.biblioteca.com.controller.Dispatcher;
 import com.twu.biblioteca.com.model.Library;
 import com.twu.biblioteca.com.model.LibraryItem;
 import com.twu.biblioteca.com.model.User;
@@ -144,7 +143,7 @@ public class DispatcherTest {
         TemplateView templateView = mock(TemplateView.class);
         Dispatcher dispatcher = new Dispatcher(input, messageView, templateView, bookLibrary, movieLibrary);
 
-        when(bookLibrary.checkout(anyString(),anyString())).thenReturn(true);
+        when(bookLibrary.checkout(anyString(), anyString())).thenReturn(true);
 
         dispatcher.start("3", "123-4567", userList);
 
@@ -180,7 +179,7 @@ public class DispatcherTest {
         TemplateView templateView = mock(TemplateView.class);
         Dispatcher dispatcher = new Dispatcher(input, messageView, templateView, bookLibrary, movieLibrary);
 
-        when(movieLibrary.checkout(anyString(),anyString())).thenReturn(true);
+        when(movieLibrary.checkout(anyString(), anyString())).thenReturn(true);
 
         dispatcher.start("4", "123-4567", userList);
 

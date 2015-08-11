@@ -1,6 +1,5 @@
 package com.twu.biblioteca.com.model;
 
-import com.twu.biblioteca.com.model.Movie;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -41,5 +40,4 @@ public class MovieTest {
 
         assertEquals("1999", movie.getYear());
     }
-
 }

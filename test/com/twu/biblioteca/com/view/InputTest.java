@@ -1,6 +1,5 @@
 package com.twu.biblioteca.com.view;
 
-import com.twu.biblioteca.com.view.Input;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

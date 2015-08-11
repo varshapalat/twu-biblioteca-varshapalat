@@ -1,7 +1,7 @@
 package com.twu.biblioteca.com.model;
 
 public class User {
-    private  String name;
+    private String name;
     private String loginId;
     private String password;
     private String role;
@@ -19,7 +19,7 @@ public class User {
 
 
     public boolean hasUser(String thatLoginId, String thatPassword) {
-        if(thatLoginId.equals(this.loginId) && thatPassword.equals(this.password))
+        if (thatLoginId.equals(this.loginId) && thatPassword.equals(this.password))
             return true;
         else
             return false;
@@ -46,8 +46,8 @@ public class User {
     }
 
     public String getUserDetails(String thatLoginId) {
-        if(thatLoginId.equals(this.loginId))
-            return loginId +"\t"+ name +"\t" +emailId +"\t"+ phoneNumber ;
+        if (thatLoginId.equals(this.loginId))
+            return loginId + "\t" + name + "\t" + emailId + "\t" + phoneNumber;
         return "Not found";
     }
 }

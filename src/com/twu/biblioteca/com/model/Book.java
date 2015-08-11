@@ -1,7 +1,5 @@
 package com.twu.biblioteca.com.model;
 
-import com.twu.biblioteca.LibraryItem;
-
 public class Book implements LibraryItem {
     private String title;
     private String author;

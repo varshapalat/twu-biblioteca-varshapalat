@@ -1,6 +1,5 @@
 package com.twu.biblioteca.com.controller;
 
-import com.twu.biblioteca.com.controller.Authenticator;
 import com.twu.biblioteca.com.model.User;
 import org.junit.Test;
 

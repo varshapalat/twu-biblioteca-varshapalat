@@ -1,12 +1,16 @@
 package com.twu.biblioteca;
 
+import com.twu.biblioteca.com.controller.*;
+import com.twu.biblioteca.com.model.*;
+import com.twu.biblioteca.com.view.*;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
 
 public class Main {
 
-    public static void main(String [] args) {
+    public static void main(String[] args) {
         MessageView messageView = new MessageView();
         Input input = new Input();
         TemplateView templateView = new TemplateView();
@@ -25,9 +29,10 @@ public class Main {
         ArrayList<LibraryItem> availableMovies = new ArrayList<LibraryItem>();
         HashMap<LibraryItem, String> checkedOutMovies = new HashMap<LibraryItem, String>();
 
-        Movie movieOne = new Movie("Gone Girl", "David Fincher", "2014", "8");
-        Movie movieTwo = new Movie("Gladiator", "Ridley Scott", "2000", "7.6");
-        Movie movieThree = new Movie("Matrix", "The Wachowskis", "1999", "8.2");
+        Movie movieOne = new Movie("Gone Girl", "2014", "David Fincher", "8");
+        Movie movieTwo = new Movie("Gladiator", "2000", "Ridley Scott", "7.6");
+        Movie movieThree = new Movie("Matrix", "1999", "The Wachowskis", "8.2");
+
 
         availableMovies.add(movieOne);
         availableMovies.add(movieTwo);
@@ -48,7 +53,7 @@ public class Main {
 
         Authenticator authenticator = new Authenticator(userList);
 
-        Application application = new Application(authenticator, dispatcher, userList);
-        application.start(messageView, input);
+        Application application = new Application(authenticator, dispatcher, userList, messageView);
+        application.start(input);
     }
 }

@@ -38,17 +38,17 @@ public class Application {
                         messageView.printMessage(Message.LibrarianMainMenu);
                         option = input.acceptInput();
                         dispatcher.start(option, loginId, userList);
-                    }while (!option.equals("7"));
+                    } while (!option.equals("7"));
                     messageView.printMessage(Message.SuccessfulLogout);
                 } else if (authenticator.authenticate(loginId, password).equals("customer")) {
                     do {
                         messageView.printMessage(Message.CustomerMainMenu);
                         option = input.acceptInput();
-                        if(!(option.equals("8") || option.equals("9") || option.equals("11")))
-                           dispatcher.start(option, loginId, userList);
-                        else if(option.equals("8"))
-                            dispatcher.start("10",loginId, userList);
-                    }while (!option.equals("7"));
+                        if (!(option.equals("8") || option.equals("9") || option.equals("11")))
+                            dispatcher.start(option, loginId, userList);
+                        else if (option.equals("8"))
+                            dispatcher.start("10", loginId, userList);
+                    } while (!option.equals("7"));
                     messageView.printMessage(Message.SuccessfulLogout);
                 } else {
                     messageView.printMessage(Message.InvalidLogin);

@@ -1,9 +1,5 @@
 package com.twu.biblioteca.com.model;
 
-import com.twu.biblioteca.com.model.Book;
-import com.twu.biblioteca.com.model.Library;
-import com.twu.biblioteca.com.model.LibraryItem;
-import com.twu.biblioteca.com.model.Movie;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -99,6 +95,4 @@ public class LibraryTest {
         assertEquals(expectedListOfBooks, listOfAvailableLibraryBooks);
         assertEquals(true, actual);
     }
-
-
 }

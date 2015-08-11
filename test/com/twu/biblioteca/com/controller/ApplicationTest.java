@@ -1,8 +1,5 @@
 package com.twu.biblioteca.com.controller;
 
-import com.twu.biblioteca.com.controller.Application;
-import com.twu.biblioteca.com.controller.Authenticator;
-import com.twu.biblioteca.com.controller.Dispatcher;
 import com.twu.biblioteca.com.model.User;
 import com.twu.biblioteca.com.view.Input;
 import com.twu.biblioteca.com.view.Message;
@@ -67,19 +64,19 @@ public class ApplicationTest {
     @Test
     public void applicationCallsViewToAcceptChoiceInput() {
         Input input = mock(Input.class);
-       Dispatcher dispatcher = mock(Dispatcher.class);
-       MessageView messageView = mock(MessageView.class);
+        Dispatcher dispatcher = mock(Dispatcher.class);
+        MessageView messageView = mock(MessageView.class);
         Authenticator authenticator = mock(Authenticator.class);
-       ArrayList<User> userList = new ArrayList<User>();
+        ArrayList<User> userList = new ArrayList<User>();
 
         Application application = new Application(authenticator, dispatcher, userList, messageView);
 
 
-       when(input.acceptInput()).thenReturn("1").thenReturn("2").thenReturn("2").thenReturn("7").thenReturn("2").thenReturn("2");
+        when(input.acceptInput()).thenReturn("1").thenReturn("2").thenReturn("2").thenReturn("7").thenReturn("2").thenReturn("2");
         when(authenticator.authenticate(anyString(), anyString())).thenReturn("librarian");
         application.start(input);
 
-        verify(input,times(5)).acceptInput();
+        verify(input, times(5)).acceptInput();
     }
 
     @Test
@@ -91,7 +88,6 @@ public class ApplicationTest {
         MessageView messageView = mock(MessageView.class);
 
         Application application = new Application(authenticator, dispatcher, userList, messageView);
-
 
 
         when(input.acceptInput()).thenReturn("1").thenReturn("123-4567").thenReturn("qwerty").thenReturn("7").thenReturn("2");
@@ -115,7 +111,7 @@ public class ApplicationTest {
 
         when(input.acceptInput()).thenReturn("1").thenReturn("123-4567").thenReturn("qwerty").thenReturn("6").thenReturn("7").thenReturn("2");
         when(authenticator.authenticate("123-4567", "qwerty")).thenReturn("librarian");
-        application.start( input);
+        application.start(input);
 
         verify(dispatcher).start("6", "123-4567", userList);
     }
